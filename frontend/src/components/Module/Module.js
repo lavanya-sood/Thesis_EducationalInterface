@@ -13,12 +13,13 @@ import TextInstructions from './TextInstructions/TextInstructions.js';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import VideoInstructions from './VideoInstructions/VideoInstructions.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
+import { useHistory } from "react-router-dom";
 
 const Module = () => {
     const classes = useStyles();
 
     const theme = useTheme();
-
+    const history = useHistory();
 
     const [moduleType, setType] = React.useState("");
     const [open, setOpen] = React.useState(true);
@@ -31,6 +32,21 @@ const Module = () => {
         setOpen(false);
     };
 
+    const NextPage = () =>{ 
+        const user = document.getElementById("userId").value;
+        localStorage.setItem('userId', user);
+        console.log(user);
+        let path = `module`; 
+        history.push(path);
+    }
+
+    const PreviousPage = () =>{ 
+        const user = document.getElementById("userId").value;
+        localStorage.setItem('userId', user);
+        console.log(user);
+        let path = `module`; 
+        history.push(path);
+    }
 
     return (
         <div>
@@ -63,26 +79,28 @@ const Module = () => {
                         <MenuIcon />
                     </IconButton>
                     
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerClose}
-                            edge="start"
-                            className={clsx(classes.menuButton, {
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerClose}
+                        edge="start"
+                        className={clsx(classes.menuButton, {
+                        [classes.hide]: !open,
+                        })}
+                    >
+                        <ChevronLeftIcon />
+                    </IconButton>
+                    </div>
+                    <Divider className={classes.divider}/>
+                    <div 
+                        className={clsx(classes.listModules, {
                             [classes.hide]: !open,
-                            })}
-                        >
-                            <ChevronLeftIcon />
-                        </IconButton>
-                        </div>
-                        <Divider className={classes.divider}/>
-                        <div className={clsx(classes.menuButton, {
-                            [classes.hide]: !open,
-                            })}>
-                            <FormControlLabel control={<Checkbox name="checkedC" />} label="Uncontrolled jdjfjhgfdbjg djgbdjgjdfbjgbfjb" />
-                            <FormControlLabel control={<Checkbox name="checkedC" />} label="Uncontrolled jdjfjhgfdbjg djgbdjgjdfbjgbfjb" />
-                            <FormControlLabel control={<Checkbox name="checkedC" />} label="Uncontrolled jdjfjhgfdbjg djgbdjgjdfbjgbfjb" />
-                        </div>
+                        })}
+                    >
+                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 1" />
+                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 2" />
+                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 3" />
+                    </div>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>

@@ -1,28 +1,12 @@
 import React from 'react';
 import { AppBar,Paper ,Typography, Button, Toolbar,Grid, Container, TextField} from '@material-ui/core';
 import useStyles from './styles.js';
-import { useHistory } from "react-router-dom";
+
 
 const TextInstructions = () => {
     const classes = useStyles();
 
-    const history = useHistory();
-
-    const NextPage = () =>{ 
-        const user = document.getElementById("userId").value;
-        localStorage.setItem('userId', user);
-        console.log(user);
-        let path = `module`; 
-        history.push(path);
-    }
-
-    const PreviousPage = () =>{ 
-        const user = document.getElementById("userId").value;
-        localStorage.setItem('userId', user);
-        console.log(user);
-        let path = `module`; 
-        history.push(path);
-    }
+    
 
     return (
         <div className={classes.textInstructions}>

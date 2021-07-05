@@ -57,5 +57,10 @@ export default makeStyles((theme) => ({
       buttonGroup: {
         display: 'flex',
         justifyContent: 'space-between',
+      },
+      listModules: {
+        display: 'flex',
+        flexDirection: 'column',
+        marginRight: 10,
       }
 }));
