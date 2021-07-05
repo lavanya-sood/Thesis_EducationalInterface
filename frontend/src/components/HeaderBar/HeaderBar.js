@@ -1,10 +1,10 @@
 import React from 'react';
 import { AppBar, Typography, Button, Toolbar} from '@material-ui/core';
-import './styles.js';
+import useStyles from './styles.js';
 
 
 const HeaderBar = () => {
-
+    const classes = useStyles();
     const [userId, setUserId] = React.useState("");
 
     React.useEffect(() => {
@@ -13,10 +13,10 @@ const HeaderBar = () => {
 
     return (
         <div>
-            <AppBar position='sticky' color='primary'>
+            <AppBar position='sticky' color='primary' className={classes.appBar}>
                 <Toolbar>
-                    <Typography variant="h6"> Introduction to HTML</Typography>
-                    <Button color="inherit">Welcome, {userId}</Button>
+                    <Typography variant="h6" className={classes.headingappBar}> Introduction to HTML</Typography>
+                    <Typography variant="body1" className={classes.welcomeInfo}> Welcome, {userId} </Typography>
                 </Toolbar>
             </AppBar>
         </div>
