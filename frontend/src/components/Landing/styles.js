@@ -27,6 +27,8 @@ export default makeStyles(() => ({
     },
     textBoxCode: {
         width: '25vw',
+        backgroundColor: '#f5fbff',
+        // border: '1px solid black'
     },
     heading: {
         paddingBottom: '30px',
