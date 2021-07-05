@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
         zIndex: theme.zIndex.drawer + 1,
       },
       menuButton: {
-        marginRight: 36,
+        marginRight: 10,
       },
       hide: {
         display: 'none',
