@@ -53,5 +53,9 @@ export default makeStyles((theme) => ({
       },
       divider: {
           marginBottom: '20px',
+      },
+      buttonGroup: {
+        display: 'flex',
+        justifyContent: 'space-between',
       }
 }));
