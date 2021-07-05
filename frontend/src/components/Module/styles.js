@@ -18,16 +18,17 @@ export default makeStyles((theme) => ({
       drawer: {
         width: drawerWidth,
         flexShrink: 0,
-        whiteSpace: 'nowrap',
       },
       drawerOpen: {
         width: drawerWidth,
+        paddingLeft: '10px',
         transition: theme.transitions.create('width', {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.enteringScreen,
         }),
       },
       drawerClose: {
+        paddingLeft: '10px',
         transition: theme.transitions.create('width', {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
@@ -50,4 +51,7 @@ export default makeStyles((theme) => ({
         flexGrow: 1,
         padding: theme.spacing(3),
       },
+      divider: {
+          marginBottom: '20px',
+      }
 }));

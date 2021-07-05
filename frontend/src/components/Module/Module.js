@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Typography, Button, Toolbar, Checkbox} from '@material-ui/core';
+import { AppBar, Typography, Button, Toolbar, Checkbox, FormControlLabel} from '@material-ui/core';
 import HeaderBar from '../HeaderBar/HeaderBar.js';
 import useStyles from './styles.js';
 import clsx from 'clsx';
@@ -15,6 +15,8 @@ const Module = () => {
 
     const theme = useTheme();
 
+
+    const [moduleType, setType] = React.useState("");
     const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {
@@ -69,12 +71,17 @@ const Module = () => {
                             <ChevronLeftIcon />
                         </IconButton>
                         </div>
-                        <Divider />
-                        <Typography> Hey </Typography>
-                        <Checkbox value="checkedA" inputProps={{ 'aria-label': 'Checkbox A' }} />
+                        <Divider className={classes.divider}/>
+                        <div className={clsx(classes.menuButton, {
+                            [classes.hide]: !open,
+                            })}>
+                            <FormControlLabel control={<Checkbox name="checkedC" />} label="Uncontrolled jdjfjhgfdbjg djgbdjgjdfbjgbfjb" />
+                            <FormControlLabel control={<Checkbox name="checkedC" />} label="Uncontrolled jdjfjhgfdbjg djgbdjgjdfbjgbfjb" />
+                            <FormControlLabel control={<Checkbox name="checkedC" />} label="Uncontrolled jdjfjhgfdbjg djgbdjgjdfbjgbfjb" />
+                        </div>
                 </Drawer>
                 <main className={classes.content}>
-                    <div className={classes.toolbar} />
+                    
                     <Typography paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                     ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
