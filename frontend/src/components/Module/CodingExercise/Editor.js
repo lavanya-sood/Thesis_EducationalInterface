@@ -3,11 +3,14 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/xq-light.css';
 import 'codemirror/mode/xml/xml';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
+import useStyles from './styles.js';
+import './style.css';
 
 export default function Editor(props) {
+  const classes = useStyles();
+
   const {
     language,
-    displayName,
     value,
     onChange
   } = props
@@ -17,11 +20,10 @@ export default function Editor(props) {
   }
 
   return (
-    <div className={`editor-container`}>
       <ControlledEditor
         onBeforeChange={handleChange}
+        className={classes.htmlControl}
         value={value}
-        className="code-mirror-wrapper"
         options={{
           lineWrapping: true,
           lint: true,
@@ -30,6 +32,6 @@ export default function Editor(props) {
           lineNumbers: true
         }}
       />
-    </div>
+
   )
 }
