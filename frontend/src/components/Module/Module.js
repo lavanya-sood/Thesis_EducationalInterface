@@ -108,7 +108,9 @@ const Module = () => {
                         <Button variant="contained" color="primary" className={classes.progressButton}> Previous </Button>
                         <Button variant="contained" color="primary" className={classes.progressButton}> Next </Button>
                     </div>
-                    <CodingExercise/>
+                    {/* <CodingExercise/> */}
+                    {/* <Instructions /> */}
+                    <MultipleChoice />
                 </main>
             </div>
             

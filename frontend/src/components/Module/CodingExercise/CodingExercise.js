@@ -32,7 +32,7 @@ const CodingExercise = () => {
 
     return (
         <div className={classes.textInstructions}>
-            <Typography variant="h4"> Hello World Coding </Typography>
+            <Typography variant="h4"> Hello World </Typography>
             <br/>
             <Typography paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt

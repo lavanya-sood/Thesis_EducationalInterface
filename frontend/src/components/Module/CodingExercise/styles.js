@@ -19,6 +19,7 @@ export default makeStyles((theme) => ({
     },
     codeButtons: {
         margin: '5px',
+        color: 'white',
     },
     htmlWindow: {
         border: '1px solid #cccccc',
