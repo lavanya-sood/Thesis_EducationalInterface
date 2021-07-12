@@ -19,5 +19,16 @@ export default makeStyles((theme) => ({
     },
     codeButtons: {
         margin: '5px',
-    }
+    },
+    htmlWindow: {
+        border: '1px solid black',
+    },
+    outputWindow: {
+        border: '1px solid black',
+    },
+    codes: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly'
+    },
 }));

@@ -1,11 +1,26 @@
 import React from 'react';
 import { AppBar,Paper ,Typography, Button, Toolbar,Grid, Container, TextField} from '@material-ui/core';
 import useStyles from './styles.js';
-
+import Editor from './Editor'
 
 const CodingExercise = () => {
     const classes = useStyles();
 
+    const [html, setHtml] = React.useState('')
+    const [srcDoc, setSrcDoc] = React.useState('')
+  
+    React.useEffect(() => {
+      const timeout = setTimeout(() => {
+        setSrcDoc(`
+          <html>
+            <body>${html}</body>
+          </html>
+        `)
+      }, 250)
+  
+      return () => clearTimeout(timeout)
+    }, [html])
+    
     
 
     return (
@@ -24,15 +39,29 @@ const CodingExercise = () => {
                     <Button variant="contained" color="secondary" className={classes.codeButtons}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons}> Run </Button>
                 </div>
-                <div>
+                <div className={classes.codes}>
                     <div className={classes.ext1}>
                         <Typography variant="h6"> Coding Window </Typography>
                         <div className={classes.htmlWindow}>
+                            <Editor
+                            language="xml"
+                            displayName="HTML"
+                            value={html}
+                            onChange={setHtml}
+                            />
                         </div>
                     </div>
                     <div className={classes.ext2}>
                         <Typography variant="h6"> Output Window </Typography>
                         <div className={classes.outputWindow}>
+                            <iframe
+                            srcDoc={srcDoc}
+                            title="output"
+                            sandbox="allow-scripts"
+                            frameBorder="0"
+                            width="100%"
+                            height="100%"
+                            />
                         </div>
                     </div>
                 </div>
