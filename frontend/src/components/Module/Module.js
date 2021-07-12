@@ -13,6 +13,7 @@ import TextInstructions from './TextInstructions/TextInstructions.js';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import VideoInstructions from './VideoInstructions/VideoInstructions.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
+import Instructions from './Instructions/Instructions.js';
 import { useHistory } from "react-router-dom";
 
 const Module = () => {
@@ -107,7 +108,7 @@ const Module = () => {
                         <Button variant="contained" color="primary" className={classes.progressButton}> Previous </Button>
                         <Button variant="contained" color="primary" className={classes.progressButton}> Next </Button>
                     </div>
-                    <VideoInstructions/>
+                    <Instructions/>
                 </main>
             </div>
             

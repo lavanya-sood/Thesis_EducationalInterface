@@ -8,8 +8,6 @@ const VideoInstructions = () => {
 
     return (
         <div className={classes.videoInstructions}>
-            <Typography variant="h4"> Hello World Video </Typography>
-            <br/>
             <div className={classes.videoPanel}>
                 <video className={classes.videoBox}> </video>
             </div>

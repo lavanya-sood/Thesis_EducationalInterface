@@ -10,20 +10,28 @@ const CodingExercise = () => {
 
     return (
         <div className={classes.textInstructions}>
-            <Typography variant="h4"> Hello World </Typography>
+            <Typography variant="h4"> Hello World Coding </Typography>
             <br/>
             <Typography paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                 ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
                 facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                donec massa sapien faucibus et molestie ac.
+                gravida rutrum quisque non tellus.
             </Typography>
+            <div>
+                <div className={classes.buttonGroup}>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons}> Hint </Button>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons}> Check </Button>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons}> Run </Button>
+                </div>
+                <div>
+                    <div className={classes.htmlWindow}>
+                    </div>
+                    <div className={classes.outputWindow}>
+
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
