@@ -18,17 +18,22 @@ const CodingExercise = () => {
                 facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
                 gravida rutrum quisque non tellus.
             </Typography>
-            <div>
+            <div className={classes.codingWindows}>
                 <div className={classes.buttonGroup}>
                     <Button variant="contained" color="secondary" className={classes.codeButtons}> Hint </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons}> Run </Button>
                 </div>
                 <div>
-                    <div className={classes.htmlWindow}>
+                    <div className={classes.ext1}>
+                        <Typography variant="h6"> Coding Window </Typography>
+                        <div className={classes.htmlWindow}>
+                        </div>
                     </div>
-                    <div className={classes.outputWindow}>
-
+                    <div className={classes.ext2}>
+                        <Typography variant="h6"> Output Window </Typography>
+                        <div className={classes.outputWindow}>
+                        </div>
                     </div>
                 </div>
             </div>

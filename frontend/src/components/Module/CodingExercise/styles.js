@@ -6,4 +6,18 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
+    codingWindows: {
+        display: 'flex',
+        flexDirection: 'column',
+        // alignItems: 'flex-end',
+        width: '100%',
+    },
+    buttonGroup: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+    },
+    codeButtons: {
+        margin: '5px',
+    }
 }));
