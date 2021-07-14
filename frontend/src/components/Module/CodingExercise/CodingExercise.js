@@ -2,12 +2,15 @@ import React from 'react';
 import { AppBar,Paper ,Typography, Button, Toolbar,Grid, Container, TextField} from '@material-ui/core';
 import useStyles from './styles.js';
 import Editor from './Editor'
+import { Markup } from 'interweave';
 
 const CodingExercise = () => {
     const classes = useStyles();
 
     const [html, setHtml] = React.useState('')
     const [srcDoc, setSrcDoc] = React.useState('')
+
+    //const val = "Hey how are <b> you? </b><br/><h3>Sup</h3>";
   
     // React.useEffect(() => {
     //   const timeout = setTimeout(() => {
@@ -34,6 +37,8 @@ const CodingExercise = () => {
         <div className={classes.textInstructions}>
             <Typography variant="h4"> Hello World </Typography>
             <br/>
+            {/* <p> {val} </p> */}
+            {/* <Markup content={val} /> */}
             <Typography paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                 ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
