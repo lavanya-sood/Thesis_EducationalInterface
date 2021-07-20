@@ -2,13 +2,9 @@ import mongoose from "mongoose";
 
 const postSchema = mongoose.Schema({
     pageNumber: Number,
-    questionNumber: Number,
-    sectionTitle: String,
-    pageHeading: String,
-    videoLocation: String,
-    videoLength: Number,
-    videoTitle: String,
     questionType: String,
+    sectionTitle: String,
+    videoLocation: String,
     textDescription: String,
     questionOptions: String,
     questionSolution: String,
