@@ -20,9 +20,23 @@ import { useSelector } from 'react-redux';
 
 const Module = () => {
 
+    const [moduleTitles,setTitles] = React.useState([]);
+    //const moduleTitles = [];
     const modules = useSelector((state)=> state.questionModule);
 
     console.log(modules);
+
+    React.useEffect(() => {
+        const mod = []
+        modules.forEach(m => {
+            mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
+        });
+        setTitles(mod);
+    },[modules]);
+
+    console.log(moduleTitles);
+
+    const moduleNames = moduleTitles.map((m) => <FormControlLabel key={m.id} id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} label={m.title} />);
 
     const classes = useStyles();
 
@@ -105,9 +119,10 @@ const Module = () => {
                             [classes.hide]: !open,
                         })}
                     >
-                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 1" />
+                        {/* <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 1" />
                         <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 2" />
-                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 3" />
+                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 3" /> */}
+                        {moduleNames}
                     </div>
                 </Drawer>
                 <main className={classes.content}>
