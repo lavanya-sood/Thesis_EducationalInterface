@@ -1,6 +1,5 @@
 import React from 'react';
-import HeaderBar from '../HeaderBar/HeaderBar.js';
-import { AppBar,Paper ,Typography, Button, Toolbar,Grid, Container, TextField} from '@material-ui/core';
+import { Paper ,Typography, Button,Grid, TextField} from '@material-ui/core';
 import useStyles from './styles.js';
 import { useHistory } from "react-router-dom";
 

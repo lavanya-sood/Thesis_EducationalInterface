@@ -1,7 +1,6 @@
 import React from 'react';
-import { AppBar, Typography, Button, Toolbar} from '@material-ui/core';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import themes from './styles.js';
 import {getModule} from './actions/questionModule';

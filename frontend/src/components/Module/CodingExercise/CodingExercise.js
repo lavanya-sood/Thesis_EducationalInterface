@@ -1,8 +1,8 @@
 import React from 'react';
-import { AppBar,Paper ,Typography, Button, Toolbar,Grid, Container, TextField} from '@material-ui/core';
+import { Typography, Button} from '@material-ui/core';
 import useStyles from './styles.js';
 import Editor from './Editor'
-import { Markup } from 'interweave';
+//import { Markup } from 'interweave';
 
 const CodingExercise = () => {
     const classes = useStyles();

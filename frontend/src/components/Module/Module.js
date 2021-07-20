@@ -1,17 +1,15 @@
 import React from 'react';
-import { AppBar, Typography, Button, Toolbar, Checkbox, FormControlLabel} from '@material-ui/core';
+import { Button, Toolbar, Checkbox, FormControlLabel} from '@material-ui/core';
 import HeaderBar from '../HeaderBar/HeaderBar.js';
 import useStyles from './styles.js';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import TextInstructions from './TextInstructions/TextInstructions.js';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
-import VideoInstructions from './VideoInstructions/VideoInstructions.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
 import { useHistory } from "react-router-dom";
@@ -40,7 +38,7 @@ const Module = () => {
 
     const classes = useStyles();
 
-    const theme = useTheme();
+    //const theme = useTheme();
     const history = useHistory();
 
     const [moduleType, setType] = React.useState("");
@@ -58,16 +56,16 @@ const Module = () => {
         const user = document.getElementById("userId").value;
         localStorage.setItem('userId', user);
         console.log(user);
-        let path = `module`; 
-        history.push(path);
+        // let path = `module`; 
+        // history.push(path);
     }
 
     const PreviousPage = () =>{ 
         const user = document.getElementById("userId").value;
         localStorage.setItem('userId', user);
         console.log(user);
-        let path = `module`; 
-        history.push(path);
+        // let path = `module`; 
+        // history.push(path);
     }
 
     return (
@@ -127,11 +125,11 @@ const Module = () => {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        <Button variant="contained" color="primary" className={classes.progressButton}> Previous </Button>
-                        <Button variant="contained" color="primary" className={classes.progressButton}> Next </Button>
+                        <Button variant="contained" color="primary" className={classes.progressButton} onClick={PreviousPage}> Previous </Button>
+                        <Button variant="contained" color="primary" className={classes.progressButton} onClick={NextPage}> Next </Button>
                     </div>
-                    {/* <CodingExercise/> */}
-                    <Instructions />
+                    <CodingExercise/>
+                    {/* <Instructions /> */}
                     {/* <MultipleChoice /> */}
                 </main>
             </div>
