@@ -16,7 +16,14 @@ import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
 import { useHistory } from "react-router-dom";
 
+import { useSelector } from 'react-redux';
+
 const Module = () => {
+
+    const modules = useSelector((state)=> state.questionModule);
+
+    console.log(modules);
+
     const classes = useStyles();
 
     const theme = useTheme();

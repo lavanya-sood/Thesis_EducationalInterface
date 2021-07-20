@@ -2,12 +2,21 @@ import React from 'react';
 import { AppBar, Typography, Button, Toolbar} from '@material-ui/core';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux';
 import themes from './styles.js';
+import {getModule} from './actions/questionModule';
 
 import Landing from './components/Landing/Landing.js';
 import Module from './components/Module/Module.js';
 
 const App = () => {
+
+    const dispatch = useDispatch();
+
+    React.useEffect(()=> {
+        dispatch(getModule());
+    },[dispatch]);
+
     return (
         <ThemeProvider theme={themes}>
             <BrowserRouter>
