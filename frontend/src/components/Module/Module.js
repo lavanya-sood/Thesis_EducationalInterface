@@ -11,7 +11,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
-import { Redirect, useHistory, useParams ,Link } from "react-router-dom";
+import { Redirect, useHistory, useParams ,NavLink } from "react-router-dom";
 import {getOneModule} from '../../actions/questionModule';
 import ModuleContent from './ModuleContent.js';
 
@@ -22,23 +22,31 @@ const Module = () => {
 
     const dispatch2 = useDispatch();
     const [moduleTitles,setTitles] = React.useState([]);
-    const [moduleType, setType] = React.useState("");
+    const [moduleType, setType] = React.useState(null);
     //const [moduleNumber, setNumber] = React.useState(0);
-    const cM = useParams().questionNumber;
+    const currentModule = parseInt(useParams().questionNumber);
 
-    const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
+    // const prev = currentModule - 1;
+    // const prevPage = `/module/${prev}`;
 
-    const [moduleNext, setNext] = React.useState(-1);
+    //const [currentModule,setModuleVal] = React.useState(pasuseParams().questionNumber);
+
+    //const [prevPage,setPrev] = React.useState(currentModule);
+    //const [nextPage,setNext] = React.useState(currentModule);
+
+    // const [moduleNext, setNext] = React.useState(-1);
 
     const prev = parseInt(currentModule) - 1;
     const prevPage = `/module/${prev}`;
+    console.log(prevPage);
 
     const next = parseInt(currentModule) + 1;
     const nextPage = `/module/${next}`;
+    console.log(nextPage);
 
 
     
-    const [modulePrev, setPrev] = React.useState(-1);
+    // const [modulePrev, setPrev] = React.useState(-1);
 
     //const moduleTitles = [];
     const modules = useSelector((state)=> state.questionModule);
@@ -58,66 +66,57 @@ const Module = () => {
     React.useEffect(()=> {
         console.log("Here");
         
-        if (modules.length > 1) {
-            const mod = []
-            modules.forEach(m => {
+        async function getAllModules() {
+            //const manufacturer = 'Manufacturer';
+            const url = 'http://127.0.0.1:5000/module';
+            let res = await fetch(url);
+            res = await res.json();
+            console.log(res);
+            //console.log(res.map((m)=>))
+            const mod = [];
+            res.forEach(m => {
                 mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
             });
+            //moduleTitles(res.map(val));
             setTitles(mod);
+            return res;
         }
+
+        async function getCurrentModule() {
+            //const manufacturer = 'Manufacturer';
+            const url = `http://127.0.0.1:5000/module/${currentModule}`;
+            let res = await fetch(url);
+            res = await res.json();
+            console.log(res);
+            //setType(res[0].questionType);
+            setModuleInfo(res[0]);
+
+            if (res[0].questionType === 'instructions'){
+                setType(<Instructions module={moduleInfo} />);
+            } else if (res[0].questionType === 'coding'){
+                setType(<CodingExercise module={moduleInfo} />);
+            } else if (res[0].questionType === 'multipleChoice'){
+                setType(<MultipleChoice module={moduleInfo} />);
+            }
+
+            return res;
+        }
+        
+        getAllModules();
+        getCurrentModule();
         
         //dispatch2(getOneModule(currentModule));
         //setModuleInfo(useSelector((state)=> state.questionModule));
-    },[modules]);
-
-    React.useEffect(()=> {
-        console.log("Sup");
-        dispatch2(getOneModule(currentModule));
-    },[dispatch2,currentModule]);
-
-    React.useEffect(()=> {
-        if(mod.length === 1) {
-            setModuleInfo(mod);
-        }
-    },[moduleInfo]);
+    },[]);
 
 
 
-    // React.useEffect(() => {
-
-    //     const mod = []
-    //     modules.forEach(m => {
-    //         mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
-    //     });
-    //     setTitles(mod);
-    //     console.log("Over here");
-    //     setModuleInfo(cM);
-    //     //dispatch2(getOneModule(currentModule));
-    //     //distFunc();
-    // },[modules]);
-
-//     React.useEffect(()=> {
-//         console.log("In here 2");
-//         dispatch2(getOneModule(currentModule));
-//    },[dispatch2,currentModule]);
-
-    
-
-    // React.useEffect(()=>{
-    //     console.log("Then here");
-    //     setModuleInfo(mod);
-    //   }, [mod]);
-
-    // React.useEffect(()=>{
-    //     console.log(moduleInfo);
-    // }, [moduleInfo]);
-
-    //const modules2 = useSelector((state)=> state.questionModule);
 
     //console.log(moduleTitles);
     //console.log(moduleNumber);
 
     const moduleNames = moduleTitles.map((m) => <FormControlLabel key={m.id} id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} label={m.title} />);
+
 
     const classes = useStyles();
 
@@ -138,9 +137,10 @@ const Module = () => {
         // const nextNum = moduleNumber + 1;
         // let path = `${nextNum}`; 
         // history.push(path);
+        console.log("Hey2");
         const next = currentModule + 1;
-        const nextPage = `/module/${next}`;
-
+        //setNext(next);
+        // const nextPage = `/module/${next}`;
         
     }
 
@@ -148,9 +148,21 @@ const Module = () => {
         // const prevNum = moduleNumber - 1;
         // let path = `${prevNum}`; 
         // history.push(path);
+        console.log("Hey");
         const prev = currentModule - 1;
-        const prevPage = `/module/${prev}`;
+        //setPrev(prev);
+        // const prevPage1 = `/module/${prev1}`;
     }
+
+    // if (prevPage !== currentModule) {
+    //     return <Redirect to={`/module/${prevPage}`} />;
+    // }
+
+    // if (nextPage !== currentModule) {
+    //     console.log("CurrentMod == " + currentModule);
+    //     console.log("Next == " + nextPage);
+    //     return <Redirect to={`/module/${nextPage}`} />;
+    // }
 
 
     return (
@@ -210,13 +222,17 @@ const Module = () => {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button>
-                        <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button>
+                        {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button> */}
+                        <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={prevPage}>Previous</NavLink> </Button>
+                        {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
+                        <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={nextPage}>Next</NavLink> </Button>
+                        
                     </div>
                     {/* <p> {moduleNumber} </p> */}
                     {/* <CodingExercise/> */}
-                    <Instructions module={moduleInfo} />
+                    {/* <Instructions module={moduleInfo} /> */}
                     {/* <MultipleChoice /> */}
+                    {moduleType}
                 </main>
             </div>
             

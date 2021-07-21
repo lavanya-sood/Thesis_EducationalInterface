@@ -10,25 +10,25 @@ import Module from './components/Module/Module.js';
 
 const App = () => {
 
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
     const [moduleNumber,setNumber] = React.useState(1);
 
-    React.useEffect(()=> {
-        dispatch(getModule());
-    },[dispatch]);
+    // React.useEffect(()=> {
+    //     dispatch(getModule());
+    // },[dispatch]);
 
     return (
         <ThemeProvider theme={themes}>
             <BrowserRouter>
                 <Switch>
-                <Route path="/module/:questionNumber">
-                    {/* <Module moduleNumber={moduleNumber} setNumber={setNumber}/> */}
-                    <Module/>
-                </Route>
-                <Route exact path="/">
-                    <Landing />
-                </Route>
+                    <Route path="/module/:questionNumber">
+                        {/* <Module moduleNumber={moduleNumber} setNumber={setNumber}/> */}
+                        <Module/>
+                    </Route>
+                    <Route exact path="/">
+                        <Landing />
+                    </Route>
                 </Switch>
             </BrowserRouter>
         </ThemeProvider>
