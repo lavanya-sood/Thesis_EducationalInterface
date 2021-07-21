@@ -31,7 +31,7 @@ function TabPanel(props) {
     value: PropTypes.any.isRequired,
   };
   
-const Instructions = () => {
+const Instructions = (module) => {
     const classes = useStyles();
 
     const [value, setValue] = React.useState(0);
@@ -39,6 +39,11 @@ const Instructions = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    React.useEffect(()=> {
+      console.log("IN THE INSTRUCTIONS");
+      console.log(module);
+    },[module]);
     
     return (
         <div className={classes.clInstructions}>

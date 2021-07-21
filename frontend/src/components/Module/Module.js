@@ -12,16 +12,21 @@ import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
 import { Redirect, useHistory, useParams ,Link } from "react-router-dom";
+import {getOneModule} from '../../actions/questionModule';
+import ModuleContent from './ModuleContent.js';
 
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 
 //const Module = ({moduleNumber, setNumber}) => {
 const Module = () => {
 
+    const dispatch2 = useDispatch();
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState("");
     //const [moduleNumber, setNumber] = React.useState(0);
-    const currentModule = useParams().questionNumber;
+    const cM = useParams().questionNumber;
+
+    const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
 
     const [moduleNext, setNext] = React.useState(-1);
 
@@ -38,18 +43,78 @@ const Module = () => {
     //const moduleTitles = [];
     const modules = useSelector((state)=> state.questionModule);
 
+    //const moduleInfo = useSelector((state)=> currentModule ? state.questionModule.find((m) => m.questionNumber === currentModule):null);
+
+    //console.log(moduleInfo);
     //setNumber(useParams().questionNumber);
+    const mod = useSelector((state)=> state.questionModule);
+    const [moduleInfo, setModuleInfo] = React.useState(mod);
 
-    React.useEffect(() => {
-        const mod = []
-        modules.forEach(m => {
-            mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
-        });
-        setTitles(mod);
+    // const distFunc = () => {
+        
+    //     setModuleInfo(useSelector((state)=> state.questionModule));
+    // };
 
+    React.useEffect(()=> {
+        console.log("Here");
+        
+        if (modules.length > 1) {
+            const mod = []
+            modules.forEach(m => {
+                mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
+            });
+            setTitles(mod);
+        }
+        
+        //dispatch2(getOneModule(currentModule));
+        //setModuleInfo(useSelector((state)=> state.questionModule));
     },[modules]);
 
-    console.log(moduleTitles);
+    React.useEffect(()=> {
+        console.log("Sup");
+        dispatch2(getOneModule(currentModule));
+    },[dispatch2,currentModule]);
+
+    React.useEffect(()=> {
+        if(mod.length === 1) {
+            setModuleInfo(mod);
+        }
+    },[moduleInfo]);
+
+
+
+    // React.useEffect(() => {
+
+    //     const mod = []
+    //     modules.forEach(m => {
+    //         mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
+    //     });
+    //     setTitles(mod);
+    //     console.log("Over here");
+    //     setModuleInfo(cM);
+    //     //dispatch2(getOneModule(currentModule));
+    //     //distFunc();
+    // },[modules]);
+
+//     React.useEffect(()=> {
+//         console.log("In here 2");
+//         dispatch2(getOneModule(currentModule));
+//    },[dispatch2,currentModule]);
+
+    
+
+    // React.useEffect(()=>{
+    //     console.log("Then here");
+    //     setModuleInfo(mod);
+    //   }, [mod]);
+
+    // React.useEffect(()=>{
+    //     console.log(moduleInfo);
+    // }, [moduleInfo]);
+
+    //const modules2 = useSelector((state)=> state.questionModule);
+
+    //console.log(moduleTitles);
     //console.log(moduleNumber);
 
     const moduleNames = moduleTitles.map((m) => <FormControlLabel key={m.id} id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} label={m.title} />);
@@ -149,8 +214,8 @@ const Module = () => {
                         <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button>
                     </div>
                     {/* <p> {moduleNumber} </p> */}
-                    <CodingExercise/>
-                    {/* <Instructions /> */}
+                    {/* <CodingExercise/> */}
+                    <Instructions module={moduleInfo} />
                     {/* <MultipleChoice /> */}
                 </main>
             </div>
