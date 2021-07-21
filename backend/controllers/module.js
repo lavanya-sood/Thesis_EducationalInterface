@@ -14,15 +14,16 @@ export const getAllModules = async (req,res) => {
 };
 
 export const getSpecificModule = async (req,res) => {
-    const post = req.body;
+    const {questionNumber: questionNumber} = req.params;
 
-    const newPost = newPostMessage(post);
+    // modulequestions.findOne({ questionNumber: { $eq: questionNumber } });
 
-    try {
-        await newPost.save();
+    const foundModule = await modulequestions.find({questionNumber: questionNumber} , function (err, data) {
+        if(err){
+            console.log(err);
+        }
+    });
 
-        res.status(201).json(newPost);
-    } catch (error) {
-        res.status(409).json({message: error.message });
-    }
+    //const foundModule = await modulequestions.findOne(questionNumber);
+    res.json(foundModule);
 };

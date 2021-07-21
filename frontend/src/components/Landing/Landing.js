@@ -12,7 +12,7 @@ const Landing = () => {
         const user = document.getElementById("userId").value;
         localStorage.setItem('userId', user);
         console.log(user);
-        let path = `module`; 
+        let path = `module/1`; 
         history.push(path);
     }
 

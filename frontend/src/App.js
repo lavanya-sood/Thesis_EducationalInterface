@@ -12,6 +12,8 @@ const App = () => {
 
     const dispatch = useDispatch();
 
+    const [moduleNumber,setNumber] = React.useState(1);
+
     React.useEffect(()=> {
         dispatch(getModule());
     },[dispatch]);
@@ -20,8 +22,9 @@ const App = () => {
         <ThemeProvider theme={themes}>
             <BrowserRouter>
                 <Switch>
-                <Route path="/module">
-                    <Module />
+                <Route path="/module/:questionNumber">
+                    {/* <Module moduleNumber={moduleNumber} setNumber={setNumber}/> */}
+                    <Module/>
                 </Route>
                 <Route exact path="/">
                     <Landing />

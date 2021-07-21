@@ -11,17 +11,34 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory, useParams ,Link } from "react-router-dom";
 
 import { useSelector } from 'react-redux';
 
+//const Module = ({moduleNumber, setNumber}) => {
 const Module = () => {
 
     const [moduleTitles,setTitles] = React.useState([]);
+    const [moduleType, setType] = React.useState("");
+    //const [moduleNumber, setNumber] = React.useState(0);
+    const currentModule = useParams().questionNumber;
+
+    const [moduleNext, setNext] = React.useState(-1);
+
+    const prev = parseInt(currentModule) - 1;
+    const prevPage = `/module/${prev}`;
+
+    const next = parseInt(currentModule) + 1;
+    const nextPage = `/module/${next}`;
+
+
+    
+    const [modulePrev, setPrev] = React.useState(-1);
+
     //const moduleTitles = [];
     const modules = useSelector((state)=> state.questionModule);
 
-    console.log(modules);
+    //setNumber(useParams().questionNumber);
 
     React.useEffect(() => {
         const mod = []
@@ -29,9 +46,11 @@ const Module = () => {
             mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
         });
         setTitles(mod);
+
     },[modules]);
 
     console.log(moduleTitles);
+    //console.log(moduleNumber);
 
     const moduleNames = moduleTitles.map((m) => <FormControlLabel key={m.id} id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} label={m.title} />);
 
@@ -40,7 +59,6 @@ const Module = () => {
     //const theme = useTheme();
     const history = useHistory();
 
-    const [moduleType, setType] = React.useState("");
     const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {
@@ -52,20 +70,23 @@ const Module = () => {
     };
 
     const NextPage = () =>{ 
-        const user = document.getElementById("userId").value;
-        localStorage.setItem('userId', user);
-        console.log(user);
-        // let path = `module`; 
+        // const nextNum = moduleNumber + 1;
+        // let path = `${nextNum}`; 
         // history.push(path);
+        const next = currentModule + 1;
+        const nextPage = `/module/${next}`;
+
+        
     }
 
     const PreviousPage = () =>{ 
-        const user = document.getElementById("userId").value;
-        localStorage.setItem('userId', user);
-        console.log(user);
-        // let path = `module`; 
+        // const prevNum = moduleNumber - 1;
+        // let path = `${prevNum}`; 
         // history.push(path);
+        const prev = currentModule - 1;
+        const prevPage = `/module/${prev}`;
     }
+
 
     return (
         <div>
@@ -124,9 +145,10 @@ const Module = () => {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        <Button variant="contained" color="primary" className={classes.progressButton} onClick={PreviousPage}> Previous </Button>
-                        <Button variant="contained" color="primary" className={classes.progressButton} onClick={NextPage}> Next </Button>
+                        <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button>
+                        <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button>
                     </div>
+                    {/* <p> {moduleNumber} </p> */}
                     <CodingExercise/>
                     {/* <Instructions /> */}
                     {/* <MultipleChoice /> */}
