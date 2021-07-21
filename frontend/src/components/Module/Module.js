@@ -3,7 +3,6 @@ import { Button, Toolbar, Checkbox, FormControlLabel} from '@material-ui/core';
 import HeaderBar from '../HeaderBar/HeaderBar.js';
 import useStyles from './styles.js';
 import clsx from 'clsx';
-import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
