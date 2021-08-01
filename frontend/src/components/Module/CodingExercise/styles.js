@@ -55,4 +55,17 @@ export default makeStyles((theme) => ({
         overflow: 'hidden',
         borderRadius: '10px',
     },
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    paper: {
+        backgroundColor: '#eeeeee',
+        border: '2px solid #ccccc',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+        textAlign: 'center',
+        width: '50vw',
+    },
 }));

@@ -8,7 +8,7 @@ import Editor from './Editor'
 const CodingExercise = (moduleInfo) => {
     const classes = useStyles();
 
-    const [html, setHtml] = React.useState('');
+    const [html, setHtml] = React.useState("");
     const [srcDoc, setSrcDoc] = React.useState('');
 
     const [pageTitle,setPageTile] = React.useState(""); 
@@ -39,6 +39,13 @@ const CodingExercise = (moduleInfo) => {
 
         setHint(moduleInfo.moduleInfo.hint);
         setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+        let starterCode = moduleInfo.moduleInfo.starterCode;
+        starterCode = starterCode.replace(/\\n/g, '\n');
+        starterCode = starterCode.replace(/\\t/g, '\t');
+        starterCode = starterCode.replace(/\\r/g, '\r');
+        //starterCode = starterCode.replace("\r\n\t", "\r\n\t");
+        //starterCode = starterCode.replace("\\r\\n", "\r\n");
+        setHtml(starterCode);
 
 
     },[moduleInfo]);
@@ -82,8 +89,9 @@ const CodingExercise = (moduleInfo) => {
             >
                 <Fade in={open}>
                 <div className={classes.paper}>
-                    <h2 id="transition-modal-title">Transition modal</h2>
-                    <p id="transition-modal-description">react-transition-group animates me.</p>
+                    <Typography variant="h5"> Coding Hint </Typography>
+                    <br/>
+                    <Typography paragraph> {hint} </Typography>
                 </div>
                 </Fade>
             </Modal>
