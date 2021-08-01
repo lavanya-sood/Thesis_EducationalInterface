@@ -6,4 +6,7 @@ export default makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
     },
+    button: {
+        width: '200px',
+    }
 }));

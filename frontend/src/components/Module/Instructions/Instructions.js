@@ -31,23 +31,34 @@ function TabPanel(props) {
     value: PropTypes.any.isRequired,
   };
   
-const Instructions = (module) => {
+const Instructions = (moduleInfo) => {
     const classes = useStyles();
 
     const [value, setValue] = React.useState(0);
+    const [pageTitle,setPageTile] = React.useState(""); 
+    const [textDescription,setTextDescription] = React.useState(""); 
+    const [questionNumber,setQuestionNumber] = React.useState(""); 
+    const [videoLocation,setLocation] = React.useState(""); 
+    //const moduleInfo = module.moduleInfo;
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     React.useEffect(()=> {
-      console.log("IN THE INSTRUCTIONS");
-      console.log(module);
-    },[module]);
+      // console.log("IN THE INSTRUCTIONS");
+      // console.log(module);
+      setPageTile(moduleInfo.moduleInfo.pageTitle);
+      setTextDescription(moduleInfo.moduleInfo.textDescription);
+      setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+      setLocation(moduleInfo.moduleInfo.videoLocation);
+      //setTextDescription(module.)
+      console.log(moduleInfo);
+    },[moduleInfo]);
     
     return (
         <div className={classes.clInstructions}>
-            <Typography variant="h4"> Hello World </Typography>
+            <Typography variant="h4"> {pageTitle} </Typography>
             <br />
             <Paper position="static">
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
@@ -56,10 +67,10 @@ const Instructions = (module) => {
                 </Tabs>
             </Paper>
             <TabPanel value={value} index={0}>
-                <VideoInstructions/>
+                <VideoInstructions videoLocation={videoLocation}/>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <TextInstructions/>
+                <TextInstructions textDescription={textDescription}/>
             </TabPanel>
         </div>
     );

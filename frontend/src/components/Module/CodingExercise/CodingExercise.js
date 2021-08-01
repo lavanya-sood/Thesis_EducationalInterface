@@ -1,14 +1,47 @@
 import React from 'react';
-import { Typography, Button} from '@material-ui/core';
+import { Typography, Button, Modal, Fade, Backdrop} from '@material-ui/core';
 import useStyles from './styles.js';
 import Editor from './Editor'
 //import { Markup } from 'interweave';
 
-const CodingExercise = () => {
+
+const CodingExercise = (moduleInfo) => {
     const classes = useStyles();
 
-    const [html, setHtml] = React.useState('')
-    const [srcDoc, setSrcDoc] = React.useState('')
+    const [html, setHtml] = React.useState('');
+    const [srcDoc, setSrcDoc] = React.useState('');
+
+    const [pageTitle,setPageTile] = React.useState(""); 
+    const [question,setQuestion] = React.useState(""); 
+    const [questionNumber,setQuestionNumber] = React.useState(""); 
+    
+    const [hint,setHint] = React.useState(""); 
+    const [correctAnswer,setAnswer] = React.useState(""); 
+    const [startCode,setStartCode] = React.useState(""); 
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+
+    React.useEffect(() => {
+        console.log(moduleInfo.moduleInfo);
+        setPageTile(moduleInfo.moduleInfo.pageTitle);
+        setQuestion(moduleInfo.moduleInfo.textDescription);
+        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+
+        setHint(moduleInfo.moduleInfo.hint);
+        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+
+
+    },[moduleInfo]);
 
     //const val = "Hey how are <b> you? </b><br/><h3>Sup</h3>";
   
@@ -35,19 +68,36 @@ const CodingExercise = () => {
 
     return (
         <div className={classes.textInstructions}>
-            <Typography variant="h4"> Hello World </Typography>
+            <Modal
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={classes.modal}
+                open={open}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout: 500,
+                }}
+            >
+                <Fade in={open}>
+                <div className={classes.paper}>
+                    <h2 id="transition-modal-title">Transition modal</h2>
+                    <p id="transition-modal-description">react-transition-group animates me.</p>
+                </div>
+                </Fade>
+            </Modal>
+
+            <Typography variant="h4"> {pageTitle} </Typography>
             <br/>
             {/* <p> {val} </p> */}
             {/* <Markup content={val} /> */}
             <Typography paragraph>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                gravida rutrum quisque non tellus.
+                {question}
             </Typography>
             <div className={classes.codingWindows}>
                 <div className={classes.buttonGroup}>
-                    <Button variant="contained" color="secondary" className={classes.codeButtons}> Hint </Button>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import themes from './styles.js';
@@ -22,13 +22,13 @@ const App = () => {
         <ThemeProvider theme={themes}>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/module/:questionNumber">
+                    <Route path="/module/:questionNumber" component={Module}/>
                         {/* <Module moduleNumber={moduleNumber} setNumber={setNumber}/> */}
-                        <Module/>
-                    </Route>
-                    <Route exact path="/">
-                        <Landing />
-                    </Route>
+                        {/* <Module/> */}
+                    {/* </Route> */}
+                    <Route exact path="/" component={Landing}/>
+                        {/* <Landing /> */}
+                    {/* </Route> */}
                 </Switch>
             </BrowserRouter>
         </ThemeProvider>
