@@ -1,47 +1,44 @@
-# Thesis_EducationalInterface
-This is the thesis repository for Lavanya Sood
+# Thesis Educational Interface
 
-# COMP6452-Project2
-
-This is the repository for the Bakechain smart contract code, as well as the backend/frontend for it's web interface
+This is the thesis project that focuses on building a 
 
 ## First time setup instructions
 
 Clone the repository via git
 
-In the Backend folder:
-    
-    npm install
-    npm install nodemon truffle-contract dotenv mongodb shortid express web3 --save && npm install truffle -g
-    npm install ganache-cli -g
-(In another terminal leave this running as our ETH emulator) 
-    
-    ganache-cli
-Backend:
+### MongoDB Setup:
 
-    truffle compile
-    truffle migrate
+1. Setup a MongoDB Account. Follow this tutorial to learn how to set up an account on MondoDB: *add link*
+2. Create a new database called 'Module'
+3. Use the json files that are located in *add folder* and upload them into the databse as collections with the same name. Watch this video for more information on how to do this: 
+4. in the file backend/index.js change the CONNECTION_URL to the URL of your own MongoDB database.
+
+### Database Setup:
+
+One of the main things that need to be changed in the database are the videoLocation links. As the current links navigate to the previous student's private youtube channel, all of these videos need to be reuploaded to youtube as unlisted videos so that the new developer has complete control over the videos.
+
+You can find the original videos in the media/ folder. The name of each video corresponds to the questionNumber that it is linked to.
+
+After all the videos are uploaded to youtube replace all the links inside the mongoDB collection for the videoLocation attribute otherwise the videos will not work. 
+
+
+### Backend Setup
+In the Backend folder:   
+    npm install
+
+### Frontend Setup
 Frontend:
 
     npm install
     
 ## Running the server
-Terminal one
+
+Terminal one (Backend folder):
     
-    ganache-cli
+    npm start
 
-Terminal two (Backend folder):
-    
-    truffle compile ~(if smart contract modified)~
-    truffle migrate ~(each time ganache-cli reopened)~
-    node index.js
-
-Terminal three (Backend folder):
-
-    npm run build
-
-Terminal four (Frontend folder):
+Terminal two (Frontend folder):
 
     npm run start
 
-You can now navigate to the webpage on whichever port it has been allocated and you should see the frontend
+You should now be able to manually edit the code whichever way you like.
