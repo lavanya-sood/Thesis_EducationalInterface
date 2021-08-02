@@ -18,29 +18,25 @@ import ModuleContent from './ModuleContent.js';
 import { useSelector,useDispatch } from 'react-redux';
 
 //const Module = ({moduleNumber, setNumber}) => {
-const Module = () => {
+const Module = (props) => {
 
     const dispatch2 = useDispatch();
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState(null);
     //const [moduleNumber, setNumber] = React.useState(0);
-    const currentModule = parseInt(useParams().questionNumber);
+    //const currentModule = parseInt(useParams().questionNumber);
 
     // const prev = currentModule - 1;
     // const prevPage = `/module/${prev}`;
 
-    //const [currentModule,setModuleVal] = React.useState(pasuseParams().questionNumber);
+    const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
 
-    const [prevPage,setPrev] = React.useState("");
-    const [nextPage,setNext] = React.useState("");
+    //const [prevPage,setPrev] = React.useState("");
+    //const [nextPage,setNext] = React.useState("");
 
-    // const [moduleNext, setNext] = React.useState(-1);
-
-    
-
-
-    
-    // const [modulePrev, setPrev] = React.useState(-1);
+    //const [moduleNext, setNext] = React.useState(false);
+    //const [modulePrev, setPrev] = React.useState(false);
+    const [changePage, setChange] = React.useState(false);
 
     //const moduleTitles = [];
     const modules = useSelector((state)=> state.questionModule);
@@ -57,63 +53,74 @@ const Module = () => {
     //     setModuleInfo(useSelector((state)=> state.questionModule));
     // };
 
+
+
+    //   componentDidUpdate((prevProps) => {
+    //     if (prevProps.match.params.type !== this.props.match.params.type) {
+    //         console.log(prevProps.match.params);
+    //       }
+    // }, []);
+
     React.useEffect(()=> {
         console.log("Here");
-        async function getAllModules() {
-            //const manufacturer = 'Manufacturer';
-            const url = 'http://127.0.0.1:5000/module';
-            let res = await fetch(url);
-            res = await res.json();
-            console.log(res);
-            //console.log(res.map((m)=>))
-            const mod = [];
-            res.forEach(m => {
-                mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
-            });
-            //moduleTitles(res.map(val));
-            setTitles(mod);
-            return res;
-        }
+ 
 
-        async function getCurrentModule() {
-            //const manufacturer = 'Manufacturer';
-            const url = `http://127.0.0.1:5000/module/${currentModule}`;
-            let res = await fetch(url);
-            res = await res.json();
-            console.log(res);
-            //setType(res[0].questionType);
-            setModuleInfo(res[0]);
 
-            if (res[0].questionType === 'instructions'){
-                setType(<Instructions moduleInfo={res[0]} />);
-            } else if (res[0].questionType === 'coding'){
-                setType(<CodingExercise moduleInfo={res[0]} />);
-            } else if (res[0].questionType === 'multipleChoice'){
-                setType(<MultipleChoice moduleInfo={res[0]} />);
-            }
-
-            return res;
-        }
         
         getAllModules();
         getCurrentModule();
 
-        const prev = parseInt(currentModule) - 1;
-        const prevLink = `/module/${prev}`;
-        console.log(prevLink);
-        setPrev(prevLink);
+        // const prev = parseInt(currentModule) - 1;
+        // const prevLink = `/module/${prev}`;
+        // console.log(prevLink);
+        // //setPrev(prevLink);
     
 
-        const next = parseInt(currentModule) + 1;
-        const nextLink = `/module/${next}`;
-        console.log(nextLink);
-        setNext(nextLink);
+        // const next = parseInt(currentModule) + 1;
+        // const nextLink = `/module/${next}`;
+        // console.log(nextLink);
+        //setNext(nextLink);
         
         
         //dispatch2(getOneModule(currentModule));
         //setModuleInfo(useSelector((state)=> state.questionModule));
     },[]);
 
+    async function getCurrentModule() {
+        //const manufacturer = 'Manufacturer';
+        const url = `http://127.0.0.1:5000/module/${currentModule}`;
+        let res = await fetch(url);
+        res = await res.json();
+        console.log(res);
+        //setType(res[0].questionType);
+        setModuleInfo(res[0]);
+
+        if (res[0].questionType === 'instructions'){
+            setType(<Instructions moduleInfo={res[0]} />);
+        } else if (res[0].questionType === 'coding'){
+            setType(<CodingExercise moduleInfo={res[0]} />);
+        } else if (res[0].questionType === 'multipleChoice'){
+            setType(<MultipleChoice moduleInfo={res[0]} />);
+        }
+
+        return res;
+    }
+
+    async function getAllModules() {
+        //const manufacturer = 'Manufacturer';
+        const url = 'http://127.0.0.1:5000/module';
+        let res = await fetch(url);
+        res = await res.json();
+        console.log(res);
+        //console.log(res.map((m)=>))
+        const mod = [];
+        res.forEach(m => {
+            mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
+        });
+        //moduleTitles(res.map(val));
+        setTitles(mod);
+        return res;
+    }
 
 
 
@@ -138,30 +145,46 @@ const Module = () => {
         setOpen(false);
     };
 
+    const updateModule = () => {
+        getAllModules();
+        getCurrentModule();
+    }
+
     const NextPage = () =>{ 
         // const nextNum = moduleNumber + 1;
         // let path = `${nextNum}`; 
         // history.push(path);
         console.log("Hey2");
-        const next = currentModule + 1;
+        const next = parseInt(currentModule) + 1;
+        setModuleVal(next);
+        console.log(next);
+        setChange(true);
+        updateModule();
         //setNext(next);
         // const nextPage = `/module/${next}`;
-        
     }
+
 
     const PreviousPage = () =>{ 
         // const prevNum = moduleNumber - 1;
         // let path = `${prevNum}`; 
         // history.push(path);
-        console.log("Hey");
-        const prev = currentModule - 1;
+        
+        const prev = parseInt(currentModule) - 1;
+        setModuleVal(prev);
+        console.log(prev);
+        console.log(currentModule);
+        setChange(true);
+        updateModule();
         //setPrev(prev);
         // const prevPage1 = `/module/${prev1}`;
     }
 
-    // if (prevPage !== currentModule) {
-    //     return <Redirect to={`/module/${prevPage}`} />;
-    // }
+    if (changePage) {
+        setChange(false);
+        console.log("This called")
+        return <Redirect to={`/module/${currentModule}`} />;
+    }
 
     // if (nextPage !== currentModule) {
     //     console.log("CurrentMod == " + currentModule);
@@ -227,19 +250,20 @@ const Module = () => {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        <Link to={prevPage}>
+                        {/* <Link to={prevPage}>
                             <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
                         </Link>
                         <Link to={nextPage}>
                             <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
-                        </Link>
+                        </Link> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={prevPage} >Previous</NavLink> </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={nextPage}>Next</NavLink> </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton}> <Link to={nextPage} onClick={() => window.location.reload()} className="btn btn-primary">Next</Link> </Button> */}
-                        
+                        <Button variant="contained" color="primary" onClick={PreviousPage} className={classes.progressButton}>Previous</Button>
+                        <Button variant="contained" color="primary" onClick={NextPage} className={classes.progressButton}>Next</Button>
                     </div>
                     {/* <p> {moduleNumber} </p> */}
                     {/* <CodingExercise/> */}

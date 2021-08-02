@@ -22,7 +22,9 @@ const App = () => {
         <ThemeProvider theme={themes}>
             <BrowserRouter>
                 <Switch>
-                    <Route path="/module/:questionNumber" component={Module}/>
+                    <Route path="/module/:questionNumber" component={props => (<Module {...props}/>)}/>
+
+                    
                         {/* <Module moduleNumber={moduleNumber} setNumber={setNumber}/> */}
                         {/* <Module/> */}
                     {/* </Route> */}

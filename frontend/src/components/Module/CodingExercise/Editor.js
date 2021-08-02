@@ -1,6 +1,7 @@
 import React from 'react';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/xq-light.css';
+import 'codemirror/theme/material.css';
 import 'codemirror/mode/xml/xml';
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 import useStyles from './styles.js';
@@ -28,7 +29,7 @@ export default function Editor(props) {
           lineWrapping: true,
           lint: true,
           mode: language,
-          theme: 'xq-light',
+          theme: 'material',
           lineNumbers: true
         }}
       />

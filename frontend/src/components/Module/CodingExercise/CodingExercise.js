@@ -1,5 +1,6 @@
 import React from 'react';
 import { Typography, Button, Modal, Fade, Backdrop} from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 import useStyles from './styles.js';
 import Editor from './Editor'
 //import { Markup } from 'interweave';
@@ -20,6 +21,10 @@ const CodingExercise = (moduleInfo) => {
     const [startCode,setStartCode] = React.useState(""); 
 
     const [open, setOpen] = React.useState(false);
+
+    const [error,setError] = React.useState(false);
+    const [success,setSuccess] = React.useState(false);
+    const [answerStatus,setStatus] = React.useState("");
 
     const handleOpen = () => {
         setOpen(true);
@@ -47,6 +52,8 @@ const CodingExercise = (moduleInfo) => {
         //starterCode = starterCode.replace("\\r\\n", "\r\n");
         setHtml(starterCode);
 
+        setAnswer(moduleInfo.moduleInfo.correctAnswer);
+
 
     },[moduleInfo]);
 
@@ -71,6 +78,37 @@ const CodingExercise = (moduleInfo) => {
            </html>
         `);
     };
+
+    const stripString = (codeString) => {
+        let stripedString = codeString;
+        stripedString = stripedString.replace(/\n/g, '');
+        stripedString = stripedString.replace(/\t/g, '');
+        stripedString = stripedString.replace(/\r/g, '');
+        stripedString = stripedString.replace(/\s/g, '');
+        stripedString = stripedString.replace(/ /g, '');
+        stripedString = stripedString.toLowerCase();
+        return stripedString;
+    }
+
+    const checkCode = () => {
+        console.log(html);
+        const newAnswer = stripString(html);
+        console.log(newAnswer);
+
+        
+        const correctVal = stripString(correctAnswer);
+        console.log(correctVal);
+
+        if (correctVal === newAnswer) {
+            setError(false);
+            setSuccess(true);
+            setStatus("You got it correct");
+        } else  {
+            setError(true);
+            setSuccess(false);
+            setStatus("There is an error in your code");
+        }
+    }
     
 
     return (
@@ -103,10 +141,13 @@ const CodingExercise = (moduleInfo) => {
             <Typography paragraph>
                 {question}
             </Typography>
+            {/* <Typography variant="h5"> {answerStatus} </Typography> */}
+            {error ? <Alert severity='error'>{answerStatus}</Alert> : <></> }
+            {success ? <Alert severity='success'>{answerStatus}</Alert> : <></> }
             <div className={classes.codingWindows}>
                 <div className={classes.buttonGroup}>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button>
-                    <Button variant="contained" color="secondary" className={classes.codeButtons}> Check </Button>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
                 </div>
                 <div className={classes.codes}>

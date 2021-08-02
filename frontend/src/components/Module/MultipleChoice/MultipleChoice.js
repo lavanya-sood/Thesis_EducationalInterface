@@ -44,7 +44,7 @@ const MultipleChoice = (moduleInfo) => {
     };
     
     
-    const answerSelection = answerOptions.map((a) => <FormControlLabel value={a} control={<Radio />} label={a} /> );
+    const answerSelection = answerOptions.map((a) => <FormControlLabel key={a} value={a} control={<Radio />} label={a} /> );
 
     return (
         <div className={classes.textInstructions}>
