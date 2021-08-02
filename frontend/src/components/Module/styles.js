@@ -62,5 +62,9 @@ export default makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         marginRight: 10,
+      },
+      navLinks: {
+        textDecoration: 'none',
+        color: '#22658A',
       }
 }));

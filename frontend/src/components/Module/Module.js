@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Toolbar, Checkbox, FormControlLabel} from '@material-ui/core';
+import { Button, Toolbar, Checkbox, FormControlLabel, Typography} from '@material-ui/core';
 import HeaderBar from '../HeaderBar/HeaderBar.js';
 import useStyles from './styles.js';
 import clsx from 'clsx';
@@ -11,53 +11,80 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
-import { Redirect, useHistory, useParams ,Link } from "react-router-dom";
+import { useParams, Link, withRouter } from "react-router-dom";
 
-import { useSelector } from 'react-redux';
+const Module = (props) => {
 
-//const Module = ({moduleNumber, setNumber}) => {
-const Module = () => {
-
-    const [moduleTitles,setTitles] = React.useState([]);
-    const [moduleType, setType] = React.useState("");
-    //const [moduleNumber, setNumber] = React.useState(0);
-    const currentModule = useParams().questionNumber;
-
-    const [moduleNext, setNext] = React.useState(-1);
-
-    const prev = parseInt(currentModule) - 1;
-    const prevPage = `/module/${prev}`;
-
-    const next = parseInt(currentModule) + 1;
-    const nextPage = `/module/${next}`;
-
-
+    const classes = useStyles();
     
-    const [modulePrev, setPrev] = React.useState(-1);
+    const [moduleTitles,setTitles] = React.useState([]);
+    const [moduleType, setType] = React.useState(null);
 
-    //const moduleTitles = [];
-    const modules = useSelector((state)=> state.questionModule);
 
-    //setNumber(useParams().questionNumber);
+    const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
 
-    React.useEffect(() => {
-        const mod = []
-        modules.forEach(m => {
+    const [prevPage,setPrev] = React.useState("");
+    const [nextPage,setNext] = React.useState("");
+
+    const [moduleInfo, setModuleInfo] = React.useState("");
+
+
+
+    React.useEffect(()=> {
+        console.log("Here");
+        
+        getAllModules();
+        getCurrentModule();
+
+        const prev = parseInt(currentModule) - 1;
+        const prevLink = `/module/${prev}`;
+        console.log(prevLink);
+        setPrev(prevLink);
+    
+
+        const next = parseInt(currentModule) + 1;
+        const nextLink = `/module/${next}`;
+        console.log(nextLink);
+        setNext(nextLink);
+        
+    },[currentModule]);
+
+    async function getCurrentModule() {
+
+        const url = `http://127.0.0.1:5000/module/${currentModule}`;
+        let res = await fetch(url);
+        res = await res.json();
+        console.log(res);
+        setModuleInfo(res[0]);
+
+        if (res[0].questionType === 'instructions'){
+            setType(<Instructions moduleInfo={res[0]} />);
+        } else if (res[0].questionType === 'coding'){
+            setType(<CodingExercise moduleInfo={res[0]} />);
+        } else if (res[0].questionType === 'multipleChoice'){
+            setType(<MultipleChoice moduleInfo={res[0]} />);
+        }
+
+        return res;
+    }
+
+    async function getAllModules() {
+        const url = 'http://127.0.0.1:5000/module';
+        let res = await fetch(url);
+        res = await res.json();
+        console.log(res);
+        const mod = [];
+        res.forEach(m => {
             mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
         });
         setTitles(mod);
+        return res;
+    }
 
-    },[modules]);
+    const moduleNames = moduleTitles.map((m) => <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
-    console.log(moduleTitles);
-    //console.log(moduleNumber);
 
-    const moduleNames = moduleTitles.map((m) => <FormControlLabel key={m.id} id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} label={m.title} />);
-
-    const classes = useStyles();
-
-    //const theme = useTheme();
-    const history = useHistory();
+    
 
     const [open, setOpen] = React.useState(true);
 
@@ -68,25 +95,6 @@ const Module = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-    const NextPage = () =>{ 
-        // const nextNum = moduleNumber + 1;
-        // let path = `${nextNum}`; 
-        // history.push(path);
-        const next = currentModule + 1;
-        const nextPage = `/module/${next}`;
-
-        
-    }
-
-    const PreviousPage = () =>{ 
-        // const prevNum = moduleNumber - 1;
-        // let path = `${prevNum}`; 
-        // history.push(path);
-        const prev = currentModule - 1;
-        const prevPage = `/module/${prev}`;
-    }
-
 
     return (
         <div>
@@ -137,21 +145,19 @@ const Module = () => {
                             [classes.hide]: !open,
                         })}
                     >
-                        {/* <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 1" />
-                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 2" />
-                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 3" /> */}
                         {moduleNames}
                     </div>
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button>
-                        <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button>
+                        <Link to={prevPage}>
+                            <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
+                        </Link>
+                        <Link to={nextPage}>
+                            <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
+                        </Link>
                     </div>
-                    {/* <p> {moduleNumber} </p> */}
-                    <CodingExercise/>
-                    {/* <Instructions /> */}
-                    {/* <MultipleChoice /> */}
+                    {moduleType}
                 </main>
             </div>
             
@@ -159,4 +165,4 @@ const Module = () => {
     );
 };
 
-export default Module;
+export default withRouter(Module);
