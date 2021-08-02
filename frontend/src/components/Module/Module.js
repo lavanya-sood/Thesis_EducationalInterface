@@ -31,8 +31,8 @@ const Module = (props) => {
 
     const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
 
-    //const [prevPage,setPrev] = React.useState("");
-    //const [nextPage,setNext] = React.useState("");
+    const [prevPage,setPrev] = React.useState("");
+    const [nextPage,setNext] = React.useState("");
 
     //const [moduleNext, setNext] = React.useState(false);
     //const [modulePrev, setPrev] = React.useState(false);
@@ -70,16 +70,16 @@ const Module = (props) => {
         getAllModules();
         getCurrentModule();
 
-        // const prev = parseInt(currentModule) - 1;
-        // const prevLink = `/module/${prev}`;
-        // console.log(prevLink);
-        // //setPrev(prevLink);
+        const prev = parseInt(currentModule) - 1;
+        const prevLink = `/module/${prev}`;
+        console.log(prevLink);
+        setPrev(prevLink);
     
 
-        // const next = parseInt(currentModule) + 1;
-        // const nextLink = `/module/${next}`;
-        // console.log(nextLink);
-        //setNext(nextLink);
+        const next = parseInt(currentModule) + 1;
+        const nextLink = `/module/${next}`;
+        console.log(nextLink);
+        setNext(nextLink);
         
         
         //dispatch2(getOneModule(currentModule));
@@ -250,20 +250,20 @@ const Module = (props) => {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        {/* <Link to={prevPage}>
+                        <Link to={prevPage}>
                             <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
                         </Link>
                         <Link to={nextPage}>
                             <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
-                        </Link> */}
+                        </Link>
                         {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={prevPage} >Previous</NavLink> </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={nextPage}>Next</NavLink> </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
                         {/* <Button variant="contained" color="primary" className={classes.progressButton}> <Link to={nextPage} onClick={() => window.location.reload()} className="btn btn-primary">Next</Link> </Button> */}
-                        <Button variant="contained" color="primary" onClick={PreviousPage} className={classes.progressButton}>Previous</Button>
-                        <Button variant="contained" color="primary" onClick={NextPage} className={classes.progressButton}>Next</Button>
+                        {/* <Button variant="contained" color="primary" onClick={PreviousPage} className={classes.progressButton}>Previous</Button> */}
+                        {/* <Button variant="contained" color="primary" onClick={NextPage} className={classes.progressButton}>Next</Button> */}
                     </div>
                     {/* <p> {moduleNumber} </p> */}
                     {/* <CodingExercise/> */}
