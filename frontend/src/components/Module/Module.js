@@ -16,7 +16,7 @@ import { useParams, Link, withRouter } from "react-router-dom";
 const Module = (props) => {
 
     const classes = useStyles();
-    
+
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState(null);
 
@@ -27,6 +27,9 @@ const Module = (props) => {
     const [nextPage,setNext] = React.useState("");
 
     const [moduleInfo, setModuleInfo] = React.useState("");
+
+    const [firstQuestion, setFirstQuestion] = React.useState(false);
+    const [lastQuestion, setLastQuestion] = React.useState(false);
 
 
 
@@ -65,6 +68,17 @@ const Module = (props) => {
             setType(<MultipleChoice moduleInfo={res[0]} />);
         }
 
+        if (res[0].questionNumber === 1) {
+            setFirstQuestion(true);
+            setLastQuestion(false);
+        } else if (res[0].questionNumber === 27) {
+            setFirstQuestion(false);
+            setLastQuestion(true);
+        } else {
+            setFirstQuestion(false);
+            setLastQuestion(false);
+        }
+ 
         return res;
     }
 
@@ -150,12 +164,18 @@ const Module = (props) => {
                 </Drawer>
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
-                        <Link to={prevPage}>
-                            <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
-                        </Link>
-                        <Link to={nextPage}>
-                            <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
-                        </Link>
+                        {!firstQuestion ? 
+                            <Link to={prevPage}>
+                                <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
+                            </Link>
+                            : <div></div> 
+                        }
+                        {!lastQuestion ?
+                            <Link to={nextPage}>
+                                <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
+                            </Link>
+                            : <div></div> 
+                        }
                     </div>
                     {moduleType}
                 </main>
