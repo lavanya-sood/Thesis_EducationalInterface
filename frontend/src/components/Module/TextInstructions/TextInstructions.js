@@ -2,6 +2,8 @@ import React from 'react';
 import { Typography} from '@material-ui/core';
 import useStyles from './styles.js';
 import { Markup } from 'interweave';
+import Parser from 'html-react-parser';
+import './style.css';
 
 
 const TextInstructions = (textDescription) => {
@@ -13,10 +15,11 @@ const TextInstructions = (textDescription) => {
 
     return (
         <div className={classes.textInstructions}>
-            <Typography paragraph>
-                <Markup content={val} /> 
+            {/* <Typography paragraph> */}
+                <Markup content={val} allowAttributes /> 
                 {/* {val} */}
-            </Typography>
+            {/* </Typography> */}
+            <p>{Parser(val)}</p>
         </div>
     );
 };
