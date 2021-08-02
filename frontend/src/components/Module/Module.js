@@ -11,61 +11,27 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
 import Instructions from './Instructions/Instructions.js';
-import { Redirect, useHistory, useParams ,NavLink, Link, withRouter } from "react-router-dom";
-import {getOneModule} from '../../actions/questionModule';
-import ModuleContent from './ModuleContent.js';
+import { useParams, Link, withRouter } from "react-router-dom";
 
-import { useSelector,useDispatch } from 'react-redux';
-
-//const Module = ({moduleNumber, setNumber}) => {
 const Module = (props) => {
 
-    const dispatch2 = useDispatch();
+    const classes = useStyles();
+    
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState(null);
-    //const [moduleNumber, setNumber] = React.useState(0);
-    //const currentModule = parseInt(useParams().questionNumber);
 
-    // const prev = currentModule - 1;
-    // const prevPage = `/module/${prev}`;
 
     const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
 
     const [prevPage,setPrev] = React.useState("");
     const [nextPage,setNext] = React.useState("");
 
-    //const [moduleNext, setNext] = React.useState(false);
-    //const [modulePrev, setPrev] = React.useState(false);
-    const [changePage, setChange] = React.useState(false);
-
-    //const moduleTitles = [];
-    const modules = useSelector((state)=> state.questionModule);
-
-    //const moduleInfo = useSelector((state)=> currentModule ? state.questionModule.find((m) => m.questionNumber === currentModule):null);
-
-    //console.log(moduleInfo);
-    //setNumber(useParams().questionNumber);
-    const mod = useSelector((state)=> state.questionModule);
-    const [moduleInfo, setModuleInfo] = React.useState(mod);
-
-    // const distFunc = () => {
-        
-    //     setModuleInfo(useSelector((state)=> state.questionModule));
-    // };
+    const [moduleInfo, setModuleInfo] = React.useState("");
 
 
-
-    //   componentDidUpdate((prevProps) => {
-    //     if (prevProps.match.params.type !== this.props.match.params.type) {
-    //         console.log(prevProps.match.params);
-    //       }
-    // }, []);
 
     React.useEffect(()=> {
         console.log("Here");
- 
-
-
         
         getAllModules();
         getCurrentModule();
@@ -81,18 +47,14 @@ const Module = (props) => {
         console.log(nextLink);
         setNext(nextLink);
         
-        
-        //dispatch2(getOneModule(currentModule));
-        //setModuleInfo(useSelector((state)=> state.questionModule));
-    },[]);
+    },[currentModule]);
 
     async function getCurrentModule() {
-        //const manufacturer = 'Manufacturer';
+
         const url = `http://127.0.0.1:5000/module/${currentModule}`;
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
-        //setType(res[0].questionType);
         setModuleInfo(res[0]);
 
         if (res[0].questionType === 'instructions'){
@@ -107,33 +69,22 @@ const Module = (props) => {
     }
 
     async function getAllModules() {
-        //const manufacturer = 'Manufacturer';
         const url = 'http://127.0.0.1:5000/module';
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
-        //console.log(res.map((m)=>))
         const mod = [];
         res.forEach(m => {
             mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
         });
-        //moduleTitles(res.map(val));
         setTitles(mod);
         return res;
     }
 
+    const moduleNames = moduleTitles.map((m) => <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
 
-    //console.log(moduleTitles);
-    //console.log(moduleNumber);
-
-    const moduleNames = moduleTitles.map((m) => <Link to={ '/module/' + m.id } key={m.id}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
-
-
-    const classes = useStyles();
-
-    //const theme = useTheme();
-    const history = useHistory();
+    
 
     const [open, setOpen] = React.useState(true);
 
@@ -144,54 +95,6 @@ const Module = (props) => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-    const updateModule = () => {
-        getAllModules();
-        getCurrentModule();
-    }
-
-    const NextPage = () =>{ 
-        // const nextNum = moduleNumber + 1;
-        // let path = `${nextNum}`; 
-        // history.push(path);
-        console.log("Hey2");
-        const next = parseInt(currentModule) + 1;
-        setModuleVal(next);
-        console.log(next);
-        setChange(true);
-        updateModule();
-        //setNext(next);
-        // const nextPage = `/module/${next}`;
-    }
-
-
-    const PreviousPage = () =>{ 
-        // const prevNum = moduleNumber - 1;
-        // let path = `${prevNum}`; 
-        // history.push(path);
-        
-        const prev = parseInt(currentModule) - 1;
-        setModuleVal(prev);
-        console.log(prev);
-        console.log(currentModule);
-        setChange(true);
-        updateModule();
-        //setPrev(prev);
-        // const prevPage1 = `/module/${prev1}`;
-    }
-
-    if (changePage) {
-        setChange(false);
-        console.log("This called")
-        return <Redirect to={`/module/${currentModule}`} />;
-    }
-
-    // if (nextPage !== currentModule) {
-    //     console.log("CurrentMod == " + currentModule);
-    //     console.log("Next == " + nextPage);
-    //     return <Redirect to={`/module/${nextPage}`} />;
-    // }
-
 
     return (
         <div>
@@ -242,9 +145,6 @@ const Module = (props) => {
                             [classes.hide]: !open,
                         })}
                     >
-                        {/* <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 1" />
-                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 2" />
-                        <FormControlLabel control={<Checkbox name="checkedC" />} label="Part 3" /> */}
                         {moduleNames}
                     </div>
                 </Drawer>
@@ -256,19 +156,7 @@ const Module = (props) => {
                         <Link to={nextPage}>
                             <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
                         </Link>
-                        {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={prevPage}> Previous </Button> */}
-                        {/* <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={prevPage} >Previous</NavLink> </Button> */}
-                        {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
-                        {/* <Button variant="contained" color="primary" className={classes.progressButton}> <NavLink name="prevPage" to={nextPage}>Next</NavLink> </Button> */}
-                        {/* <Button variant="contained" color="primary" className={classes.progressButton} component={Link} to={nextPage}> Next </Button> */}
-                        {/* <Button variant="contained" color="primary" className={classes.progressButton}> <Link to={nextPage} onClick={() => window.location.reload()} className="btn btn-primary">Next</Link> </Button> */}
-                        {/* <Button variant="contained" color="primary" onClick={PreviousPage} className={classes.progressButton}>Previous</Button> */}
-                        {/* <Button variant="contained" color="primary" onClick={NextPage} className={classes.progressButton}>Next</Button> */}
                     </div>
-                    {/* <p> {moduleNumber} </p> */}
-                    {/* <CodingExercise/> */}
-                    {/* <Instructions module={moduleInfo} /> */}
-                    {/* <MultipleChoice /> */}
                     {moduleType}
                 </main>
             </div>

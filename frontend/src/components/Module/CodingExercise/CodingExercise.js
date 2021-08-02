@@ -18,7 +18,6 @@ const CodingExercise = (moduleInfo) => {
     
     const [hint,setHint] = React.useState(""); 
     const [correctAnswer,setAnswer] = React.useState(""); 
-    const [startCode,setStartCode] = React.useState(""); 
 
     const [open, setOpen] = React.useState(false);
 
@@ -53,7 +52,7 @@ const CodingExercise = (moduleInfo) => {
 
         if (moduleInfo.moduleInfo.questionNumber === 27) {
             const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.hint;
-            const imageV = <img src={imgsrc} width="500px"/>;
+            const imageV = <img src={imgsrc} alt="coding" width="500px"/>;
             setHint(imageV);
         } else {
             setHint(moduleInfo.moduleInfo.hint);
