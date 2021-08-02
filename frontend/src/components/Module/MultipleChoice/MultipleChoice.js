@@ -1,11 +1,12 @@
 import React from 'react';
 import { Typography, Button, FormControl, FormLabel, RadioGroup, Radio,FormControlLabel, FormHelperText } from '@material-ui/core';
 import useStyles from './styles.js';
+import Alert from '@material-ui/lab/Alert';
 
 
 const MultipleChoice = (moduleInfo) => {
     const classes = useStyles();
-    const [answerStatus, setStatus] = React.useState("");
+    //const [answerStatus, setStatus] = React.useState("");
     const [value, setValue] = React.useState('');
 
     const [pageTitle,setPageTile] = React.useState(""); 
@@ -13,6 +14,10 @@ const MultipleChoice = (moduleInfo) => {
     const [questionNumber,setQuestionNumber] = React.useState(""); 
     const [answerOptions,setOptions] = React.useState([]); 
     const [correctAnswer,setAnswer] = React.useState(""); 
+
+    const [error,setError] = React.useState(false);
+    const [success,setSuccess] = React.useState(false);
+    const [answerStatus,setStatus] = React.useState("");
 
     React.useEffect(() => {
         console.log(moduleInfo.moduleInfo);
@@ -30,16 +35,19 @@ const MultipleChoice = (moduleInfo) => {
 
     const handleRadioChange = (event) => {
         setValue(event.target.value);
-        setStatus(' ');
       };
 
     const checkAnswer = (e) => {
         e.preventDefault();
         console.log(value);
         if (value === correctAnswer) {
-            setStatus('You got it!');
+            setError(false);
+            setSuccess(true);
+            setStatus("You got it correct");
         } else {
-            setStatus('Sorry, wrong answer!');
+            setError(true);
+            setSuccess(false);
+            setStatus("You selected the wrong answer. Try again.");
         }
     };
     
@@ -50,6 +58,7 @@ const MultipleChoice = (moduleInfo) => {
         <div className={classes.textInstructions}>
             <Typography variant="h4"> {pageTitle} </Typography>
             <br/>
+            
             <br/>
             <form onSubmit={checkAnswer}>
                 <FormControl component="fieldset" className={classes.formControl}>
@@ -61,13 +70,16 @@ const MultipleChoice = (moduleInfo) => {
                     <FormControlLabel value="worst4" control={<Radio />} label="Answer D" /> */}
                         {answerSelection}
                     </RadioGroup>
-                    <FormHelperText>{answerStatus}</FormHelperText>
+                    {/* <FormHelperText>{answerStatus}</FormHelperText> */}
                     <br/>
                     <Button type="submit" variant="contained" color="secondary" className={classes.button}>
                     Check Answer
                     </Button>
                 </FormControl>
             </form>
+            <br/>
+            {error ? <Alert severity='error'>{answerStatus}</Alert> : <div></div> }
+            {success ? <Alert severity='success'>{answerStatus}</Alert> : <div></div> }
         </div>
     );
 };

@@ -39,10 +39,25 @@ const CodingExercise = (moduleInfo) => {
     React.useEffect(() => {
         console.log(moduleInfo.moduleInfo);
         setPageTile(moduleInfo.moduleInfo.pageTitle);
-        setQuestion(moduleInfo.moduleInfo.textDescription);
+
+        let textInfo = moduleInfo.moduleInfo.textDescription;
+        textInfo = textInfo.replace(/\\n/g, '\n');
+        textInfo = textInfo.replace(/\\t/g, '\t');
+        textInfo = textInfo.replace(/\\r/g, '\r');
+        //starterCode = starterCode.replace("\r\n\t", "\r\n\t");
+        //starterCode = starterCode.replace("\\r\\n", "\r\n");
+        setQuestion(textInfo);
+
+        //setQuestion(moduleInfo.moduleInfo.textDescription);
         setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
 
-        setHint(moduleInfo.moduleInfo.hint);
+        if (moduleInfo.moduleInfo.questionNumber === 27) {
+            const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.hint;
+            const imageV = <img src={imgsrc} width="500px"/>;
+            setHint(imageV);
+        } else {
+            setHint(moduleInfo.moduleInfo.hint);
+        }
         setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
         let starterCode = moduleInfo.moduleInfo.starterCode;
         starterCode = starterCode.replace(/\\n/g, '\n');
@@ -85,6 +100,7 @@ const CodingExercise = (moduleInfo) => {
         stripedString = stripedString.replace(/\t/g, '');
         stripedString = stripedString.replace(/\r/g, '');
         stripedString = stripedString.replace(/\s/g, '');
+        stripedString = stripedString.replace(/"/g, '\'');
         stripedString = stripedString.replace(/ /g, '');
         stripedString = stripedString.toLowerCase();
         return stripedString;
