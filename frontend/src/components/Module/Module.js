@@ -130,8 +130,9 @@ const Module = (props) => {
     //     <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>
     // });
 
-    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.viewed ? classes.navLinks : classes.navLinksDisabled}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
+    //const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= {` ${ m.viewed ? classes.navLinks : classes.navLinksDisabled} ${ m.id === currentModule ? classes.navCurrent : ``}`}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
+    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.id === parseInt(currentModule) ? classes.navCurrent : m.viewed ? classes.navLinks : classes.navLinksDisabled }><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
     
 
@@ -200,13 +201,13 @@ const Module = (props) => {
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
                         {!firstQuestion ? 
-                            <Link to={prevPage}>
+                            <Link to={prevPage} classes={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
                             </Link>
                             : <div></div> 
                         }
                         {!lastQuestion && nextButton ?
-                            <Link to={nextPage}>
+                            <Link to={nextPage} classes={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
                             </Link>
                             : <div></div> 

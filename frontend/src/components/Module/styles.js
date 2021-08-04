@@ -71,5 +71,12 @@ export default makeStyles((theme) => ({
         textDecoration: 'none',
         color: '#69706b',
         cursor: 'not-allowed'
+      },
+      linkButton: {
+        textDecoration: 'none',
+      },
+      navCurrent: {
+        textDecoration: 'underline',
+        color: '#22658A',
       }
 }));
