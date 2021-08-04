@@ -4,7 +4,7 @@ import useStyles from './styles.js';
 import Alert from '@material-ui/lab/Alert';
 
 
-const MultipleChoice = (moduleInfo) => {
+const MultipleChoice = ({moduleInfo, allowNext}) => {
     const classes = useStyles();
     //const [answerStatus, setStatus] = React.useState("");
     const [value, setValue] = React.useState('');
@@ -20,16 +20,23 @@ const MultipleChoice = (moduleInfo) => {
     const [answerStatus,setStatus] = React.useState("");
 
     React.useEffect(() => {
-        console.log(moduleInfo.moduleInfo);
-        setPageTile(moduleInfo.moduleInfo.pageTitle);
-        setQuestion(moduleInfo.moduleInfo.textDescription);
-        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
-        setAnswer(moduleInfo.moduleInfo.correctAnswer);
+        console.log(moduleInfo);
+        setPageTile(moduleInfo.pageTitle);
+        setQuestion(moduleInfo.textDescription);
+        setQuestionNumber(moduleInfo.questionNumber);
+        setAnswer(moduleInfo.correctAnswer);
 
-        console.log(moduleInfo.moduleInfo.answerOptions);
-        const vals = moduleInfo.moduleInfo.answerOptions.split(" || ");
+        console.log(moduleInfo.answerOptions);
+        const vals = moduleInfo.answerOptions.split(" || ");
         console.log(vals);
         setOptions(vals);
+
+        //console.log(moduleInfo);
+        //console.log(allowNext);
+
+        //console.log(props);
+
+        //handleNextButton(true);
 
     },[moduleInfo]);
 
@@ -44,6 +51,7 @@ const MultipleChoice = (moduleInfo) => {
             setError(false);
             setSuccess(true);
             setStatus("You got it correct");
+            allowNext();
         } else {
             setError(true);
             setSuccess(false);

@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import MultipleChoice from './MultipleChoice/MultipleChoice.js';
 import CodingExercise from './CodingExercise/CodingExercise.js';
+import FinalExercise from './CodingExercise/FinalExercise.js';
 import Instructions from './Instructions/Instructions.js';
 import { useParams, Link, withRouter } from "react-router-dom";
 
@@ -30,6 +31,8 @@ const Module = (props) => {
 
     const [firstQuestion, setFirstQuestion] = React.useState(false);
     const [lastQuestion, setLastQuestion] = React.useState(false);
+
+    const [nextButton, setNextButton] = React.useState(false);
 
 
 
@@ -52,6 +55,10 @@ const Module = (props) => {
         
     },[currentModule]);
 
+    const handleNextButton = () => {
+        setNextButton(true);
+    }
+
     async function getCurrentModule() {
 
         const url = `http://127.0.0.1:5000/module/${currentModule}`;
@@ -61,11 +68,19 @@ const Module = (props) => {
         setModuleInfo(res[0]);
 
         if (res[0].questionType === 'instructions'){
+            setNextButton(true);
             setType(<Instructions moduleInfo={res[0]} />);
         } else if (res[0].questionType === 'coding'){
-            setType(<CodingExercise moduleInfo={res[0]} />);
+            if (res[0].questionNumber === 27) {
+                console.log("Sup");
+                setType(<FinalExercise moduleInfo={res[0]} />);
+                // setType(<CodingExercise moduleInfo={res[0]} />);
+            } else {
+                console.log("OTher");
+                setType(<CodingExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
+            }            
         } else if (res[0].questionType === 'multipleChoice'){
-            setType(<MultipleChoice moduleInfo={res[0]} />);
+            setType(<MultipleChoice moduleInfo={res[0]} allowNext={handleNextButton} />);
         }
 
         if (res[0].questionNumber === 1) {
@@ -81,6 +96,8 @@ const Module = (props) => {
  
         return res;
     }
+
+    
 
     async function getAllModules() {
         const url = 'http://127.0.0.1:5000/module';
@@ -170,7 +187,7 @@ const Module = (props) => {
                             </Link>
                             : <div></div> 
                         }
-                        {!lastQuestion ?
+                        {!lastQuestion && nextButton ?
                             <Link to={nextPage}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
                             </Link>

@@ -6,7 +6,7 @@ import Editor from './Editor'
 //import { Markup } from 'interweave';
 
 
-const CodingExercise = ({moduleInfo, allowNext}) => {
+const FinalExercise = (moduleInfo) => {
     const classes = useStyles();
 
     const [html, setHtml] = React.useState("");
@@ -25,6 +25,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
     const [success,setSuccess] = React.useState(false);
     const [answerStatus,setStatus] = React.useState("");
 
+    const [imgElement, setImg] = React.useState(null);
+
     const handleOpen = () => {
         setOpen(true);
     };
@@ -36,10 +38,10 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
 
     React.useEffect(() => {
-        console.log(moduleInfo);
-        setPageTile(moduleInfo.pageTitle);
+        console.log(moduleInfo.moduleInfo);
+        setPageTile(moduleInfo.moduleInfo.pageTitle);
 
-        let textInfo = moduleInfo.textDescription;
+        let textInfo = moduleInfo.moduleInfo.textDescription;
         textInfo = textInfo.replace(/\\n/g, '\n');
         textInfo = textInfo.replace(/\\t/g, '\t');
         textInfo = textInfo.replace(/\\r/g, '\r');
@@ -48,17 +50,20 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         setQuestion(textInfo);
 
         //setQuestion(moduleInfo.moduleInfo.textDescription);
-        setQuestionNumber(moduleInfo.questionNumber);
+        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
 
-        if (moduleInfo.questionNumber === 27) {
-            const imgsrc = "data:image/png;base64," + moduleInfo.hint;
-            const imageV = <img src={imgsrc} alt="coding" width="500px"/>;
-            setHint(imageV);
+        console.log("THIS MODULE");
+
+        if (moduleInfo.moduleInfo.questionNumber === 27) {
+            const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.hint;
+            const imageV = <img src={imgsrc} alt="coding" width="100%"/>;
+            setHint("imageV");
+            setImg(imageV);
         } else {
-            setHint(moduleInfo.hint);
+            setHint(moduleInfo.moduleInfo.hint);
         }
-        setQuestionNumber(moduleInfo.questionNumber);
-        let starterCode = moduleInfo.starterCode;
+        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+        let starterCode = moduleInfo.moduleInfo.starterCode;
         starterCode = starterCode.replace(/\\n/g, '\n');
         starterCode = starterCode.replace(/\\t/g, '\t');
         starterCode = starterCode.replace(/\\r/g, '\r');
@@ -66,13 +71,24 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         //starterCode = starterCode.replace("\\r\\n", "\r\n");
         setHtml(starterCode);
 
-        setAnswer(moduleInfo.correctAnswer);
-
+        setAnswer(moduleInfo.moduleInfo.correctAnswer);
 
 
     },[moduleInfo]);
 
- 
+    //const val = "Hey how are <b> you? </b><br/><h3>Sup</h3>";
+  
+    // React.useEffect(() => {
+    //   const timeout = setTimeout(() => {
+    //     setSrcDoc(`
+    //       <html>
+    //         <body>${html}</body>
+    //       </html>
+    //     `)
+    //   }, 250)
+  
+    //   return () => clearTimeout(timeout)
+    // }, [html])
     
     const runCode = () => {
         setSrcDoc(`
@@ -107,7 +123,6 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             setError(false);
             setSuccess(true);
             setStatus("You got it correct");
-            allowNext();
         } else  {
             setError(true);
             setSuccess(false);
@@ -138,7 +153,6 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
                 </div>
                 </Fade>
             </Modal>
-
             <Typography variant="h4"> {pageTitle} </Typography>
             <br/>
             {/* <p> {val} </p> */}
@@ -155,8 +169,14 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
                 </div>
-                <div className={classes.codes}>
-                    <div className={classes.ext1}>
+                <div className={classes.codesFinal}>
+                    <div className={classes.ext1Final}>
+                        <Typography variant="h6"> Desired Output </Typography>
+                        <div className={classes.imgWindow}>
+                            {imgElement}
+                        </div>
+                    </div>
+                    <div className={classes.ext2Final}>
                         <Typography variant="h6"> Coding Window (Inside Body Tag) </Typography>
                         <div className={classes.htmlWindow}>
                             <Editor
@@ -166,7 +186,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
                             />
                         </div>
                     </div>
-                    <div className={classes.ext2}>
+                    <div className={classes.ext3Final}>
                         <Typography variant="h6"> Output Window </Typography>
                         <div className={classes.outputWindow}>
                             <iframe
@@ -185,4 +205,4 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
     );
 };
 
-export default CodingExercise;
+export default FinalExercise;

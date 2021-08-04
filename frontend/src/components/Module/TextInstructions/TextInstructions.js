@@ -19,7 +19,7 @@ const TextInstructions = (textDescription) => {
                 <Markup content={val} allowAttributes /> 
                 {/* {val} */}
             {/* </Typography> */}
-            <p>{Parser(val)}</p>
+            {/* <p>{Parser(val)}</p> */}
         </div>
     );
 };

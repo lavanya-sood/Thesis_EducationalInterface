@@ -34,10 +34,21 @@ export default makeStyles((theme) => ({
         borderRadius: '10px',
         
     },
+    imgWindow: {
+        border: '1px solid #cccccc',
+        height: '90%',
+        borderRadius: '10px',
+        
+    },
     codes: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-evenly'
+    },
+    codesFinal: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     ext1: {
         width: '45%',
@@ -45,6 +56,17 @@ export default makeStyles((theme) => ({
     },
     ext2: {
         width: '45%',
+    },
+    ext1Final: {
+        width: '35%',
+        height: '60vh',
+    },
+    ext2Final: {
+        width: '25%',
+        height: '60vh',
+    },
+    ext3Final: {
+        width: '35%',
     },
     htmlEditor: {
         height: '100%',
