@@ -66,5 +66,10 @@ export default makeStyles((theme) => ({
       navLinks: {
         textDecoration: 'none',
         color: '#22658A',
+      },
+      navLinksDisabled: {
+        textDecoration: 'none',
+        color: '#69706b',
+        cursor: 'not-allowed'
       }
 }));

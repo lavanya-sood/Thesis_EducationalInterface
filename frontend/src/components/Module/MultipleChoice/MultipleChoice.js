@@ -19,6 +19,8 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
     const [success,setSuccess] = React.useState(false);
     const [answerStatus,setStatus] = React.useState("");
 
+    const [attempts,setAttempts] = React.useState(1);
+
     React.useEffect(() => {
         console.log(moduleInfo);
         setPageTile(moduleInfo.pageTitle);
@@ -52,9 +54,23 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             setSuccess(true);
             setStatus("You got it correct");
             allowNext();
+            
+            let pages = [];
+            if (JSON.parse(localStorage.getItem("pages")) != null) {
+              pages = JSON.parse(localStorage.getItem("pages"))
+              console.log(pages);
+            } 
+      
+            if (!pages.includes(questionNumber)) {
+              pages.push(questionNumber);
+              //console.log(moduleInfo.questionNumber);
+            }
+            localStorage.setItem("pages", JSON.stringify(pages));
+
         } else {
             setError(true);
             setSuccess(false);
+            setAttempts(attempts+1);
             setStatus("You selected the wrong answer. Try again.");
         }
     };

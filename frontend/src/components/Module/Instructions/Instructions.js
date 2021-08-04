@@ -52,6 +52,19 @@ const Instructions = (moduleInfo) => {
       setTextDescription(moduleInfo.moduleInfo.textDescription);
       setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
       setLocation(moduleInfo.moduleInfo.videoLocation);
+
+      let pages = [];
+      if (JSON.parse(localStorage.getItem("pages")) != null) {
+        pages = JSON.parse(localStorage.getItem("pages"))
+        console.log(pages);
+      } 
+
+      if (!pages.includes(moduleInfo.moduleInfo.questionNumber)) {
+        pages.push(moduleInfo.moduleInfo.questionNumber);
+        //console.log(moduleInfo.questionNumber);
+      }
+      localStorage.setItem("pages", JSON.stringify(pages));
+
       //setTextDescription(module.)
       console.log(moduleInfo);
     },[moduleInfo]);

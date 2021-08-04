@@ -68,6 +68,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
         setAnswer(moduleInfo.correctAnswer);
 
+        
+
 
 
     },[moduleInfo]);
@@ -108,6 +110,19 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             setSuccess(true);
             setStatus("You got it correct");
             allowNext();
+
+            let pages = [];
+            if (JSON.parse(localStorage.getItem("pages")) != null) {
+              pages = JSON.parse(localStorage.getItem("pages"))
+              console.log(pages);
+            } 
+      
+            if (!pages.includes(questionNumber)) {
+              pages.push(questionNumber);
+              //console.log(moduleInfo.questionNumber);
+            }
+            localStorage.setItem("pages", JSON.stringify(pages));
+
         } else  {
             setError(true);
             setSuccess(false);

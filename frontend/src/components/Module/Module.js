@@ -105,14 +105,32 @@ const Module = (props) => {
         res = await res.json();
         console.log(res);
         const mod = [];
+        const pages = JSON.parse(localStorage.getItem("pages"));
+        console.log(pages);
         res.forEach(m => {
-            mod.push({title:m.pageTitle, viewed:false,id:m.questionNumber});
+            let val = {
+                title:m.pageTitle, 
+                viewed:false,
+                id:m.questionNumber
+            };
+            if (pages != null && pages.includes(m.questionNumber)) {
+                console.log("In here");
+                val.viewed = true;
+            }
+            mod.push(val);
         });
         setTitles(mod);
         return res;
     }
 
-    const moduleNames = moduleTitles.map((m) => <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
+    // const moduleNames = moduleTitles.map((m) => 
+    // {m.viewed  ? 
+    //     <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>
+    //     : 
+    //     <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>
+    // });
+
+    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.viewed ? classes.navLinks : classes.navLinksDisabled}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
 
     
