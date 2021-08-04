@@ -25,6 +25,10 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
     const [success,setSuccess] = React.useState(false);
     const [answerStatus,setStatus] = React.useState("");
 
+    const [seconds, setSeconds] = React.useState(0);
+    const [isActive, setIsActive] = React.useState(false);
+    const countRef = React.useRef(null);
+
     const handleOpen = () => {
         setOpen(true);
     };
@@ -68,6 +72,9 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
         setAnswer(moduleInfo.correctAnswer);
 
+        countRef.current = setInterval(() => {
+            setSeconds((seconds) => seconds + 1)
+        }, 1000);
         
 
 
@@ -123,6 +130,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             }
             localStorage.setItem("pages", JSON.stringify(pages));
 
+            clearInterval(countRef.current);
+
         } else  {
             setError(true);
             setSuccess(false);
@@ -133,6 +142,9 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
     return (
         <div className={classes.textInstructions}>
+            <div className={classes.timerDiv}>
+                <Typography p className={classes.timeText}> {seconds} seconds </Typography>
+            </div>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"

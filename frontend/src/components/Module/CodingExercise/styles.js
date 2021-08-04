@@ -90,4 +90,12 @@ export default makeStyles((theme) => ({
         textAlign: 'center',
         width: '50vw',
     },
+    timerDiv: {
+        width: '100%',
+        textAlign: 'right',
+    },
+    timeText: {
+        marginTop: '10px',
+        color: '#a6a6a6',
+    }
 }));
