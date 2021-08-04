@@ -21,6 +21,10 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
 
     const [attempts,setAttempts] = React.useState(1);
 
+    const [seconds, setSeconds] = React.useState(0);
+    const [isActive, setIsActive] = React.useState(false);
+    const countRef = React.useRef(null);
+
     React.useEffect(() => {
         console.log(moduleInfo);
         setPageTile(moduleInfo.pageTitle);
@@ -39,6 +43,9 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
         //console.log(props);
 
         //handleNextButton(true);
+        countRef.current = setInterval(() => {
+            setSeconds((seconds) => seconds + 1)
+        }, 1000);
 
     },[moduleInfo]);
 
@@ -67,6 +74,8 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             }
             localStorage.setItem("pages", JSON.stringify(pages));
 
+            clearInterval(countRef.current);
+
         } else {
             setError(true);
             setSuccess(false);
@@ -80,6 +89,10 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
 
     return (
         <div className={classes.textInstructions}>
+            <div className={classes.timerDiv}>
+                <Typography p className={classes.timeText}> {seconds} seconds </Typography>
+            </div>
+
             <Typography variant="h4"> {pageTitle} </Typography>
             <br/>
             
