@@ -6,7 +6,7 @@ import Editor from './Editor'
 //import { Markup } from 'interweave';
 
 
-const FinalExercise = (moduleInfo) => {
+const FinalExercise = ({moduleInfo, allowNext}) => {
     const classes = useStyles();
 
     const [html, setHtml] = React.useState("");
@@ -27,6 +27,14 @@ const FinalExercise = (moduleInfo) => {
 
     const [imgElement, setImg] = React.useState(null);
 
+    const [seconds, setSeconds] = React.useState(0);
+    const [isActive, setIsActive] = React.useState(false);
+
+    const [failed, setFailed] = React.useState(false);
+    const countRef = React.useRef(null);
+
+    const [attempts, setAttempts] = React.useState(1);
+
     const handleOpen = () => {
         setOpen(true);
     };
@@ -38,10 +46,10 @@ const FinalExercise = (moduleInfo) => {
 
 
     React.useEffect(() => {
-        console.log(moduleInfo.moduleInfo);
-        setPageTile(moduleInfo.moduleInfo.pageTitle);
+        console.log(moduleInfo);
+        setPageTile(moduleInfo.pageTitle);
 
-        let textInfo = moduleInfo.moduleInfo.textDescription;
+        let textInfo = moduleInfo.textDescription;
         textInfo = textInfo.replace(/\\n/g, '\n');
         textInfo = textInfo.replace(/\\t/g, '\t');
         textInfo = textInfo.replace(/\\r/g, '\r');
@@ -50,7 +58,7 @@ const FinalExercise = (moduleInfo) => {
         setQuestion(textInfo);
 
         //setQuestion(moduleInfo.moduleInfo.textDescription);
-        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+        setQuestionNumber(moduleInfo.questionNumber);
 
         console.log("THIS MODULE");
 
@@ -63,14 +71,14 @@ const FinalExercise = (moduleInfo) => {
         //     setHint(moduleInfo.moduleInfo.hint);
         // }
 
-        console.log(moduleInfo.moduleInfo.imgSrc);
-        const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.imgSrc;
+        console.log(moduleInfo.imgSrc);
+        const imgsrc = "data:image/png;base64," + moduleInfo.imgSrc;
         const imageV = <img src={imgsrc} alt="coding" width="100%"/>;
-        setHint(moduleInfo.moduleInfo.hint);
+        setHint(moduleInfo.hint);
         setImg(imageV);
  
-        setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
-        let starterCode = moduleInfo.moduleInfo.starterCode;
+        setQuestionNumber(moduleInfo.questionNumber);
+        let starterCode = moduleInfo.starterCode;
         starterCode = starterCode.replace(/\\n/g, '\n');
         starterCode = starterCode.replace(/\\t/g, '\t');
         starterCode = starterCode.replace(/\\r/g, '\r');
@@ -78,7 +86,11 @@ const FinalExercise = (moduleInfo) => {
         //starterCode = starterCode.replace("\\r\\n", "\r\n");
         setHtml(starterCode);
 
-        setAnswer(moduleInfo.moduleInfo.correctAnswer);
+        setAnswer(moduleInfo.correctAnswer);
+
+        countRef.current = setInterval(() => {
+            setSeconds((seconds) => seconds + 1)
+        }, 1000);
 
 
     },[moduleInfo]);
@@ -130,16 +142,41 @@ const FinalExercise = (moduleInfo) => {
             setError(false);
             setSuccess(true);
             setStatus("You got it correct");
+            clearInterval(countRef.current);
+            allowNext();
         } else  {
             setError(true);
             setSuccess(false);
             setStatus("There is an error in your code");
+            setAttempts(attempts + 1);
         }
     }
+
+    const giveUpFunction =  () => {
+        console.log("giveUp");
+
+        clearInterval(countRef.current);
+        //setHtml(correctAnswer);
+        clearInterval(countRef.current);
+        setFailed(true);
+        allowNext();
+
+        setHtml(correctAnswer);
+
+        setSrcDoc(`
+           <html>
+            <body>${correctAnswer}</body>
+           </html>
+        `);
+        
+    };
     
 
     return (
         <div className={classes.textInstructions}>
+            <div className={classes.timerDiv}>
+                <Typography p className={classes.timeText}> {seconds} seconds </Typography>
+            </div>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -172,7 +209,8 @@ const FinalExercise = (moduleInfo) => {
             {success ? <Alert severity='success'>{answerStatus}</Alert> : <></> }
             <div className={classes.codingWindows}>
                 <div className={classes.buttonGroup}>
-                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button>
+                    {attempts > 4 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={giveUpFunction}> Give up? </Button> : <></>}
+                    {attempts > 1 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button> : <></>}
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
                 </div>

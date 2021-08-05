@@ -73,7 +73,7 @@ const Module = (props) => {
         } else if (res[0].questionType === 'coding'){
             if (res[0].questionNumber === 27) {
                 console.log("Sup");
-                setType(<FinalExercise moduleInfo={res[0]} />);
+                setType(<FinalExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
                 // setType(<CodingExercise moduleInfo={res[0]} />);
             } else {
                 console.log("OTher");
@@ -210,13 +210,13 @@ const Module = (props) => {
                             <Link to='/endScreen' classes={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Finish</Button>
                             </Link>
-                            : <div></div> 
+                            : <></> 
                         }
                         {nextButton && !lastQuestion ?
                             <Link to={nextPage} classes={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
                             </Link>
-                            : <div></div> 
+                            : <></> 
                         }
                         
                     </div>
