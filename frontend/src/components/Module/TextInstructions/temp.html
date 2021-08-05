@@ -1,0 +1,129 @@
+<!-- QUESTION 6 -->
+<div>
+ <p> HTML document is composed of a tree of simple HTML elements, which is a component that add semantics and formatting to parts of document. </p> 
+ <p> In HTML, when you are trying to create an element, you use tags which are used in order to declare what is happening to the computer. </p> 
+ <p>All the tags start off with a <span class="textCode"> &#60; </span> symbol and end with a greater <span class="textCode"> &gt; </span> symbol and have name of the element in the middle. </p> 
+ <p> Most of HTML elements need both a opening tag and closing tag which can be differentiated by using a <span class="textCode"> &#47; </span> in the closing tag. </p>
+ <p>For example, in this paragraph tag you can see that there is an opening tag and a closing tag and the text is placed in the centre of it. </p> 
+ <p> <span class="textCode"> &lt;p&gt; Hey &lt;/p&gt; </span> </p>
+ <p> HTML Tags are often nested within each other in order to separate different parts of the html document into separate section. </p> 
+ <p> By looking at this example you can see that, you need to place the inside element after the start of the first tag and before the end of the tag.</p>
+ <div class="textCodeBlock"> <p>&lt;div&gt; </p> <p> &nbsp;&lt;p&gt; Hey &lt;/p&gt; </p>  <p>&lt;/div&gt;</p></div> <br/> 
+ <p>Think of the nesting like a tree, so the outside tag which is the is <span class="textCode"> &lt;div&gt; </span> is called the parent tag and the elements inside it Eg: The <span class="textCode"> &lt;p&gt; </span> tag)are the child tag. </p>
+</div>
+
+<!-- QUESTION 10 -->
+<div>
+    <p>Every HTML page follows this basic structure to create a webpage: </p> 
+    <div class="textCodeBlock"> &lt;!DOCTYPE HTML&gt;<br/> &lt;html&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;head&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Introduction&lt;/title&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/head&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;body&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/body&gt;<br/>&lt;/html&gt;<br/></div><br/> 
+    <p> To start, the HTML file <span class="textCode"> &lt;!DOCTYPE HTML&gt; </span> tag is used. It is a declaration tag that lets the web browser know what type of document it is going to process.</p> 
+    <p> The next tag is the <span class="textCode"> &lt;html&gt; </span>  tag. This is the main tag as it contains everything related to the HTML document that will be read by the web browser. The whole HTML document is nested within the tag </p> 
+    <p> As you can see, the HTML page is mainly divided into two sections: the head and the body. </p> 
+    <p> The HTML <span class="textCode"> &lt;head&gt; </span> tag contains the information about the web page such as the title of the website, style sheets and JavaScript code. Nothing that is placed in the head tag will be rendered on the actual website, but it acts as a background for elements that will be rendered.</p> 
+    <p> The <span class="textCode"> &lt;title&gt; </span> tag is used for the title of the website that shows up on the top of the website </p> 
+    <p> The <span class="textCode"> &lt;body&gt; </span> tag is where the actual content of the HTML page is placed. Everything that is added to the tag will be rendered onto the screen. The order in which elements are added onto the HTML page are the way in which they appear on the website. </p>
+    <p> So by following this overall structure we are fully able to build an HTML page. </p>
+</div>
+
+<!-- QUESTION 13 -->
+<div> 
+    <p> Headings are the title that you put on an HTML page in order to break up sections on a page. </p> 
+    <p> A Heading Element as both an opening and a closing tag and the text in placed inside the tags. For example: </p>
+    <p> <span class="textCode"> &lt;h1&gt; Introduction &lt;/h1&gt; </span> </p>
+    <p> There are six Heading Elements in HTML which all have a different size and a different level of hierarchy on the page ranging from <span class="textCode" > &lt;h1&gt; </span> to <span class="textCode"> &lt;h6&gt; </span> .</p> 
+    <p> The biggest size is the <span class="textCode"> &lt;h1&gt;</span>  tag and the smallest in size in the <span class="textCode"> &lt;h6&gt; </span>  tag. </p>
+    <p> The heading tag that you choose depends on how big and where you want the Headings to appear on the page. </p> 
+    <p> If you are creating the page title you might use <span class="textCode"> &lt;h1&gt; </span>  but if you are writing a subsection on the page after the heading, you can use any of the smaller tags.
+</div>          
+
+<!-- QUESTION 16 -->
+<div>
+    <p> For paragraphs, there is only 1 type of tag known as the  <span class="textCode"> &lt;p&gt; </span> tag. </p> 
+    <p> It is used for writing paragraphs </p> 
+    <p> It has an opening and a closing tag and you can enter as much text as you want within the two tags. The text in the middle is what renders on the website. For example: </p> 
+    <p> <span class="textCode"> &lt;p&gt; This is a paragraph &lt;/p&gt; </span> </p>
+    <p> All the text that is placed inside a paragraph tag is rendered on one line. </p> 
+    <p> If the user wants to add the text on a new line they will have to use a separate <span class="textCode"> &lt;p&gt; </span> tag for the text. Using the separate tags allows for automatic space between the two paragraphs. </p>
+</div>
+
+<!-- QUESTION 18 -->
+<div>
+    <p> The lists tag is used to create lists on an HTML page. </p> 
+    <p> There are two main types of list on HTML, the <b>unordered list</b> and the <b>ordered list</b>. </p> 
+    <p> Each item within a list is defined with an <span class="textCode"> &lt;li&gt; </span> tag where the text is placed inside the opening and the closing tag. </p>
+    <p> Every item in the list is rendered according to the order in which they are placed in the inside the list. </p> 
+    <h4> Unordered list </h4> 
+    <p> An unordered list is defined using a <span class="textCode"> &lt;ul&gt; </span> tag. </p> 
+    <p> For a list of fruits, an unordered list uses the following code: </p> 
+    <div class="textCodeBlock"> &lt;ul&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Apple&lt;/li&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Banana&lt;/li&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Mango&lt;/li&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Pear&lt;/li&gt;<br/> &lt;/ul&gt;<br/> </div><br/> 
+    <p> The <span class="textCode"> &lt;ul&gt; </span> tag acts as a parent tag and each list item is nested within the tag. </p> 
+    <p> When the list is rendered, each item in the list comes up as a bullet point. </p> 
+    <h4> Ordered list </h4> 
+    <p> An ordered list is defined using a <span class="textCode"> &lt;ol&gt;</span> tag. </p> 
+    <p> For a list of numbers, an ordered list uses the following code: </p> 
+    <div class="textCodeBlock"> &lt;ol&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;One&lt;/li&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Two&lt;/li&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Three&lt;/li&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;Four&lt;/li&gt;<br/> &lt;/ol&gt;<br/></div><br/> 
+    <p> Similar to the unordered list, the <span class="textCode"> &lt;ol&gt; </span> tag acts as a parent tag and each list item is nested within the tag. </p>
+    <p> When the list is rendered, each item in the list shows with a number instead of a bullet point. </p>
+</div>
+
+<!-- QUESTION 20 -->
+<div> 
+    <p> HTML also has some inbuilt elements that can be used in order to style an HTML text element such as paragraphs, headings and list items. </p> 
+    <p> These tags are usually nested inside the outer text element are used to emphasise a particular part of the text. </p> 
+    <p> There are multiple types of text styling tags. Here are a few of the most common examples. </p> 
+    <h4> Bold </h4> 
+    <p> Used to <b>bold the text</b>. Uses a <span class="textCode"> &lt;b&gt; </span> tag </p> 
+    <p> For Example: </p> 
+    <span class="textCode"> &lt;p&gt; This text is &lt;b&gt; bold &lt;/b&gt; &lt;/p&gt; </span> </p> 
+    <p> As shown in the above example, the <span class="textCode"> &lt;b&gt; </span> tag  is nested within the paragraph tag. In the text, only the ‘bold’ part of the text gets emphasised. </p> 
+    <h4> Italics </h4> 
+    <p> Used to <i>italicise the text</i>. Uses a <span class="textCode"> &lt;i&gt; </span> tag </p> 
+    <p> For Example: </p> 
+    <span class="textCode"> &lt;p&gt; This text is &lt;i&gt; italicised &lt;/i&gt; &lt;/p&gt; </span> </p> 
+    <p> As shown in the above example, the <span class="textCode"> &lt;i&gt; </span> tag is nested within the paragraph tag. In the text, only the ‘italicised’ part of the text gets italicised. </p> 
+    <h4> Underline </h4> 
+    <p> Used to <u>underline the text</u>. Uses a <span class="textCode"> &lt;u&gt; </span> tag </p>
+    <p> For Example: </p> 
+    <span class="textCode">&lt;p&gt; This text is &lt;u&gt; underlined &lt;/u&gt; &lt;/p&gt; </span> </p> 
+    <p> As shown in the above example, the <span class="textCode"> &lt;u&gt; </span> tag  is nested within the paragraph tag. In the text, only the ‘underlined’ part of the text gets underlined. </p>
+</div>
+
+<!-- QUESTION 22 -->
+<div>
+    <p> The <span class="textCode"> &lt;div&gt; </span> tag is one of the most popular HTML elements. </p> 
+    <p> It is a division or container elements that helps us separate the html page into different sections. They allow us to group specific html elements together. </p> 
+    <p> Each <span class="textCode"> &lt;div&gt; </span> can contain numerous amount of elments within it. </p> 
+    <p> Divs themselves do not have some specific visual design but we are able to customise them. When some style is applied to a div, also gets applied to the HTML elements that are nested within that div tag. </p> 
+    <p> For example: </p> 
+    <div class="textCodeBlock"> &lt;div&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Section 1&lt;/h2&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is the first section&lt;/p&gt;<br/> &lt;/div&gt;<br/> <br/> &lt;div&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Section 2&lt;/h2&gt;<br/> &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is the second section&lt;/p&gt;<br/> &lt;/div&gt;<br/> </div> 
+    <p> By looking at the above examples, the different sections are split into two separate containers by using the div tag and nesting the elements within it. </p>
+</div>
+
+<!-- QUESTION 24 -->
+<div>
+    <p> For each HTML element, additional features can be added to it by using an attribute. </p> 
+    <p> An attribute is content that is added to the opening tag of an HTML element and can be used in multiple ways such as styling an element or giving an element a unique value. </p> 
+    <p> In order to define an HTML attribute, it has two properties, the name and the value. Each attribute is defined as <span class="textCode"> name=‘value’</span></p> 
+    <p> In HTML code an attribute looks like this: </p> 
+    <p> <span class="textCode"> &lt;div id=‘numbers’&gt; </span></p> 
+    <p> In this case, the name of the attribute is ID and the value of the attribute is numbers.</p> 
+    <p> The id attribute that is shown in this example is one of the most common attributes that is used. It is used to uniquely identify a specific element on the page.</p> 
+    <p> Some attributes can work on all elements. These are known as the <b> global attributes </b>. For Example: Id, Class, Title.</p> 
+    <p> But there are also some specific attributes that only exist for some of the HTML elements. For Example: The datetime attribute can only be used inside the datetime element </p> 
+</div>
+
+<!-- QUESTION 26 -->
+<div>
+    <p> Images can also be added onto an HTML file in order to showcase something or enhance the design of the page. </p> 
+    <p> These images are added using an <span class="textCode"> &lt;img&gt; </span> tag. </p> 
+    <p> This element do not usually have a closing tag so they are written in <span class="textCode"> &lt;img /&gt; </span> format with the attributes inside the tag. This is referred to as a <b>self-closing tag</b>.</p> 
+    <p> The code for an image tag looks like this: </p> 
+    <p class="textCode"> &lt;img src=‘../images/photo.png’ width=‘300px’ height=‘200px’/&gt;</p>  
+    <p> Each image must contain a <b>src</b> attribute which is the link to the image. The image that you use can be of any image format such as GIF, JPEG or PNG. </p> 
+    <p> The size of the image can also be specified by using a width and height attribute. </p>
+</div>
+
+
+
+
+

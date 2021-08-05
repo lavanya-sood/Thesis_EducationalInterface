@@ -14,9 +14,9 @@ const TextInstructions = (textDescription) => {
     console.log(textDescription);
 
     return (
-        <div className={classes.textInstructions}>
+        <div className={classes.textInstructions} dangerouslySetInnerHTML={{__html: val}}>
             {/* <Typography paragraph> */}
-                <Markup content={val} allowAttributes /> 
+                {/* <Markup content={val} allowAttributes />  */}
                 {/* {val} */}
             {/* </Typography> */}
             {/* <p>{Parser(val)}</p> */}

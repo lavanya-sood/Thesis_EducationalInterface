@@ -93,13 +93,14 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
     const stripString = (codeString) => {
         let stripedString = codeString;
-        stripedString = stripedString.replace(/\n/g, '');
-        stripedString = stripedString.replace(/\t/g, '');
-        stripedString = stripedString.replace(/\r/g, '');
-        stripedString = stripedString.replace(/\s/g, '');
+        //stripedString = stripedString.replace(/\n/g, '');
+        //stripedString = stripedString.replace(/\t/g, '');
+        //stripedString = stripedString.replace(/\r/g, '');
+        //stripedString = stripedString.replace(/\s/g, '');
         stripedString = stripedString.replace(/"/g, '\'');
-        stripedString = stripedString.replace(/ /g, '');
-        stripedString = stripedString.toLowerCase();
+        //stripedString = stripedString.replace(/ /g, '');
+        stripedString = stripedString.replace(/[\s\n\t\r]/g, '');
+        //stripedString = stripedString.toLowerCase();
         return stripedString;
     }
 

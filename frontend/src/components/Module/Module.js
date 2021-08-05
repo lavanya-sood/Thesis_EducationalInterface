@@ -206,18 +206,19 @@ const Module = (props) => {
                             </Link>
                             : <div></div> 
                         }
+                        {lastQuestion && nextButton && !firstQuestion?
+                            <Link to='/endScreen' classes={classes.linkButton}>
+                                <Button variant="contained" color="primary" className={classes.progressButton}>Finish</Button>
+                            </Link>
+                            : <div></div> 
+                        }
                         {nextButton && !lastQuestion ?
                             <Link to={nextPage} classes={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
                             </Link>
                             : <div></div> 
                         }
-                        {lastQuestion && nextButton?
-                            <Link to='/endScreen' classes={classes.linkButton}>
-                                <Button variant="contained" color="primary" className={classes.progressButton}>Finish</Button>
-                            </Link>
-                            : <div></div> 
-                        }
+                        
                     </div>
                     {moduleType}
                 </main>

@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
         alignItems: 'center',
         width: '80%',
         marginLeft: '10%',
+        textAlign: 'center',
     },
     textColor: {
         backgroundColor: '#d7ecf7',

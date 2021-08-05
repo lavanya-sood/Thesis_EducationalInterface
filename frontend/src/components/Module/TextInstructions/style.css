@@ -1,7 +1,18 @@
-.hey {
+.textCode {
     background-Color: #d7ecf7;
     padding-Left: 2px;
     padding-Right: 2px;
     border-Radius: 5px;
     border: 1px solid #b0e4ff;
+}
+
+.textCodeBlock {
+    background-Color: #d7ecf7;
+    padding-Left: 2px;
+    padding-Right: 2px;
+    border-Radius: 5px;
+    border: 1px solid #b0e4ff;
+    text-align: left;
+    width: 30%;
+    margin-left: 35%;
 }
