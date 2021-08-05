@@ -27,7 +27,11 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
     const [seconds, setSeconds] = React.useState(0);
     const [isActive, setIsActive] = React.useState(false);
+
+    const [failed, setFailed] = React.useState(false);
     const countRef = React.useRef(null);
+
+    const [attempts, setAttempts] = React.useState(1);
 
     const handleOpen = () => {
         setOpen(true);
@@ -70,7 +74,11 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         //starterCode = starterCode.replace("\\r\\n", "\r\n");
         setHtml(starterCode);
 
-        setAnswer(moduleInfo.correctAnswer);
+        let answerCode = moduleInfo.correctAnswer;
+        answerCode = answerCode.replace(/\\n/g, '\n');
+        answerCode = answerCode.replace(/\\t/g, '\t');
+        answerCode = answerCode.replace(/\\r/g, '\r');
+        setAnswer(answerCode);
 
         countRef.current = setInterval(() => {
             setSeconds((seconds) => seconds + 1)
@@ -137,8 +145,28 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             setError(true);
             setSuccess(false);
             setStatus("There is an error in your code");
+            setAttempts(attempts + 1);
         }
     }
+
+    const giveUpFunction =  () => {
+        console.log("giveUp");
+
+        clearInterval(countRef.current);
+        //setHtml(correctAnswer);
+        clearInterval(countRef.current);
+        setFailed(true);
+        allowNext();
+
+        setHtml(correctAnswer);
+
+        setSrcDoc(`
+           <html>
+            <body>${correctAnswer}</body>
+           </html>
+        `);
+        
+    };
     
 
     return (
@@ -179,7 +207,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             {success ? <Alert severity='success'>{answerStatus}</Alert> : <></> }
             <div className={classes.codingWindows}>
                 <div className={classes.buttonGroup}>
-                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button>
+                    {attempts > 4 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={giveUpFunction}> Give up? </Button> : <></>}
+                    {attempts > 1 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button> : <></>}
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
                 </div>

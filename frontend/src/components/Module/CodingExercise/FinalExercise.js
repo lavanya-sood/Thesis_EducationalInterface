@@ -54,14 +54,21 @@ const FinalExercise = (moduleInfo) => {
 
         console.log("THIS MODULE");
 
-        if (moduleInfo.moduleInfo.questionNumber === 27) {
-            const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.hint;
-            const imageV = <img src={imgsrc} alt="coding" width="100%"/>;
-            setHint("imageV");
-            setImg(imageV);
-        } else {
-            setHint(moduleInfo.moduleInfo.hint);
-        }
+        // if (moduleInfo.moduleInfo.questionNumber === 27) {
+        //     const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.hint;
+        //     const imageV = <img src={imgsrc} alt="coding" width="100%"/>;
+        //     setHint("imageV");
+        //     setImg(imageV);
+        // } else {
+        //     setHint(moduleInfo.moduleInfo.hint);
+        // }
+
+        console.log(moduleInfo.moduleInfo.imgSrc);
+        const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.imgSrc;
+        const imageV = <img src={imgsrc} alt="coding" width="100%"/>;
+        setHint(moduleInfo.moduleInfo.hint);
+        setImg(imageV);
+ 
         setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
         let starterCode = moduleInfo.moduleInfo.starterCode;
         starterCode = starterCode.replace(/\\n/g, '\n');
