@@ -1,25 +1,43 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
-//import postRoutes from './routes/posts.js';
-import moduleRoutes from './routes/module.js';
-
-const app = express();
+//require('dotenv').config();
+const express= require('express')
+const app =express()
+const routes = require('./routes')
+const { MongoClient } = require('mongodb');
 
 
 
-app.use(bodyParser.json({limit:"30mb", extended: true}));
-app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
-app.use(cors());
+// set up the app 
+app.use(express.json());
+app.use((req, res, next) => {
+		// ensure cors access 
+		// allows calls from frontend
+  	res.header('Access-Control-Allow-Origin', '*');
+  	res.header('Access-Control-Allow-Headers', '*');
+  	next();
+});
 
-app.use('/module',moduleRoutes);
+//app.use('/module',moduleRoutes);
 
 const CONNECTION_URL =  'mongodb+srv://thesisoriginal:thesispassword123@cluster0.qgqkr.mongodb.net/Module?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(CONNECTION_URL,{useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=> app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`)))
-    .catch((error)=> error.message);
+// mongoose.connect(CONNECTION_URL,{useNewUrlParser: true, useUnifiedTopology: true})
+//     .then(()=> app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`)))
+//     .catch((error)=> error.message);
 
-mongoose.set('useFindAndModify',false);
+// mongoose.set('useFindAndModify',false);
+
+const client = new MongoClient(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+// connect the db
+client.connect(async err => {
+		// get one db collection (may move to routes.js so that multiple collections can be opened)
+	  const db = client.db("Module");
+	  
+	  // call the routes function to handle api calls and communicate with blockchain and the db
+	  routes(app, db)
+	  
+      // listen for calls to the app
+	  app.listen(PORT, () => {
+	     console.log('listening on port '+ PORT);
+	  })
+});

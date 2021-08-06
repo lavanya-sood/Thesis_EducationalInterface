@@ -78,6 +78,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         answerCode = answerCode.replace(/\\n/g, '\n');
         answerCode = answerCode.replace(/\\t/g, '\t');
         answerCode = answerCode.replace(/\\r/g, '\r');
+        //answerCode = answerCode.replace(/'/g, '\'');
+        
         setAnswer(answerCode);
 
         countRef.current = setInterval(() => {
@@ -112,6 +114,21 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         return stripedString;
     }
 
+    const markPageViewed = () => {
+        let pages = [];
+        if (JSON.parse(localStorage.getItem("pages")) != null) {
+            pages = JSON.parse(localStorage.getItem("pages"))
+            console.log(pages);
+        } 
+    
+        if (!pages.includes(questionNumber)) {
+            pages.push(questionNumber);
+            //console.log(moduleInfo.questionNumber);
+        }
+        localStorage.setItem("pages", JSON.stringify(pages));
+
+    }
+
     const checkCode = () => {
         console.log(html);
         const newAnswer = stripString(html);
@@ -126,19 +143,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             setSuccess(true);
             setStatus("You got it correct");
             allowNext();
-
-            let pages = [];
-            if (JSON.parse(localStorage.getItem("pages")) != null) {
-              pages = JSON.parse(localStorage.getItem("pages"))
-              console.log(pages);
-            } 
-      
-            if (!pages.includes(questionNumber)) {
-              pages.push(questionNumber);
-              //console.log(moduleInfo.questionNumber);
-            }
-            localStorage.setItem("pages", JSON.stringify(pages));
-
+            markPageViewed();
+            
             clearInterval(countRef.current);
 
         } else  {
@@ -157,7 +163,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         clearInterval(countRef.current);
         setFailed(true);
         allowNext();
-
+        markPageViewed();
         setHtml(correctAnswer);
 
         setSrcDoc(`

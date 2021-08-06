@@ -61,7 +61,7 @@ const Module = (props) => {
 
     async function getCurrentModule() {
 
-        const url = `http://127.0.0.1:5000/module/${currentModule}`;
+        const url = `http://127.0.0.1:5000/module/?questionNumber=${currentModule}`;
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
