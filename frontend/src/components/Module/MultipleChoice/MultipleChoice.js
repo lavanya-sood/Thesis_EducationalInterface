@@ -51,7 +51,48 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
 
     const handleRadioChange = (event) => {
         setValue(event.target.value);
-      };
+    };
+
+    async function addAnswer() {
+        
+        const data = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify( {
+              userId: localStorage.getItem('userId'),
+              questionNumber: questionNumber,
+              timeSpent: seconds,
+              attemptCount: attempts,
+              attempt: value,
+              gaveUp: 0,
+            } )
+        };
+
+        console.log(data);
+        
+        const url = 'http://127.0.0.1:5000/answers';
+        let res = await fetch(url, data);
+        res = await res.json();
+        console.log(res);
+
+        // const mod = [];
+        // const pages = JSON.parse(localStorage.getItem("pages"));
+        // console.log(pages);
+        // res.forEach(m => {
+        //     let val = {
+        //         title:m.pageTitle, 
+        //         viewed:false,
+        //         id:m.questionNumber
+        //     };
+        //     if (pages != null && pages.includes(m.questionNumber)) {
+        //         console.log("In here");
+        //         val.viewed = true;
+        //     }
+        //     mod.push(val);
+        // });
+        //setTitles(mod);
+        //return res;
+    }
 
     const checkAnswer = (e) => {
         e.preventDefault();
@@ -75,6 +116,8 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             localStorage.setItem("pages", JSON.stringify(pages));
 
             clearInterval(countRef.current);
+
+            addAnswer();
 
         } else {
             setError(true);
