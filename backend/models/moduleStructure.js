@@ -1,15 +1,12 @@
 import mongoose from "mongoose";
 
+// the basic schema that is followed by the modules
+// depending on the questionType the other fields may differ
 const moduleSchema = mongoose.Schema({
     questionNumber: Number,
     questionType: String,
     pageTitle: String,
-    //videoLocation: String,
     textDescription: String,
-    //answerOptions: String,
-    //correctAnswer: String,
-    //starterCode: String,
-    //hint: String,
 });
 
 const modulequestions = mongoose.model('modulequestions',moduleSchema);

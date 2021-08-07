@@ -3,15 +3,21 @@ import { Paper ,Typography, Button,Grid, TextField} from '@material-ui/core';
 import useStyles from './styles.js';
 import { useHistory } from "react-router-dom";
 
+// first page the user sees
 const Landing = () => {
     const classes = useStyles();
 
     const history = useHistory();
 
+    // changes the route
     const routeChange = () =>{ 
+        
+        // stores the userId in the local storage
         const user = document.getElementById("userId").value;
         localStorage.setItem('userId', user);
         console.log(user);
+        
+        // sets the path to the first module
         let path = `module/1`; 
         history.push(path);
     }
