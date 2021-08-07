@@ -78,5 +78,10 @@ export default makeStyles((theme) => ({
       navCurrent: {
         textDecoration: 'underline',
         color: '#22658A',
+      },
+      linkJump: {
+        color: '#22658A',
+        textDecoration: 'underline',
+        fontWeight: 'bold'
       }
 }));
