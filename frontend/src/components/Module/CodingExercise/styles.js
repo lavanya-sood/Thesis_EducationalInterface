@@ -97,5 +97,8 @@ export default makeStyles((theme) => ({
     timeText: {
         marginTop: '10px',
         color: '#a6a6a6',
+    },
+    paragraph: {
+        textAlign: "center",
     }
 }));

@@ -34,6 +34,9 @@ const Module = (props) => {
 
     const [nextButton, setNextButton] = React.useState(false);
 
+    const [jump, setJump] = React.useState(false);
+    const [jumpValue, setJumpValue] = React.useState(0);
+
 
 
     React.useEffect(()=> {
@@ -52,6 +55,28 @@ const Module = (props) => {
         const nextLink = `/module/${next}`;
         console.log(nextLink);
         setNext(nextLink);
+
+        let pages = [];
+        if (JSON.parse(localStorage.getItem("pages")) != null) {
+            pages = JSON.parse(localStorage.getItem("pages"))
+            console.log(pages);
+        } 
+
+        console.log(currentModule);
+        console.log(pages.includes(parseInt(currentModule)));
+        if (pages.includes(parseInt(currentModule))) {
+            setNextButton(true);
+        }
+
+        if (localStorage.getItem("currentExercise") != null && parseInt(currentModule) != parseInt(localStorage.getItem("currentExercise")) ) {
+      
+            if (!pages.includes(parseInt(localStorage.getItem("currentExercise")))) {
+                setJump(true);
+                setJumpValue(localStorage.getItem("currentExercise"));
+            }      
+        }
+
+        
         
     },[currentModule]);
 
@@ -71,7 +96,7 @@ const Module = (props) => {
             setNextButton(true);
             setType(<Instructions moduleInfo={res[0]} />);
         } else if (res[0].questionType === 'coding'){
-            if (res[0].questionNumber === 27) {
+            if (res[0].questionNumber === 25) {
                 console.log("Sup");
                 setType(<FinalExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
                 // setType(<CodingExercise moduleInfo={res[0]} />);
@@ -86,7 +111,7 @@ const Module = (props) => {
         if (res[0].questionNumber === 1) {
             setFirstQuestion(true);
             setLastQuestion(false);
-        } else if (res[0].questionNumber === 27) {
+        } else if (res[0].questionNumber === 25) {
             setFirstQuestion(false);
             setLastQuestion(true);
         } else {
@@ -201,19 +226,29 @@ const Module = (props) => {
                 <main className={classes.content}>
                     <div className={classes.buttonGroup}>
                         {!firstQuestion ? 
-                            <Link to={prevPage} classes={classes.linkButton}>
+                            <Link to={prevPage} className={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
                             </Link>
                             : <div></div> 
                         }
+                        {jump ? 
+                            <Link to={`/module/${jumpValue}`}>
+                                <Typography paragraph className={classes.linkJump}>Jump Back to the Latest Question </Typography>
+                            </Link>
+                            : <></> 
+                        }
+                        {jump &&  !nextButton ? 
+                            <div> </div>
+                            : <></> 
+                        }
                         {lastQuestion && nextButton && !firstQuestion?
-                            <Link to='/endScreen' classes={classes.linkButton}>
+                            <Link to='/endScreen' className={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Finish</Button>
                             </Link>
                             : <></> 
                         }
                         {nextButton && !lastQuestion ?
-                            <Link to={nextPage} classes={classes.linkButton}>
+                            <Link to={nextPage} className={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Next</Button>
                             </Link>
                             : <></> 

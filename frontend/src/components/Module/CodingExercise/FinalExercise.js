@@ -34,6 +34,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
     const countRef = React.useRef(null);
 
     const [attempts, setAttempts] = React.useState(1);
+    const [doneQuestion, setDone] = React.useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -82,15 +83,36 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         starterCode = starterCode.replace(/\\n/g, '\n');
         starterCode = starterCode.replace(/\\t/g, '\t');
         starterCode = starterCode.replace(/\\r/g, '\r');
-        //starterCode = starterCode.replace("\r\n\t", "\r\n\t");
-        //starterCode = starterCode.replace("\\r\\n", "\r\n");
-        setHtml(starterCode);
 
         setAnswer(moduleInfo.correctAnswer);
 
         countRef.current = setInterval(() => {
             setSeconds((seconds) => seconds + 1)
         }, 1000);
+
+        console.log(parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber));
+        if (localStorage.getItem("currentCode") != null && localStorage.getItem('currentTime') != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
+            setHtml(localStorage.getItem("currentCode"));
+            setSeconds(parseInt(localStorage.getItem('currentTime')));
+        } else {
+            setHtml(starterCode);
+        }
+
+        let pages = [];
+        if (JSON.parse(localStorage.getItem("pages")) != null) {
+            pages = JSON.parse(localStorage.getItem("pages"))
+            console.log(pages);
+        } 
+
+        console.log("ASAAAAAAAAAAA");
+    
+        if (!pages.includes(parseInt(moduleInfo.questionNumber))) {
+            localStorage.setItem('currentExercise',moduleInfo.questionNumber);
+        } else  {
+            console.log("hER <<----");
+            setDone(true);
+            clearInterval(countRef.current);
+        }
 
 
     },[moduleInfo]);
@@ -110,12 +132,37 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
     // }, [html])
     
     const runCode = () => {
+        localStorage.setItem('currentCode',html);
+        localStorage.setItem('currentTime',seconds);
         setSrcDoc(`
            <html>
             <body>${html}</body>
            </html>
         `);
     };
+
+    async function addAnswer(gaveUp) {
+        
+        const data = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify( {
+              userId: localStorage.getItem('userId'),
+              questionNumber: questionNumber,
+              timeSpent: seconds,
+              attemptCount: attempts,
+              attempt: html,
+              gaveUp: gaveUp,
+            } )
+        };
+
+        console.log(data);
+        
+        const url = 'http://127.0.0.1:5000/answers';
+        let res = await fetch(url, data);
+        res = await res.json();
+        console.log(res);
+    }
 
     const stripString = (codeString) => {
         let stripedString = codeString;
@@ -143,6 +190,9 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
             setSuccess(true);
             setStatus("You got it correct");
             clearInterval(countRef.current);
+            localStorage.removeItem("currentCode");
+            localStorage.removeItem('currentTime');
+            localStorage.removeItem("currentExercise");
             allowNext();
         } else  {
             setError(true);
@@ -150,6 +200,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
             setStatus("There is an error in your code");
             setAttempts(attempts + 1);
         }
+        addAnswer(0);
     }
 
     const giveUpFunction =  () => {
@@ -162,6 +213,10 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         allowNext();
 
         setHtml(correctAnswer);
+        localStorage.removeItem("currentCode");
+        localStorage.removeItem('currentTime');
+        localStorage.removeItem("currentExercise");
+        addAnswer(1);
 
         setSrcDoc(`
            <html>
@@ -201,9 +256,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
             <br/>
             {/* <p> {val} </p> */}
             {/* <Markup content={val} /> */}
-            <Typography paragraph>
-                {question}
-            </Typography>
+            <Typography className={classes.paragraph} paragraph dangerouslySetInnerHTML={{__html: question}} /> 
             {/* <Typography variant="h5"> {answerStatus} </Typography> */}
             {error ? <Alert severity='error'>{answerStatus}</Alert> : <></> }
             {success ? <Alert severity='success'>{answerStatus}</Alert> : <></> }
