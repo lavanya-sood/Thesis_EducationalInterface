@@ -20,20 +20,23 @@ const Module = (props) => {
 
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState(null);
-
-
+    
+    // number of the module
     const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
-
+    
+    // the link for the previous and next page.
     const [prevPage,setPrev] = React.useState("");
     const [nextPage,setNext] = React.useState("");
-
+    
+    // information about the module
     const [moduleInfo, setModuleInfo] = React.useState("");
-
+    
+    //check the module status
     const [firstQuestion, setFirstQuestion] = React.useState(false);
     const [lastQuestion, setLastQuestion] = React.useState(false);
-
     const [nextButton, setNextButton] = React.useState(false);
-
+    
+    // allow jump to latest question
     const [jump, setJump] = React.useState(false);
     const [jumpValue, setJumpValue] = React.useState(0);
 
@@ -45,17 +48,19 @@ const Module = (props) => {
         getAllModules();
         getCurrentModule();
 
+        // set the previous link
         const prev = parseInt(currentModule) - 1;
         const prevLink = `/module/${prev}`;
         console.log(prevLink);
         setPrev(prevLink);
     
-
+        // set the next link
         const next = parseInt(currentModule) + 1;
         const nextLink = `/module/${next}`;
         console.log(nextLink);
         setNext(nextLink);
 
+        // get the list of pages that the user has already completed
         let pages = [];
         if (JSON.parse(localStorage.getItem("pages")) != null) {
             pages = JSON.parse(localStorage.getItem("pages"))
@@ -64,13 +69,17 @@ const Module = (props) => {
 
         console.log(currentModule);
         console.log(pages.includes(parseInt(currentModule)));
+
+        // if the page was already completed 
         if (pages.includes(parseInt(currentModule))) {
             setNextButton(true);
         }
 
+        // if there is an exercise that is active
         if (localStorage.getItem("currentExercise") != null && parseInt(currentModule) != parseInt(localStorage.getItem("currentExercise")) ) {
       
             if (!pages.includes(parseInt(localStorage.getItem("currentExercise")))) {
+                // allow user to jump to that exercise
                 setJump(true);
                 setJumpValue(localStorage.getItem("currentExercise"));
             }      
@@ -84,36 +93,49 @@ const Module = (props) => {
         setNextButton(true);
     }
 
+    // get the information about the current module
     async function getCurrentModule() {
 
+        // get information from backend
         const url = `http://127.0.0.1:5000/module/${currentModule}`;
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
         setModuleInfo(res[0]);
 
+        // if the module is instructions
         if (res[0].questionType === 'instructions'){
             setNextButton(true);
             setType(<Instructions moduleInfo={res[0]} />);
+        
+        // if the module is a coding exercise
         } else if (res[0].questionType === 'coding'){
+            
+            // if it's the final question
             if (res[0].questionNumber === 25) {
                 console.log("Sup");
                 setType(<FinalExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
-                // setType(<CodingExercise moduleInfo={res[0]} />);
+            
+            // otherwise render the normal coding compoenent
             } else {
                 console.log("OTher");
                 setType(<CodingExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
-            }            
+            } 
+        
+        // if the question is a multiple chocie question 
         } else if (res[0].questionType === 'multipleChoice'){
             setType(<MultipleChoice moduleInfo={res[0]} allowNext={handleNextButton} />);
         }
 
+        // if it's the first question
         if (res[0].questionNumber === 1) {
             setFirstQuestion(true);
             setLastQuestion(false);
+        // if it's the last question
         } else if (res[0].questionNumber === 25) {
             setFirstQuestion(false);
             setLastQuestion(true);
+        // otherwise
         } else {
             setFirstQuestion(false);
             setLastQuestion(false);
@@ -123,13 +145,17 @@ const Module = (props) => {
     }
 
     
-
+    // get information about all the module
     async function getAllModules() {
+        
+        // request information from backend 
         const url = 'http://127.0.0.1:5000/module';
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
         const mod = [];
+
+        // get the information about the pages that the user has completed from local storage 
         const pages = JSON.parse(localStorage.getItem("pages"));
         console.log(pages);
         res.forEach(m => {
@@ -138,6 +164,7 @@ const Module = (props) => {
                 viewed:false,
                 id:m.questionNumber
             };
+            // if the page has already been completed by the user 
             if (pages != null && pages.includes(m.questionNumber)) {
                 console.log("In here");
                 val.viewed = true;
@@ -148,19 +175,11 @@ const Module = (props) => {
         return res;
     }
 
-    // const moduleNames = moduleTitles.map((m) => 
-    // {m.viewed  ? 
-    //     <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>
-    //     : 
-    //     <Link to={ '/module/' + m.id } key={m.id} className={classes.navLinks}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>
-    // });
-
-    //const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= {` ${ m.viewed ? classes.navLinks : classes.navLinksDisabled} ${ m.id === currentModule ? classes.navCurrent : ``}`}><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
-
+    // create the table of contents 
     const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.id === parseInt(currentModule) ? classes.navCurrent : m.viewed ? classes.navLinks : classes.navLinksDisabled }><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
     
-
+    // Open the table of contents 
     const [open, setOpen] = React.useState(true);
 
     const handleDrawerOpen = () => {

@@ -54,23 +54,11 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         textInfo = textInfo.replace(/\\n/g, '\n');
         textInfo = textInfo.replace(/\\t/g, '\t');
         textInfo = textInfo.replace(/\\r/g, '\r');
-        //starterCode = starterCode.replace("\r\n\t", "\r\n\t");
-        //starterCode = starterCode.replace("\\r\\n", "\r\n");
         setQuestion(textInfo);
 
-        //setQuestion(moduleInfo.moduleInfo.textDescription);
         setQuestionNumber(moduleInfo.questionNumber);
 
         console.log("THIS MODULE");
-
-        // if (moduleInfo.moduleInfo.questionNumber === 27) {
-        //     const imgsrc = "data:image/png;base64," + moduleInfo.moduleInfo.hint;
-        //     const imageV = <img src={imgsrc} alt="coding" width="100%"/>;
-        //     setHint("imageV");
-        //     setImg(imageV);
-        // } else {
-        //     setHint(moduleInfo.moduleInfo.hint);
-        // }
 
         console.log(moduleInfo.imgSrc);
         const imgsrc = "data:image/png;base64," + moduleInfo.imgSrc;
@@ -91,11 +79,15 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         }, 1000);
 
         console.log(parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber));
-        if (localStorage.getItem("currentCode") != null && localStorage.getItem('currentTime') != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
+        if (localStorage.getItem("currentCode") != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
             setHtml(localStorage.getItem("currentCode"));
-            setSeconds(parseInt(localStorage.getItem('currentTime')));
+            
         } else {
             setHtml(starterCode);
+        }
+
+        if ( localStorage.getItem('currentTime') != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
+            setSeconds(parseInt(localStorage.getItem('currentTime')));
         }
 
         let pages = [];
@@ -117,23 +109,12 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
 
     },[moduleInfo]);
 
-    //const val = "Hey how are <b> you? </b><br/><h3>Sup</h3>";
-  
-    // React.useEffect(() => {
-    //   const timeout = setTimeout(() => {
-    //     setSrcDoc(`
-    //       <html>
-    //         <body>${html}</body>
-    //       </html>
-    //     `)
-    //   }, 250)
-  
-    //   return () => clearTimeout(timeout)
-    // }, [html])
     
     const runCode = () => {
-        localStorage.setItem('currentCode',html);
-        localStorage.setItem('currentTime',seconds);
+        if (!doneQuestion) {
+            localStorage.setItem('currentCode',html);
+            localStorage.setItem('currentTime',seconds);
+        }
         setSrcDoc(`
            <html>
             <body>${html}</body>
@@ -166,13 +147,9 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
 
     const stripString = (codeString) => {
         let stripedString = codeString;
-        stripedString = stripedString.replace(/\n/g, '');
-        stripedString = stripedString.replace(/\t/g, '');
-        stripedString = stripedString.replace(/\r/g, '');
-        stripedString = stripedString.replace(/\s/g, '');
         stripedString = stripedString.replace(/"/g, '\'');
-        stripedString = stripedString.replace(/ /g, '');
-        stripedString = stripedString.toLowerCase();
+        stripedString = stripedString.replace(/[\s\n\t\r]/g, '');
+        //stripedString = stripedString.toLowerCase();
         return stripedString;
     }
 
@@ -194,6 +171,24 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
             localStorage.removeItem('currentTime');
             localStorage.removeItem("currentExercise");
             allowNext();
+
+            let pages = [];
+            if (JSON.parse(localStorage.getItem("pages")) != null) {
+              pages = JSON.parse(localStorage.getItem("pages"))
+              console.log(pages);
+            } 
+      
+            if (!pages.includes(questionNumber)) {
+              pages.push(questionNumber);
+              //console.log(moduleInfo.questionNumber);
+            }
+            localStorage.setItem("pages", JSON.stringify(pages));
+
+            clearInterval(countRef.current);
+            localStorage.removeItem("currentCode");
+            localStorage.removeItem('currentTime');
+            localStorage.removeItem("currentExercise");
+
         } else  {
             setError(true);
             setSuccess(false);
@@ -264,8 +259,8 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
                 <div className={classes.buttonGroup}>
                     {attempts > 4 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={giveUpFunction}> Give up? </Button> : <></>}
                     {attempts > 1 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button> : <></>}
-                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                 </div>
                 <div className={classes.codesFinal}>
                     <div className={classes.ext1Final}>

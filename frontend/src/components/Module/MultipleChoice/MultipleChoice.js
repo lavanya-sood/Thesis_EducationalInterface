@@ -145,13 +145,9 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
                 <FormControl component="fieldset" className={classes.formControl}>
                     <FormLabel component="legend">{question}</FormLabel>
                     <RadioGroup aria-label="quiz" name="quiz" value={value} onChange={handleRadioChange}>
-                    {/* <FormControlLabel value="best" control={<Radio />} label="Answer A" />
-                    <FormControlLabel value="worst" control={<Radio />} label="Answer B" />
-                    <FormControlLabel value="worst3" control={<Radio />} label="Answer C" />
-                    <FormControlLabel value="worst4" control={<Radio />} label="Answer D" /> */}
                         {answerSelection}
                     </RadioGroup>
-                    {/* <FormHelperText>{answerStatus}</FormHelperText> */}
+
                     <br/>
                     <Button type="submit" variant="contained" color="secondary" className={classes.button}>
                     Check Answer

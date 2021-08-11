@@ -71,9 +71,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         starterCode = starterCode.replace(/\\n/g, '\n');
         starterCode = starterCode.replace(/\\t/g, '\t');
         starterCode = starterCode.replace(/\\r/g, '\r');
-        //starterCode = starterCode.replace("\r\n\t", "\r\n\t");
-        //starterCode = starterCode.replace("\\r\\n", "\r\n");
-        
+
 
         let answerCode = moduleInfo.correctAnswer;
         answerCode = answerCode.replace(/\\n/g, '\n');
@@ -88,9 +86,12 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         console.log(parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber));
         if (localStorage.getItem("currentCode") != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
             setHtml(localStorage.getItem("currentCode"));
-            setSeconds(parseInt(localStorage.getItem('currentTime')));
         } else {
             setHtml(starterCode);
+        }
+
+        if ( localStorage.getItem('currentTime') != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
+            setSeconds(parseInt(localStorage.getItem('currentTime')));
         }
 
         let pages = [];
@@ -111,11 +112,12 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         
     },[moduleInfo]);
 
- 
-    
+     
     const runCode = () => {
-        localStorage.setItem('currentCode',html);
-        localStorage.setItem('currentTime',seconds);
+        if (!doneQuestion) {
+            localStorage.setItem('currentCode',html);
+            localStorage.setItem('currentTime',seconds);
+        }
         setSrcDoc(`
            <html>
             <body>${html}</body>
@@ -126,12 +128,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
 
     const stripString = (codeString) => {
         let stripedString = codeString;
-        //stripedString = stripedString.replace(/\n/g, '');
-        //stripedString = stripedString.replace(/\t/g, '');
-        //stripedString = stripedString.replace(/\r/g, '');
-        //stripedString = stripedString.replace(/\s/g, '');
         stripedString = stripedString.replace(/"/g, '\'');
-        //stripedString = stripedString.replace(/ /g, '');
         stripedString = stripedString.replace(/[\s\n\t\r]/g, '');
         //stripedString = stripedString.toLowerCase();
         return stripedString;
@@ -161,6 +158,11 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
     }
 
     const checkCode = () => {
+        
+        if (doneQuestion) {
+            return;
+        }
+
         console.log(html);
         const newAnswer = stripString(html);
         console.log(newAnswer);
@@ -209,6 +211,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         setFailed(true);
         allowNext();
         addAnswer(1);
+        setDone(true);
 
         setHtml(correctAnswer);
         localStorage.removeItem("currentCode");
@@ -264,8 +267,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
                 <div className={classes.buttonGroup}>
                     {attempts > 4 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={giveUpFunction}> Give up? </Button> : <></>}
                     {attempts > 1 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button> : <></>}
-                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
+                    <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>
                 </div>
                 <div className={classes.codes}>
                     <div className={classes.ext1}>
