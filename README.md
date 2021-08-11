@@ -1,6 +1,6 @@
 # Thesis Educational Interface
 
-This is the thesis project that focuses on building a 
+The goal of this project is to develop a web-based STEM training program that can teach students a topic they are unfamiliar with by using Human-Computer Interaction design and technical knowledge.
 
 ## First time setup instructions
 
