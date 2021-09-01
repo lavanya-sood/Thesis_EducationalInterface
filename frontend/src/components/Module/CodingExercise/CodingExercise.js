@@ -265,7 +265,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             {success ? <Alert severity='success'>{answerStatus}</Alert> : <></> }
             <div className={classes.codingWindows}>
                 <div className={classes.buttonGroup}>
-                    {attempts > 4 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={giveUpFunction}> Give up? </Button> : <></>}
+                    {attempts > 2 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={giveUpFunction}> Give up? </Button> : <></>}
                     {attempts > 1 ? <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={handleOpen}> Hint </Button> : <></>}
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={runCode}> Run </Button>
                     <Button variant="contained" color="secondary" className={classes.codeButtons} onClick={checkCode}> Check </Button>

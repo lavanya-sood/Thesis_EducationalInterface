@@ -36,6 +36,12 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
 
         console.log(moduleInfo.answerOptions);
         const vals = moduleInfo.answerOptions.split(" || ");
+        
+        for (let i = vals.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [vals[i], vals[j]] = [vals[j], vals[i]];
+        }
+
         console.log(vals);
         setOptions(vals);
 
@@ -55,7 +61,6 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             console.log(pages);
         } 
 
-        console.log("ASAAAAAAAAAAA");
     
         if (!pages.includes(parseInt(moduleInfo.questionNumber))) {
             localStorage.setItem('currentExercise',moduleInfo.questionNumber);
