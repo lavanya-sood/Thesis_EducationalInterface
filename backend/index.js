@@ -23,6 +23,10 @@ app.use('/module',moduleRoutes);
 app.use('/answers',answerRoutes);
 app.use('/navigation',navRoutes);
 
+app.get('/',(req,res) => {
+    res.send('Hello to the module API');
+});
+
 // setup the url
 //const CONNECTION_URL =  'mongodb+srv://thesisoriginal:thesispassword123@cluster0.qgqkr.mongodb.net/Module?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
