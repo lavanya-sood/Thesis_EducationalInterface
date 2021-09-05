@@ -60,6 +60,17 @@ const Module = (props) => {
         console.log(nextLink);
         setNext(nextLink);
 
+        console.log("Wow")
+        // get the list of pages that the user has already completed
+        let pagesOrder = [];
+        if (JSON.parse(localStorage.getItem("pagesOrder")) != null) {
+            console.log("--------------> HERE");
+            pagesOrder = JSON.parse(localStorage.getItem("pagesOrder"))
+            console.log(pagesOrder);
+        } 
+        pagesOrder.push(parseInt(currentModule));
+        localStorage.setItem("pagesOrder", JSON.stringify(pagesOrder));
+
         // get the list of pages that the user has already completed
         let pages = [];
         if (JSON.parse(localStorage.getItem("pages")) != null) {

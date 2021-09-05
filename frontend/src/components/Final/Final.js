@@ -7,10 +7,10 @@ const Final = () => {
     const classes = useStyles();
 
     React.useEffect(() => {
-        let pages = [];
-        if (JSON.parse(localStorage.getItem("pages")) != null) {
-            pages = JSON.parse(localStorage.getItem("pages"))
-            console.log(pages);
+        let pagesOrder = [];
+        if (JSON.parse(localStorage.getItem("pagesOrder")) != null) {
+            pagesOrder = JSON.parse(localStorage.getItem("pagesOrder"))
+            console.log(pagesOrder);
         } 
 
         const data = {
@@ -18,7 +18,7 @@ const Final = () => {
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify( {
               userId: localStorage.getItem('userId'),
-              navOrder: pages,
+              navOrder: pagesOrder,
             } )
         };
 
