@@ -6,6 +6,39 @@ import { useHistory } from "react-router-dom";
 const Final = () => {
     const classes = useStyles();
 
+    React.useEffect(() => {
+        let pages = [];
+        if (JSON.parse(localStorage.getItem("pages")) != null) {
+            pages = JSON.parse(localStorage.getItem("pages"))
+            console.log(pages);
+        } 
+
+        const data = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify( {
+              userId: localStorage.getItem('userId'),
+              navOrder: pages,
+            } )
+        };
+
+        console.log(data);
+        
+        const submitNav = async () => {
+            const url = 'http://127.0.0.1:5000/navigation';
+            let res = await fetch(url, data);
+            res = await res.json();
+            console.log(res);
+        };
+
+        submitNav();
+        
+    },[]);
+
+    // async function addAnswer() {
+        
+        
+    // }
 
     return (
         <Grid container spacing={0} direction="column" alignItems="center" justify="center" className={classes.outsideContainer}>

@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import moduleRoutes from './routes/module.js';
 import answerRoutes from './routes/answers.js';
+import navRoutes from './routes/pageNav.js';
 
 // create the express application
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 // get the routes
 app.use('/module',moduleRoutes);
 app.use('/answers',answerRoutes);
+app.use('/navigation',navRoutes);
 
 // setup the url
 const CONNECTION_URL =  'mongodb+srv://thesisoriginal:thesispassword123@cluster0.qgqkr.mongodb.net/Module?retryWrites=true&w=majority';
