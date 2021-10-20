@@ -13,6 +13,8 @@ import CodingExercise from './CodingExercise/CodingExercise.js';
 import FinalExercise from './CodingExercise/FinalExercise.js';
 import Instructions from './Instructions/Instructions.js';
 import { useParams, Link, withRouter } from "react-router-dom";
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Box from '@material-ui/core/Box';
 
 const Module = (props) => {
 
@@ -20,6 +22,8 @@ const Module = (props) => {
 
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState(null);
+
+    const [progress, setProgress] = React.useState(0);
     
     // number of the module
     const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
@@ -81,12 +85,7 @@ const Module = (props) => {
         // if the page was already completed 
         if (pages.includes(parseInt(currentModule))) {
             setNextButton(true);
-        }
-
-
-
-        
-        
+        }        
     },[currentModule]);
 
     const handleNextButton = () => {
@@ -171,6 +170,9 @@ const Module = (props) => {
             }
             mod.push(val);
         });
+
+        setProgress(pages.length/25 * 100);
+
         setTitles(mod);
         return res;
     }
@@ -250,6 +252,19 @@ const Module = (props) => {
                             </Link>
                             : <div></div> 
                         }
+                        <div className={classes.progressBar}>
+                            <Box display="flex" alignItems="center">
+                                <Box width="100%" mr={1}>
+                                    <LinearProgress variant="determinate" value={progress} />
+                                </Box>
+                                <Box minWidth={35}>
+                                    <Typography variant="body2" color="textSecondary">{`${Math.round(
+                                    progress,
+                                    )}%`}</Typography>
+                                </Box>
+                            </Box>
+                        </div>
+                        {!nextButton? <div></div>  : <></> }
                         {lastQuestion && nextButton && !firstQuestion?
                             <Link to='/endScreen' className={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Finish</Button>

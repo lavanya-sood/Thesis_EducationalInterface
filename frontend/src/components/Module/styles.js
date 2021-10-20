@@ -83,5 +83,11 @@ export default makeStyles((theme) => ({
         color: '#22658A',
         textDecoration: 'underline',
         fontWeight: 'bold'
+      },
+      progressBar: {
+        width: '30%',
+        '& > * + *': {
+          marginTop: theme.spacing(2),
+        },
       }
 }));
