@@ -36,9 +36,6 @@ const Module = (props) => {
     const [lastQuestion, setLastQuestion] = React.useState(false);
     const [nextButton, setNextButton] = React.useState(false);
     
-    // allow jump to latest question
-    const [jump, setJump] = React.useState(false);
-    const [jumpValue, setJumpValue] = React.useState(0);
 
 
 
@@ -86,15 +83,7 @@ const Module = (props) => {
             setNextButton(true);
         }
 
-        // if there is an exercise that is active
-        if (localStorage.getItem("currentExercise") != null && parseInt(currentModule) != parseInt(localStorage.getItem("currentExercise")) ) {
-      
-            if (!pages.includes(parseInt(localStorage.getItem("currentExercise")))) {
-                // allow user to jump to that exercise
-                setJump(true);
-                setJumpValue(localStorage.getItem("currentExercise"));
-            }      
-        }
+
 
         
         
@@ -187,7 +176,7 @@ const Module = (props) => {
     }
 
     // create the table of contents 
-    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.id === parseInt(currentModule) ? classes.navCurrent : m.viewed ? classes.navLinks : classes.navLinksDisabled }><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
+    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed || m.id === parseInt(localStorage.getItem("currentExercise")) ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.id === parseInt(currentModule) ? classes.navCurrent : m.viewed || m.id === parseInt(localStorage.getItem("currentExercise")) ? classes.navLinks : classes.navLinksDisabled }><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
     
     // Open the table of contents 
@@ -260,16 +249,6 @@ const Module = (props) => {
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Prev</Button>
                             </Link>
                             : <div></div> 
-                        }
-                        {jump ? 
-                            <Link to={`/module/${jumpValue}`}>
-                                <Typography paragraph className={classes.linkJump}>Jump Back to the Latest Question </Typography>
-                            </Link>
-                            : <></> 
-                        }
-                        {jump &&  !nextButton ? 
-                            <div> </div>
-                            : <></> 
                         }
                         {lastQuestion && nextButton && !firstQuestion?
                             <Link to='/endScreen' className={classes.linkButton}>
