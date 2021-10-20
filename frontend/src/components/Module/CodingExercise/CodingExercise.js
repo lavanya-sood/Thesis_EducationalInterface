@@ -118,11 +118,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             localStorage.setItem('currentCode',html);
             localStorage.setItem('currentTime',seconds);
         }
-        setSrcDoc(`
-           <html>
-            <body>${html}</body>
-           </html>
-        `);
+        setSrcDoc(`${html}`);
     };
 
 
@@ -212,18 +208,19 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         allowNext();
         addAnswer(1);
         setDone(true);
+        
+        let correctAnswer2 = correctAnswer;
+        correctAnswer2 = correctAnswer2.replace(/\\n/g, '\n');
+        correctAnswer2 = correctAnswer2.replace(/\\t/g, '\t');
+        correctAnswer2 = correctAnswer2.replace(/\\r/g, '\r');
 
-        setHtml(correctAnswer);
+        setHtml(correctAnswer2); 
         localStorage.removeItem("currentCode");
         localStorage.removeItem('currentTime');
         localStorage.removeItem("currentExercise");
+        addAnswer(1);
 
-        setSrcDoc(`
-           <html>
-            <body>${correctAnswer}</body>
-           </html>
-        `);
-        
+        setSrcDoc(`${correctAnswer2}`);
     };
     
 
