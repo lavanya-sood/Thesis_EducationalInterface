@@ -37,7 +37,7 @@ const Instructions = (moduleInfo) => {
     const [value, setValue] = React.useState(0);
     const [pageTitle,setPageTile] = React.useState(""); 
     const [textDescription,setTextDescription] = React.useState(""); 
-    const [questionNumber,setQuestionNumber] = React.useState(""); 
+    //const [questionNumber,setQuestionNumber] = React.useState(""); 
     const [videoLocation,setLocation] = React.useState(""); 
     //const moduleInfo = module.moduleInfo;
 
@@ -46,11 +46,10 @@ const Instructions = (moduleInfo) => {
     };
 
     React.useEffect(()=> {
-      // console.log("IN THE INSTRUCTIONS");
-      // console.log(module);
+
       setPageTile(moduleInfo.moduleInfo.pageTitle);
       setTextDescription(moduleInfo.moduleInfo.textDescription);
-      setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+      //setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
       setLocation(moduleInfo.moduleInfo.videoLocation);
 
       let pages = [];

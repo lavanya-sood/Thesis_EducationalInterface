@@ -3,37 +3,35 @@ import { Typography, Button, Modal, Fade, Backdrop} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import useStyles from './styles.js';
 import Editor from './Editor'
-//import { Markup } from 'interweave';
-
 
 const CodingExercise = ({moduleInfo, allowNext}) => {
     const classes = useStyles();
 
+    // the module information
     const [html, setHtml] = React.useState("");
     const [srcDoc, setSrcDoc] = React.useState('');
-
     const [pageTitle,setPageTile] = React.useState(""); 
     const [question,setQuestion] = React.useState(""); 
     const [questionNumber,setQuestionNumber] = React.useState(""); 
-    
     const [hint,setHint] = React.useState(""); 
     const [correctAnswer,setAnswer] = React.useState(""); 
 
-    const [open, setOpen] = React.useState(false);
-
+    // status of answer
     const [error,setError] = React.useState(false);
     const [success,setSuccess] = React.useState(false);
     const [answerStatus,setStatus] = React.useState("");
 
+    // time for answer 
     const [seconds, setSeconds] = React.useState(0);
-    const [isActive, setIsActive] = React.useState(false);
     const [doneQuestion, setDone] = React.useState(false);
-
-    const [failed, setFailed] = React.useState(false);
     const countRef = React.useRef(null);
 
+    // number of attempts
     const [attempts, setAttempts] = React.useState(1);
 
+    // module opening
+    const [open, setOpen] = React.useState(false);
+    
     const handleOpen = () => {
         setOpen(true);
     };
@@ -41,7 +39,6 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
     const handleClose = () => {
         setOpen(false);
     };
-
 
 
     React.useEffect(() => {
@@ -83,7 +80,6 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             setSeconds((seconds) => seconds + 1)
         }, 1000);
         
-        console.log(parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber));
         if (localStorage.getItem("currentCode") != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
             setHtml(localStorage.getItem("currentCode"));
         } else {
@@ -100,12 +96,10 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             console.log(pages);
         } 
 
-        console.log("ASAAAAAAAAAAA");
     
         if (!pages.includes(parseInt(moduleInfo.questionNumber))) {
             localStorage.setItem('currentExercise',moduleInfo.questionNumber);
         } else  {
-            console.log("hER <<----");
             setDone(true);
             clearInterval(countRef.current);
         }
@@ -159,13 +153,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             return;
         }
 
-        console.log(html);
-        const newAnswer = stripString(html);
-        console.log(newAnswer);
-
-        
+        const newAnswer = stripString(html); 
         const correctVal = stripString(correctAnswer);
-        console.log(correctVal);
 
         if (correctVal === newAnswer) {
             setError(false);
@@ -180,7 +169,6 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
       
             if (!pages.includes(questionNumber)) {
               pages.push(questionNumber);
-              //console.log(moduleInfo.questionNumber);
             }
             localStorage.setItem("pages", JSON.stringify(pages));
 
@@ -199,12 +187,9 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
     }
 
     const giveUpFunction =  () => {
-        console.log("giveUp");
 
         clearInterval(countRef.current);
-        //setHtml(correctAnswer);
         clearInterval(countRef.current);
-        setFailed(true);
         allowNext();
         addAnswer(1);
         setDone(true);

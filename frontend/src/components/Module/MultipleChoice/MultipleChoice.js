@@ -1,40 +1,46 @@
 import React from 'react';
-import { Typography, Button, FormControl, FormLabel, RadioGroup, Radio,FormControlLabel, FormHelperText } from '@material-ui/core';
+import { Typography, Button, FormControl, FormLabel, RadioGroup, Radio,FormControlLabel } from '@material-ui/core';
 import useStyles from './styles.js';
 import Alert from '@material-ui/lab/Alert';
 
 
 const MultipleChoice = ({moduleInfo, allowNext}) => {
     const classes = useStyles();
-    //const [answerStatus, setStatus] = React.useState("");
+    
+    // value user selects
     const [value, setValue] = React.useState('');
 
+    // page details
     const [pageTitle,setPageTile] = React.useState(""); 
     const [question,setQuestion] = React.useState(""); 
     const [questionNumber,setQuestionNumber] = React.useState(""); 
     const [answerOptions,setOptions] = React.useState([]); 
     const [correctAnswer,setAnswer] = React.useState(""); 
 
+    // answer status
     const [error,setError] = React.useState(false);
     const [success,setSuccess] = React.useState(false);
     const [answerStatus,setStatus] = React.useState("");
 
+    // number of attempts
     const [attempts,setAttempts] = React.useState(1);
 
+    // time
     const [seconds, setSeconds] = React.useState(0);
-    const [isActive, setIsActive] = React.useState(false);
     const countRef = React.useRef(null);
 
     const [doneQuestion, setDone] = React.useState(false);
 
     React.useEffect(() => {
         console.log(moduleInfo);
+        
+        // set the page details
         setPageTile(moduleInfo.pageTitle);
         setQuestion(moduleInfo.textDescription);
         setQuestionNumber(moduleInfo.questionNumber);
         setAnswer(moduleInfo.correctAnswer);
 
-        console.log(moduleInfo.answerOptions);
+        // split the values from database and make separate options
         const vals = moduleInfo.answerOptions.split(" || ");
         
         for (let i = vals.length - 1; i > 0; i--) {
@@ -42,40 +48,42 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             [vals[i], vals[j]] = [vals[j], vals[i]];
         }
 
-        console.log(vals);
         setOptions(vals);
 
-        //console.log(moduleInfo);
-        //console.log(allowNext);
-
-        //console.log(props);
-
-        //handleNextButton(true);
+        // set the timeout in seconds
         countRef.current = setInterval(() => {
             setSeconds((seconds) => seconds + 1)
         }, 1000);
 
+        // get the user progress
         let pages = [];
         if (JSON.parse(localStorage.getItem("pages")) != null) {
             pages = JSON.parse(localStorage.getItem("pages"))
             console.log(pages);
         } 
 
-    
+        // check if the page is already done
         if (!pages.includes(parseInt(moduleInfo.questionNumber))) {
             localStorage.setItem('currentExercise',moduleInfo.questionNumber);
         } else  {
-            console.log("hER <<----");
             setDone(true);
             clearInterval(countRef.current);
         }
 
+        // check if time is already saved
+        if ( localStorage.getItem('currentTime') != null && localStorage.getItem("currentExercise") != null && parseInt(localStorage.getItem("currentExercise")) === parseInt(moduleInfo.questionNumber)) {
+            setSeconds(parseInt(localStorage.getItem('currentTime')));
+        }
+
     },[moduleInfo]);
 
+    // handle change of selected button
     const handleRadioChange = (event) => {
         setValue(event.target.value);
     };
 
+
+    // function adds the users answer to the database
     async function addAnswer() {
         
         const data = {
@@ -99,9 +107,11 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
         console.log(res);
     }
 
+    // function checks the user answer is correct
     const checkAnswer = (e) => {
         e.preventDefault();
-        console.log(value);
+
+        // if the user answer is correct
         if (value === correctAnswer) {
             setError(false);
             setSuccess(true);
@@ -111,28 +121,29 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             let pages = [];
             if (JSON.parse(localStorage.getItem("pages")) != null) {
               pages = JSON.parse(localStorage.getItem("pages"))
-              console.log(pages);
             } 
       
             if (!pages.includes(questionNumber)) {
               pages.push(questionNumber);
-              //console.log(moduleInfo.questionNumber);
             }
+
             localStorage.setItem("pages", JSON.stringify(pages));
             localStorage.removeItem("currentExercise");
+            localStorage.removeItem('currentTime');
 
             clearInterval(countRef.current);
 
             addAnswer();
 
+        // if the answer is wrong
         } else {
             setError(true);
             setSuccess(false);
             setAttempts(attempts+1);
+            localStorage.setItem('currentTime',seconds);
             setStatus("You selected the wrong answer. Try again.");
         }
     };
-    
     
     const answerSelection = answerOptions.map((a) => <FormControlLabel key={a} value={a} control={<Radio />} label={a} /> );
 
@@ -162,6 +173,7 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
             <br/>
             {error ? <Alert severity='error'>{answerStatus}</Alert> : <div></div> }
             {success ? <Alert severity='success'>{answerStatus}</Alert> : <div></div> }
+            {doneQuestion && !success ? <Alert severity='success'>Already done</Alert> : <div></div> }
         </div>
     );
 };

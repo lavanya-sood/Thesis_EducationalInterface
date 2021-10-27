@@ -26,14 +26,15 @@ const Module = (props) => {
     const [progress, setProgress] = React.useState(0);
     
     // number of the module
-    const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
+    //const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
+    const currentModule = useParams().questionNumber;
     
     // the link for the previous and next page.
     const [prevPage,setPrev] = React.useState("");
     const [nextPage,setNext] = React.useState("");
     
     // information about the module
-    const [moduleInfo, setModuleInfo] = React.useState("");
+    //const [moduleInfo, setModuleInfo] = React.useState("");
     
     //check the module status
     const [firstQuestion, setFirstQuestion] = React.useState(false);
@@ -100,7 +101,7 @@ const Module = (props) => {
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
-        setModuleInfo(res[0]);
+        //setModuleInfo(res[0]);
 
         // if the module is instructions
         if (res[0].questionType === 'instructions'){
@@ -171,7 +172,12 @@ const Module = (props) => {
             mod.push(val);
         });
 
-        setProgress(pages.length/25 * 100);
+        if (pages != null && pages.length > 0) {
+            console.log("Heresdssdsd");
+            setProgress(pages.length/25 * 100);
+        } else {
+            setProgress(0);
+        }
 
         setTitles(mod);
         return res;

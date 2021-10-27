@@ -3,8 +3,6 @@ import { Typography, Button, Modal, Fade, Backdrop} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import useStyles from './styles.js';
 import Editor from './Editor'
-//import { Markup } from 'interweave';
-
 
 const FinalExercise = ({moduleInfo, allowNext}) => {
     const classes = useStyles();
@@ -28,9 +26,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
     const [imgElement, setImg] = React.useState(null);
 
     const [seconds, setSeconds] = React.useState(0);
-    const [isActive, setIsActive] = React.useState(false);
 
-    const [failed, setFailed] = React.useState(false);
     const countRef = React.useRef(null);
 
     const [attempts, setAttempts] = React.useState(1);
@@ -205,7 +201,6 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         clearInterval(countRef.current);
         //setHtml(correctAnswer);
         clearInterval(countRef.current);
-        setFailed(true);
         allowNext();
         console.log("CAAASSSSS->>>>>>");
 
