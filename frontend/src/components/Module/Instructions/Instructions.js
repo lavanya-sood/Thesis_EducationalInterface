@@ -18,7 +18,7 @@ function TabPanel(props) {
       >
         {value === index && (
           <Box p={3}>
-            <Typography>{children}</Typography>
+            <Typography component={'span'}>{children}</Typography>
           </Box>
         )}
       </div>
@@ -55,12 +55,10 @@ const Instructions = (moduleInfo) => {
       let pages = [];
       if (JSON.parse(localStorage.getItem("pages")) != null) {
         pages = JSON.parse(localStorage.getItem("pages"))
-        console.log(pages);
       } 
 
       if (!pages.includes(moduleInfo.moduleInfo.questionNumber)) {
         pages.push(moduleInfo.moduleInfo.questionNumber);
-        //console.log(moduleInfo.questionNumber);
       }
       localStorage.setItem("pages", JSON.stringify(pages));
 

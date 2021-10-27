@@ -45,7 +45,6 @@ const Module = (props) => {
 
 
     React.useEffect(()=> {
-        console.log("Here");
         
         getAllModules();
         getCurrentModule();
@@ -53,22 +52,17 @@ const Module = (props) => {
         // set the previous link
         const prev = parseInt(currentModule) - 1;
         const prevLink = `/module/${prev}`;
-        console.log(prevLink);
         setPrev(prevLink);
     
         // set the next link
         const next = parseInt(currentModule) + 1;
         const nextLink = `/module/${next}`;
-        console.log(nextLink);
         setNext(nextLink);
 
-        console.log("Wow")
         // get the list of pages that the user has already completed
         let pagesOrder = [];
         if (JSON.parse(localStorage.getItem("pagesOrder")) != null) {
-            console.log("--------------> HERE");
             pagesOrder = JSON.parse(localStorage.getItem("pagesOrder"))
-            console.log(pagesOrder);
         } 
         pagesOrder.push(parseInt(currentModule));
         localStorage.setItem("pagesOrder", JSON.stringify(pagesOrder));
@@ -77,11 +71,7 @@ const Module = (props) => {
         let pages = [];
         if (JSON.parse(localStorage.getItem("pages")) != null) {
             pages = JSON.parse(localStorage.getItem("pages"))
-            console.log(pages);
         } 
-
-        console.log(currentModule);
-        console.log(pages.includes(parseInt(currentModule)));
 
         // if the page was already completed 
         if (pages.includes(parseInt(currentModule))) {
@@ -113,12 +103,10 @@ const Module = (props) => {
             
             // if it's the final question
             if (res[0].questionNumber === 25) {
-                console.log("Sup");
                 setType(<FinalExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
             
             // otherwise render the normal coding compoenent
             } else {
-                console.log("OTher");
                 setType(<CodingExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
             } 
         
@@ -166,14 +154,12 @@ const Module = (props) => {
             };
             // if the page has already been completed by the user 
             if (pages != null && pages.includes(m.questionNumber)) {
-                console.log("In here");
                 val.viewed = true;
             }
             mod.push(val);
         });
 
         if (pages != null && pages.length > 0) {
-            console.log("Heresdssdsd");
             setProgress(pages.length/25 * 100);
         } else {
             setProgress(0);
