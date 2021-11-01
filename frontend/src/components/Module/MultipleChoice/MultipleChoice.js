@@ -171,8 +171,8 @@ const MultipleChoice = ({moduleInfo, allowNext}) => {
                 </FormControl>
             </form>
             <br/>
-            {error ? <Alert severity='error'>{answerStatus}</Alert> : <div></div> }
-            {success ? <Alert severity='success'>{answerStatus}</Alert> : <div></div> }
+            {!doneQuestion && error ? <Alert severity='error'>{answerStatus}</Alert> : <div></div> }
+            {!doneQuestion && success ? <Alert severity='success'>{answerStatus}</Alert> : <div></div> }
             {doneQuestion && !success ? <Alert severity='success'>Already done</Alert> : <div></div> }
         </div>
     );
