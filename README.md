@@ -10,7 +10,7 @@ Clone the repository via git
 
 1. Setup a MongoDB Account. Follow [this tutorial](https://www.youtube.com/watch?v=esKNjzDZItQ ) to learn how to set up an account on MondoDB.
 2. Create a new database called 'Module'
-3. Use the json files that are located in the *Database* and upload them into the databse as collections with the same name as the file. Watch [this video](https://www.youtube.com/watch?v=IjAflHMkuzk) for more information on how to do this 
+3. Use the json files that are located in the *data* and upload them into the databse as collections with the same name as the file. Watch [this video](https://www.youtube.com/watch?v=IjAflHMkuzk) for more information on how to do this 
 4. **IMPORTANT:**  In the file backend/index.js change the `CONNECTION_URL` to the URL of your own MongoDB database otherwise you will not be able to see the changes.
 
 ### Database Setup:
@@ -20,6 +20,8 @@ One of the main things that need to be changed in the database are the `videoLoc
 You can find the original videos in the *media* folder. The name of each video corresponds to the `questionNumber` or the module value that it is linked to.
 
 After all the videos are uploaded to youtube replace all the links inside the mongoDB collection for the videoLocation attribute otherwise the videos will not work. 
+
+Go to the *data* for the rest of the instructions on add new json objects to the database.
 
 
 ### Backend Setup
