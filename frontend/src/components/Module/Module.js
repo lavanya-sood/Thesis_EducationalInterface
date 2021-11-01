@@ -13,6 +13,8 @@ import CodingExercise from './CodingExercise/CodingExercise.js';
 import FinalExercise from './CodingExercise/FinalExercise.js';
 import Instructions from './Instructions/Instructions.js';
 import { useParams, Link, withRouter } from "react-router-dom";
+import LinearProgress from '@material-ui/core/LinearProgress';
+import Box from '@material-ui/core/Box';
 
 const Module = (props) => {
 
@@ -20,30 +22,29 @@ const Module = (props) => {
 
     const [moduleTitles,setTitles] = React.useState([]);
     const [moduleType, setType] = React.useState(null);
+
+    const [progress, setProgress] = React.useState(0);
     
     // number of the module
-    const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
+    //const [currentModule,setModuleVal] = React.useState(useParams().questionNumber);
+    const currentModule = useParams().questionNumber;
     
     // the link for the previous and next page.
     const [prevPage,setPrev] = React.useState("");
     const [nextPage,setNext] = React.useState("");
     
     // information about the module
-    const [moduleInfo, setModuleInfo] = React.useState("");
+    //const [moduleInfo, setModuleInfo] = React.useState("");
     
     //check the module status
     const [firstQuestion, setFirstQuestion] = React.useState(false);
     const [lastQuestion, setLastQuestion] = React.useState(false);
     const [nextButton, setNextButton] = React.useState(false);
     
-    // allow jump to latest question
-    const [jump, setJump] = React.useState(false);
-    const [jumpValue, setJumpValue] = React.useState(0);
 
 
 
     React.useEffect(()=> {
-        console.log("Here");
         
         getAllModules();
         getCurrentModule();
@@ -51,22 +52,17 @@ const Module = (props) => {
         // set the previous link
         const prev = parseInt(currentModule) - 1;
         const prevLink = `/module/${prev}`;
-        console.log(prevLink);
         setPrev(prevLink);
     
         // set the next link
         const next = parseInt(currentModule) + 1;
         const nextLink = `/module/${next}`;
-        console.log(nextLink);
         setNext(nextLink);
 
-        console.log("Wow")
         // get the list of pages that the user has already completed
         let pagesOrder = [];
         if (JSON.parse(localStorage.getItem("pagesOrder")) != null) {
-            console.log("--------------> HERE");
             pagesOrder = JSON.parse(localStorage.getItem("pagesOrder"))
-            console.log(pagesOrder);
         } 
         pagesOrder.push(parseInt(currentModule));
         localStorage.setItem("pagesOrder", JSON.stringify(pagesOrder));
@@ -75,29 +71,12 @@ const Module = (props) => {
         let pages = [];
         if (JSON.parse(localStorage.getItem("pages")) != null) {
             pages = JSON.parse(localStorage.getItem("pages"))
-            console.log(pages);
         } 
-
-        console.log(currentModule);
-        console.log(pages.includes(parseInt(currentModule)));
 
         // if the page was already completed 
         if (pages.includes(parseInt(currentModule))) {
             setNextButton(true);
-        }
-
-        // if there is an exercise that is active
-        if (localStorage.getItem("currentExercise") != null && parseInt(currentModule) != parseInt(localStorage.getItem("currentExercise")) ) {
-      
-            if (!pages.includes(parseInt(localStorage.getItem("currentExercise")))) {
-                // allow user to jump to that exercise
-                setJump(true);
-                setJumpValue(localStorage.getItem("currentExercise"));
-            }      
-        }
-
-        
-        
+        }        
     },[currentModule]);
 
     const handleNextButton = () => {
@@ -112,7 +91,7 @@ const Module = (props) => {
         let res = await fetch(url);
         res = await res.json();
         console.log(res);
-        setModuleInfo(res[0]);
+        //setModuleInfo(res[0]);
 
         // if the module is instructions
         if (res[0].questionType === 'instructions'){
@@ -124,12 +103,10 @@ const Module = (props) => {
             
             // if it's the final question
             if (res[0].questionNumber === 25) {
-                console.log("Sup");
                 setType(<FinalExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
             
             // otherwise render the normal coding compoenent
             } else {
-                console.log("OTher");
                 setType(<CodingExercise moduleInfo={res[0]} allowNext={handleNextButton} />);
             } 
         
@@ -177,17 +154,23 @@ const Module = (props) => {
             };
             // if the page has already been completed by the user 
             if (pages != null && pages.includes(m.questionNumber)) {
-                console.log("In here");
                 val.viewed = true;
             }
             mod.push(val);
         });
+
+        if (pages != null && pages.length > 0) {
+            setProgress(pages.length/25 * 100);
+        } else {
+            setProgress(0);
+        }
+
         setTitles(mod);
         return res;
     }
 
     // create the table of contents 
-    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.id === parseInt(currentModule) ? classes.navCurrent : m.viewed ? classes.navLinks : classes.navLinksDisabled }><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
+    const moduleNames = moduleTitles.map((m) =>  <Link to={ m.viewed || m.id === parseInt(localStorage.getItem("currentExercise")) ? '/module/' + m.id : '/module/' + currentModule} key={m.id} className= { m.id === parseInt(currentModule) ? classes.navCurrent : m.viewed || m.id === parseInt(localStorage.getItem("currentExercise")) ? classes.navLinks : classes.navLinksDisabled }><Typography paragraph><FormControlLabel id={m.id} control={<Checkbox checked={m.viewed || false} name="checkedC"/>} /> {m.title} </Typography></Link>);
 
     
     // Open the table of contents 
@@ -220,7 +203,24 @@ const Module = (props) => {
                     
                     <Toolbar />
                     <div className={classes.toolbar}>
-                        <IconButton
+                        <div className={clsx( {
+                        [classes.hide]: !open,
+                        })}>
+                            <Typography variant="h6" className={classes.headingPr}> Overall Progress </Typography>
+                            <div className={classes.progressBar}>
+                                <Box display="flex" alignItems="center">
+                                    <Box width="100%" mr={1}>
+                                        <LinearProgress variant="determinate" value={progress} />
+                                    </Box>
+                                    <Box minWidth={15}>
+                                        <Typography variant="body2" color="textSecondary">{`${Math.round(
+                                        progress,
+                                        )}%`}</Typography>
+                                    </Box>
+                                </Box>
+                            </div>
+                        </div>
+                    <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
@@ -261,16 +261,8 @@ const Module = (props) => {
                             </Link>
                             : <div></div> 
                         }
-                        {jump ? 
-                            <Link to={`/module/${jumpValue}`}>
-                                <Typography paragraph className={classes.linkJump}>Jump Back to the Latest Question </Typography>
-                            </Link>
-                            : <></> 
-                        }
-                        {jump &&  !nextButton ? 
-                            <div> </div>
-                            : <></> 
-                        }
+                        
+                        {!nextButton? <div></div>  : <></> }
                         {lastQuestion && nextButton && !firstQuestion?
                             <Link to='/endScreen' className={classes.linkButton}>
                                 <Button variant="contained" color="primary" className={classes.progressButton}>Finish</Button>

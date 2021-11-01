@@ -6,6 +6,11 @@ This is the folder that stores the server side of the application
     
     npm start
 
+## First Time Setup
+
+You need to create a `.env` file in which you enter your own `CONNECTION_URL`. This variable is needed so that your backend can connect to the MongoDB database. Look at `.env.example` for what your file should look like. **The code will not run if you miss this step.** 
+
+
 ## JavaScript Libraries used
 
 ### Express

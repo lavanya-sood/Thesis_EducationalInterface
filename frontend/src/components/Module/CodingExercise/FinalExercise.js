@@ -3,8 +3,6 @@ import { Typography, Button, Modal, Fade, Backdrop} from '@material-ui/core';
 import Alert from '@material-ui/lab/Alert';
 import useStyles from './styles.js';
 import Editor from './Editor'
-//import { Markup } from 'interweave';
-
 
 const FinalExercise = ({moduleInfo, allowNext}) => {
     const classes = useStyles();
@@ -28,9 +26,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
     const [imgElement, setImg] = React.useState(null);
 
     const [seconds, setSeconds] = React.useState(0);
-    const [isActive, setIsActive] = React.useState(false);
 
-    const [failed, setFailed] = React.useState(false);
     const countRef = React.useRef(null);
 
     const [attempts, setAttempts] = React.useState(1);
@@ -72,7 +68,12 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         starterCode = starterCode.replace(/\\t/g, '\t');
         starterCode = starterCode.replace(/\\r/g, '\r');
 
-        setAnswer(moduleInfo.correctAnswer);
+        let correctAnswer = moduleInfo.correctAnswer;
+        correctAnswer = correctAnswer.replace(/\\n/g, '\n');
+        correctAnswer = correctAnswer.replace(/\\t/g, '\t');
+        correctAnswer = correctAnswer.replace(/\\r/g, '\r');
+
+        setAnswer(correctAnswer);
 
         countRef.current = setInterval(() => {
             setSeconds((seconds) => seconds + 1)
@@ -115,11 +116,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
             localStorage.setItem('currentCode',html);
             localStorage.setItem('currentTime',seconds);
         }
-        setSrcDoc(`
-           <html>
-            <body>${html}</body>
-           </html>
-        `);
+        setSrcDoc(`${html}`);
     };
 
     async function addAnswer(gaveUp) {
@@ -204,20 +201,29 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
         clearInterval(countRef.current);
         //setHtml(correctAnswer);
         clearInterval(countRef.current);
-        setFailed(true);
         allowNext();
+        console.log("CAAASSSSS->>>>>>");
 
-        setHtml(correctAnswer);
+        // let textInfo = moduleInfo.textDescription;
+        // textInfo = textInfo.replace(/\\n/g, '\n');
+        // textInfo = textInfo.replace(/\\t/g, '\t');
+        // textInfo = textInfo.replace(/\\r/g, '\r');
+
+        // console.log(correctAnswer);
+        // const ca2 = stripString(correctAnswer);
+        // console.log(ca2);
+        let correctAnswer2 = correctAnswer;
+        correctAnswer2 = correctAnswer2.replace(/\\n/g, '\n');
+        correctAnswer2 = correctAnswer2.replace(/\\t/g, '\t');
+        correctAnswer2 = correctAnswer2.replace(/\\r/g, '\r');
+
+        setHtml(correctAnswer2); 
         localStorage.removeItem("currentCode");
         localStorage.removeItem('currentTime');
         localStorage.removeItem("currentExercise");
         addAnswer(1);
 
-        setSrcDoc(`
-           <html>
-            <body>${correctAnswer}</body>
-           </html>
-        `);
+        setSrcDoc(`${correctAnswer2}`);
         
     };
     

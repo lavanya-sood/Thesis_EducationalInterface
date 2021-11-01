@@ -8,8 +8,6 @@ const TextInstructions = (textDescription) => {
 
     const val = textDescription.textDescription;
 
-    console.log(textDescription);
-
     return (
         <div className={classes.textInstructions} dangerouslySetInnerHTML={{__html: val}} />
     );

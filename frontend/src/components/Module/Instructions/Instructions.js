@@ -18,7 +18,7 @@ function TabPanel(props) {
       >
         {value === index && (
           <Box p={3}>
-            <Typography>{children}</Typography>
+            <Typography component={'span'}>{children}</Typography>
           </Box>
         )}
       </div>
@@ -37,7 +37,7 @@ const Instructions = (moduleInfo) => {
     const [value, setValue] = React.useState(0);
     const [pageTitle,setPageTile] = React.useState(""); 
     const [textDescription,setTextDescription] = React.useState(""); 
-    const [questionNumber,setQuestionNumber] = React.useState(""); 
+    //const [questionNumber,setQuestionNumber] = React.useState(""); 
     const [videoLocation,setLocation] = React.useState(""); 
     //const moduleInfo = module.moduleInfo;
 
@@ -46,22 +46,19 @@ const Instructions = (moduleInfo) => {
     };
 
     React.useEffect(()=> {
-      // console.log("IN THE INSTRUCTIONS");
-      // console.log(module);
+
       setPageTile(moduleInfo.moduleInfo.pageTitle);
       setTextDescription(moduleInfo.moduleInfo.textDescription);
-      setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
+      //setQuestionNumber(moduleInfo.moduleInfo.questionNumber);
       setLocation(moduleInfo.moduleInfo.videoLocation);
 
       let pages = [];
       if (JSON.parse(localStorage.getItem("pages")) != null) {
         pages = JSON.parse(localStorage.getItem("pages"))
-        console.log(pages);
       } 
 
       if (!pages.includes(moduleInfo.moduleInfo.questionNumber)) {
         pages.push(moduleInfo.moduleInfo.questionNumber);
-        //console.log(moduleInfo.questionNumber);
       }
       localStorage.setItem("pages", JSON.stringify(pages));
 

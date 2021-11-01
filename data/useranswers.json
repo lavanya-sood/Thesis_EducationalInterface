@@ -1,0 +1,1922 @@
+[
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 32,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 3,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 6,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 4,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 3,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 2,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 3,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 9,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 2,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 36,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 17,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "<ol>\n  <li> Sunday </li>\n  <li> Monday </li>\n  <li> Tuesday </li>\n  <li> Wednesday </li>\n  <li> Thursday </li>\n  <li> Friday </li>\n  <li> Saturday </li>\n</ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 87,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 21,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 18,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair </u>. They feed their young with milk. </p>\n<h2> Examples of Mammals </h2>\n<ul>\n  <li> Human </li>\n  <li> Elephant </li>\n  <li> Bear </li>\n</ul>\n<h2> Bear </h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b> North America, South America, Europe, and Asia </b> </p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>\n",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 199,
+        "userId": "1001A"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 12,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 9,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 38,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 8,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 10,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 5,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 33,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 36,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 6,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 80,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "<p> \nThis is a block of text\n</p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 42,
+        "userId": "1001B"
+    },
+    {
+        "attempt": " <ol> \n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n</ol>\n",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 131,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n\t  <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 74,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 32,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair</u>. They feed their young with milk. </p>\n<h2> Examples of Mammals </h2>\n<ul> \n  <li> Human </li>\n  <li> Elephant </li>\n  <li> Bear </li>\n</ul>\n<h2> Bear </h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b> North America, South America, Europe, and Asia </b> </p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px' />",
+        "attemptCount": 3,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 669,
+        "userId": "1001B"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 3,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 7,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 3,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 11,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 2,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 6,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 6,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 2,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 4,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 7,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 2,
+        "userId": "1001C"
+    },
+    {
+        "attempt": " <h1> Hello World </h1>\n   ",
+        "attemptCount": 5,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 73,
+        "userId": "1001C"
+    },
+    {
+        "attempt": " <p> This is a block of text </p>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 25,
+        "userId": "1001C"
+    },
+    {
+        "attempt": " ",
+        "attemptCount": 3,
+        "gaveUp": 1,
+        "questionNumber": 19,
+        "timeSpent": 60,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 41,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 2,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair </u>. They feed their young with milk. </p>\n\n<h2> Examples of Mammals </h2>\n<ul> \n  <li> Human </li>\n  <li> Elephant </li>\n  <li> Bear </li>\n</ul>\n<h2> Bear </h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b> North America, South America, Europe, and Asia </b> </p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 451,
+        "userId": "1001C"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 7,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 8,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 9,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 12,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 7,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 5,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 7,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 19,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 6,
+        "userId": "1001D"
+    },
+    {
+        "attempt": " <h1> Hello World </h1>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 41,
+        "userId": "1001D"
+    },
+    {
+        "attempt": " <p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 27,
+        "userId": "1001D"
+    },
+    {
+        "attempt": " <ol>\n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n</ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 88,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "<h1> <u>Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 50,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 28,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "<h1>Mammals</h1>\n<p> Mammals include humans and all other animals that are <u>warm-blooded vertebrates with hair</u>. They feed their young with milk.</p>\n<h2>Examples of Mammals</h2>\n<ul>\n    <li>Human</li>\n    <li>Elephant</li>\n    <li>Bear</li>\n</ul>\n<h2>Bear</h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b></p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>",
+        "attemptCount": 3,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 376,
+        "userId": "1001D"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 17,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 12,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 18,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 16,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 31,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 7,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 19,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 47,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 6,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 56,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 22,
+        "userId": "1001E"
+    },
+    {
+        "attempt": " <ol> \n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 82,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 46,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 18,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "<h1> <b> Mammals </b> </h1>\n\t<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair </u>. They feed their young with milk. \t</p>\n<h2> <b> Examples of Mammals </b> </h2>\n  \t<ul> \n      <li> Human </li>\n      <li> Elephant </li>\n      <li> Bear </li>\n    </ul>\n<h2> <b> Bear </b> </h2>\n      <p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b> North America, South America, Europe, and Asia </b> \n      </p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>",
+        "attemptCount": 3,
+        "gaveUp": 1,
+        "questionNumber": 25,
+        "timeSpent": 445,
+        "userId": "1001E"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 7,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 5,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 7,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 2,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 5,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 6,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 3,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 7,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 17,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 3,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 32,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 27,
+        "userId": "1001F"
+    },
+    {
+        "attempt": " <ol> \n   <li> Sunday </li>\n   <li> Monday </li> \n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li> \n   <li> Saturday </li>\n</ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 133,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li><i>Monday</i></li>\n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 87,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 11,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "<h1> <b> Mammals </b> </h1>\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair </u>. They feed their young with milk. </p>\n<h2> <b> Examples of Mammals </b></h2>\n<ul>\n  <li> Human </li>\n  <li> Elephant </li> \n  <li> Bear </li>\n</ul>\n<h2> <b> Bear </b> </h2>\n  <p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b> </p>\n < src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' \n     width='300px' \n     height='150px'\n      />",
+        "attemptCount": 4,
+        "gaveUp": 1,
+        "questionNumber": 25,
+        "timeSpent": 498,
+        "userId": "1001F"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 7,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 6,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 21,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 8,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 4,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 3,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 15,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 3,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 23,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 3,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 37,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 21,
+        "userId": "1001G"
+    },
+    {
+        "attempt": " <ol>\n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n</ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 136,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 35,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 6,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair</u>. They feed their young with milk. </p>\n\n<h2> Examples of Mammals</h2>\n\n<p> <ul> <li> Human </li> <li> Elephant </li> <li> Bear </li> </ul> </p>\n\n<h2> Bear </h2>\n\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b> North America, South America, Europe, and Asia </b></p>\n\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'>",
+        "attemptCount": 4,
+        "gaveUp": 1,
+        "questionNumber": 25,
+        "timeSpent": 585,
+        "userId": "1001G"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 2,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 3,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 5,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 2,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 2,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 3,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 3,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 1,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 5,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 4,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 25,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 17,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "<ol>\n  <li> Sunday </li>\n  <li> Monday </li>\n  <li> Tuesday </li>\n  <li> Wednesday </li>\n  <li> Thursday </li>\n  <li> Friday </li>\n  <li> Saturday </li>\n</ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 112,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n\t  <li><i>Monday</i></li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 46,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 1,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair</u>. They feed their young with milk. </p>\n\n<h2> Examples of Mammals </h2>\n<ul>\n  <li>Human</li>\n  <li>Elephant</li>\n  <li>Bear</li>\n</ul>\n\n<h2>Bear</h2>\n\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>",
+        "attemptCount": 4,
+        "gaveUp": 1,
+        "questionNumber": 25,
+        "timeSpent": 517,
+        "userId": "1001H"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 13,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 7,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 14,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 7,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 7,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 5,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 6,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 13,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 4,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "<h1>Hello World</h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 31,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 23,
+        "userId": "1001I"
+    },
+    {
+        "attempt": " <ol>\n   <li>Sunday</li>\n   <li>Monday</li>\n   <li>Tuesday</li>\n   <li>Wednesday</li>\n   <li>Thursday</li>\n   <li>Friday</li>\n   <li>Saturday</li>\n</ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 102,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "<h1> <u>Days of the week</u> </h1> \n <ol> \n   \t  <li>Sunday</li>  \n   <li> <i>Monday</i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 91,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 17,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n<p> Mammals include humans and all other animals that are <u>warm-blooded vertebrates with hair</u>. They feed their young with milk.</p>\n<h2> Examples of Mammals </h2>\n<ul>\n  <li>Human</li>\n  <li>Elephant</li>\n  <li>Bear</li>\n</ul>\n<h2> Bear </h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b></p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 528,
+        "userId": "1001I"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 2,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 3,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 3,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 18,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 6,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 4,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 3,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 2,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 4,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 7,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 2,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 18,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 12,
+        "userId": "1001J"
+    },
+    {
+        "attempt": " <ol>\n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n</ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 74,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 31,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 11,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair</u>. They feed their young with milk. </p>\n\n<h2> Examples of Mammals </h2>\n\n<ul>\n  <li> Human </li>\n  <li> Elephant </li>\n  <li> Bear </li>\n</ul>\n\n<h2> Bear </h2>\n\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b> North America, South America, Europe, and Asia</b> </p>\n\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px' />",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 282,
+        "userId": "1001J"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 3,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 3,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 11,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 3,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 3,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 2,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 2,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 6,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 7,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 2,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "<h1>Hello World</h1>\n",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 54,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "<p>This is a block of text</p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 19,
+        "userId": "1001K"
+    },
+    {
+        "attempt": " <ol>\n   <li>Sunday</li>\n   <li>Monday</li>\n   <li>Tuesday</li>\n   <li>Wednesday</li>\n   <li>Thursday</li>\n   <li>Friday</li>\n   <li>Saturday</li>\n</ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 83,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "<h1><u> Days of the week </u></h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li><i>Monday</i></li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 39,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 10,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "<h1>Mammals</h1>\n\n\n<p>Mammals include humans and all other animals that are <u>warm-blooded vertebrates with hair</u>. They feed their young with milk.</p>\n\n\n<h2>Examples of Mammals</h2>\n<ul>\n  <li>Human</li>\n  <li>Elephant</li>\n  <li>Bear</li>\n</ul>\n\n<h2>Bear</h2>\n  <p>Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b></p>\n\n    <img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>\n\n  \n",
+        "attemptCount": 7,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 682,
+        "userId": "1001K"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 9,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 10,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 30,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 9,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 8,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 9,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 5,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 20,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 41,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 6,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 4,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 132,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 29,
+        "userId": "1001L"
+    },
+    {
+        "attempt": " <ol>\n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n </ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 116,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "<h1> <u>Days of the week</u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li> <i> Monday </i> </li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 38,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 2,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "<h1> <b>Mammals </b></h1>\n<p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair </u>. They feed their young with milk.</p>\n  \n<h2> Examples of Mammals </h2>\n\t<ul> \n\t\t<li> Human </li>\n\t\t<li> Elephant </li>\n\t\t<li> Bear </li>\n\n      <h2> <b>Bear</b> </h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia </b> </p>\n\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>\n   ",
+        "attemptCount": 5,
+        "gaveUp": 1,
+        "questionNumber": 25,
+        "timeSpent": 444,
+        "userId": "1001L"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 2,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 6,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 7,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 2,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 4,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 3,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 2,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 4,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 8,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 2,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 36,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 12,
+        "userId": "1001M"
+    },
+    {
+        "attempt": " <ol>\n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n</ol>\n   ",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 94,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "<h1> <u> Days of the week </u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li><i>Monday</i></li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 44,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 7,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "<h1> Mammals </h1>\n   <p> Mammals include humans and all other animals that are <u> warm-blooded vertebrates with hair</u>. They feed their young with milk. </p>\n<h2> Examples of Mammals </h2> \n<ul> \n  <li> Human </li>\n  <li> Elephant </li>\n  <li> Bear </li>\n</ul>\n<h2> Bear </h2>\n<p> Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b></p>\n \n  <img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>\n ",
+        "attemptCount": 5,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 762,
+        "userId": "1001M"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 4,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 18,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 17,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 4,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 19,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 7,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 4,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 6,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 3,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 4,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 18,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 2,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "<h1>Hello World</h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 32,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "<p>This is a block of text</p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 15,
+        "userId": "1001N"
+    },
+    {
+        "attempt": " <ol>\n   <li>Sunday</li>\n   <li>Monday</li>\n   <li>Tuesday</li>\n   <li>Wednesday</li>\n   <li>Thursday</li>\n   <li>Friday</li>\n   <li>Saturday</li>\n</ol>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 76,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "<h1> <u>Days of the week</u> </h1> \n <ol> \n\t  <li>Sunday</li>  \n   <li><i>Monday</i></li> \n\t  <li>Tuesday</li> \n\t <li>Wednesday</li> \n\t <li>Thursday</li> \n\t <li>Friday</li> \n\t  <li>Saturday</li> \n  </ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 34,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 27,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "<h1>Mammals</h1>\n<p>Mammals include humans and all other animals that are <u>warm-blooded vertebrates with hair</u>.They feed their young with milk.</p>\n<h2>Examples of Mammals</h2>\n<ul>\n  <li>Human</li>\n  <li>Elephant</li>\n  <li>Bear</li>\n</ul>\n<h2>Bear</h2>\n<p>Bears are mammals. They can be as small as four fee long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b>\n</p>\n<img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px'/>",
+        "attemptCount": 9,
+        "gaveUp": 1,
+        "questionNumber": 25,
+        "timeSpent": 406,
+        "userId": "1001N"
+    },
+    {
+        "attempt": "HTML, CSS, JavaScript",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 2,
+        "timeSpent": 12,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "HyperText Markup Language",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 3,
+        "timeSpent": 3,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "It uses programming loops and functions",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 4,
+        "timeSpent": 35,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "True",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 5,
+        "timeSpent": 7,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "</div>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 7,
+        "timeSpent": 14,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "div",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 8,
+        "timeSpent": 12,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "p",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 9,
+        "timeSpent": 6,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "body",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 11,
+        "timeSpent": 13,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "Everything in the head tag is visible on the HTML page",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 12,
+        "timeSpent": 9,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "h1",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 14,
+        "timeSpent": 3,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "<h1> Hello World </h1>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 15,
+        "timeSpent": 40,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "<p> This is a block of text </p>",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 17,
+        "timeSpent": 13,
+        "userId": "1001O"
+    },
+    {
+        "attempt": " <ol>\n   <li> Sunday </li>\n   <li> Monday </li>\n   <li> Tuesday </li>\n   <li> Wednesday </li>\n   <li> Thursday </li>\n   <li> Friday </li>\n   <li> Saturday </li>\n </ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 19,
+        "timeSpent": 83,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "<h1><u> Days of the week</u> </h1> \n <ol> \n   <li>Sunday</li>  \n   <li><i>Monday</i></li> \n   <li>Tuesday</li> \n   <li>Wednesday</li> \n   <li>Thursday</li> \n   <li>Friday</li> \n   <li>Saturday</li> \n  </ol>",
+        "attemptCount": 2,
+        "gaveUp": 0,
+        "questionNumber": 21,
+        "timeSpent": 164,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "id, class",
+        "attemptCount": 1,
+        "gaveUp": 0,
+        "questionNumber": 23,
+        "timeSpent": 6,
+        "userId": "1001O"
+    },
+    {
+        "attempt": "<h1>Mammals</h1>\n<p>Mammals include humans and all other animals that are <u>warm-blooded vertebrates with hair</u>. They feed their young with milk.</p>\n\n<h2>Examples of Mammals</h2>\n  <ul>\n    <li>Human</li>\n    <li>Elephant</li>\n    <li>Bear</li>\n  </ul>\n  \n  <h2>Bear</h2>\n  <p>Bears are mammals. They can be as small as four feet long to as big as eight feet long. They're found throughout <b>North America, South America, Europe, and Asia</b></p>\n    \n   <img src='https://cdn.cnn.com/cnnnext/dam/assets/210522083131-restricted-bears-zoo-enclosure-escape-scli-intl-super-tease.jpg' width='300px' height='150px' />\n",
+        "attemptCount": 7,
+        "gaveUp": 0,
+        "questionNumber": 25,
+        "timeSpent": 574,
+        "userId": "1001O"
+    }
+]

@@ -1,18 +1,19 @@
 import React from 'react';
-import { Paper ,Typography, Button,Grid, TextField} from '@material-ui/core';
+import { Paper ,Typography,Grid} from '@material-ui/core';
 import useStyles from './styles.js';
-import { useHistory } from "react-router-dom";
 
 const Final = () => {
     const classes = useStyles();
 
     React.useEffect(() => {
+        // Gets the order the user went through on the website
         let pagesOrder = [];
         if (JSON.parse(localStorage.getItem("pagesOrder")) != null) {
             pagesOrder = JSON.parse(localStorage.getItem("pagesOrder"))
             console.log(pagesOrder);
         } 
 
+        // Add the order to the database
         const data = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -21,8 +22,6 @@ const Final = () => {
               navOrder: pagesOrder,
             } )
         };
-
-        console.log(data);
         
         const submitNav = async () => {
             const url = 'http://127.0.0.1:5000/navigation';
@@ -34,11 +33,6 @@ const Final = () => {
         submitNav();
         
     },[]);
-
-    // async function addAnswer() {
-        
-        
-    // }
 
     return (
         <Grid container spacing={0} direction="column" alignItems="center" justify="center" className={classes.outsideContainer}>
