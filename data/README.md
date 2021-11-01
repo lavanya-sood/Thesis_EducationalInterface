@@ -91,6 +91,13 @@ Where:
 > Option1 || Option2 .....
 * **correctAnswer -** The correct answer to check the user input with
 
+#### How to add a new Question
+
+1. You can easily add a question to the module by adding another json object to the collection. Here is a [tutorial](https://www.youtube.com/watch?v=4EXR5rhcEtw&t=455s) on how you should add it to mongoDB using NodeJS. Otherwise you can also directly add a value using the MongoDB web interface
+2.  If you add a value to the middle of the module you will need to update the *questionNumber* for all of the questions
+3. If you add it to the end, the rest of the objects should be unaffected other than the final question.
+4. **IMPORTANT:** Currently the final question is on questionNumber 25. Incase you need to change the question number for it, you would need to change the matching value in the frontend files `Module.js` and `FinalExercise.js` as it is hardcoded.
+
 
 ###  useranswers.json
 
@@ -132,4 +139,4 @@ Where:
 * **userId -** User who attempted the question
 * **navOrder -** The order the user goes through the module in
 
-## How to add a new value
+
