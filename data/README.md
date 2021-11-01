@@ -30,15 +30,20 @@ The video and the text instructions are in the same json objects so that they co
 }
 ```
 
-#### Coding Exercises
+Where:
+* **questionNumber -** Id of the question
+* **questionType -** Type of the question
+* **pageTitle -** The heading that will show on top of the page
+* **textDescription -** The text version of the instructions. They are written in HTML using divs, p and other tags.
+* **videoLocation -** The link to the unlisted youtube video
 
-The coding exercises store the starter code for all the questions in a String format. This is then converted to HTML so that it can be rendered on the page.
+#### Coding Exercises
 
 ##### Json Structure
 ```
 {
     "questionNumber" : int,
-    "questionType" : String,
+    "questionType" : "coding",
     "pageTitle" : String,
     "textDescription": String,
     "starterCode": String,
@@ -47,6 +52,16 @@ The coding exercises store the starter code for all the questions in a String fo
 }
 ```
 
+Where:
+* **questionNumber -** Id of the question
+* **questionType -** Type of the question
+* **pageTitle -** The heading that will show on top of the page
+* **textDescription -** The text version of the instructions. They are written in HTML using divs, p and other tags.
+* **starterCode -** The starting code given to the user. It includes the whole HTML page structure.
+* **correctAnswer -** The correct answer to check the user input with
+* **hint -** The hint for the user to solve the question
+
+
 For the final question, an extra field is added to the JSON structure to show the users the image that they need to recreate. This stores the image in a Base-64 Format
 
 ```
@@ -54,10 +69,6 @@ For the final question, an extra field is added to the JSON structure to show th
 ```
 
 #### Multiple Choice Questions
-
-The options in the multiple choice questions are saved as a string and are split into options in the frontend. This is the structure they follow:
-
-> Option1 || Option2 .....
 
 ##### Json Structure
 ```
@@ -71,7 +82,54 @@ The options in the multiple choice questions are saved as a string and are split
 }
 ```
 
-* **useranswers.json -** Contains the answers that were attempted by the users
-* **pagenavigations.json -** Contains the order of navigation that was used by the users
+Where:
+* **questionNumber -** Id of the question
+* **questionType -** Type of the question
+* **pageTitle -** The heading that will show on top of the page
+* **textDescription -** The text version of the instructions. They are written in HTML using divs, p and other tags.
+* **answerOptions -** The options in the multiple choice questions are saved as a string and are split into options in the frontend. This is the structure they follow:
+> Option1 || Option2 .....
+* **correctAnswer -** The correct answer to check the user input with
+
+
+###  useranswers.json
+
+This file contains the answers that were attempted by the users. You can import this into your database in order to analyse the data or add new enteries to it when you solve an exercise. 
+
+#### Json Structure
+```
+{
+    "userId" : String,
+    "questionNumber" : Int,
+    "timeSpent" : Int,
+    "gaveUp": Int,
+    "attemptCount": Int,
+    "attempt": String,
+}
+```
+
+Where:
+* **userId -** User who attempted the question
+* **questionNumber -** Question that was answered
+* **timeSpent -** Time spent on the question
+* **gaveUp -** Whether the user gave up
+* **attemptCount -** Number of times the user attempted the question
+* **attempt -** Attempt the user made
+
+###  pagenavigations.json
+
+This file contains the navigation order of the user throughout the module. You can import this into your database in order to analyse the data or to add the users attempt for the module.
+
+#### Json Structure
+```
+{
+    "userId" : String,
+    "navOrder" : [Int],
+}
+```
+
+Where:
+* **userId -** User who attempted the question
+* **navOrder -** The order the user goes through the module in
 
 ## How to add a new value
