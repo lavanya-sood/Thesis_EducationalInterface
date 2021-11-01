@@ -21,7 +21,7 @@ You can find the original videos in the *media* folder. The name of each video c
 
 After all the videos are uploaded to youtube replace all the links inside the mongoDB collection for the videoLocation attribute otherwise the videos will not work. 
 
-Go to the *data* for the rest of the instructions on add new json objects to the database.
+Go to the *data* folder for the rest of the instructions on add new json objects to the database.
 
 
 ### Backend Setup
