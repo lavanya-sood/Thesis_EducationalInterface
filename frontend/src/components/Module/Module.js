@@ -203,7 +203,24 @@ const Module = (props) => {
                     
                     <Toolbar />
                     <div className={classes.toolbar}>
-                        <IconButton
+                        <div className={clsx( {
+                        [classes.hide]: !open,
+                        })}>
+                            <Typography variant="h6" className={classes.headingPr}> Overall Progress </Typography>
+                            <div className={classes.progressBar}>
+                                <Box display="flex" alignItems="center">
+                                    <Box width="100%" mr={1}>
+                                        <LinearProgress variant="determinate" value={progress} />
+                                    </Box>
+                                    <Box minWidth={15}>
+                                        <Typography variant="body2" color="textSecondary">{`${Math.round(
+                                        progress,
+                                        )}%`}</Typography>
+                                    </Box>
+                                </Box>
+                            </div>
+                        </div>
+                    <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
@@ -244,18 +261,7 @@ const Module = (props) => {
                             </Link>
                             : <div></div> 
                         }
-                        <div className={classes.progressBar}>
-                            <Box display="flex" alignItems="center">
-                                <Box width="100%" mr={1}>
-                                    <LinearProgress variant="determinate" value={progress} />
-                                </Box>
-                                <Box minWidth={35}>
-                                    <Typography variant="body2" color="textSecondary">{`${Math.round(
-                                    progress,
-                                    )}%`}</Typography>
-                                </Box>
-                            </Box>
-                        </div>
+                        
                         {!nextButton? <div></div>  : <></> }
                         {lastQuestion && nextButton && !firstQuestion?
                             <Link to='/endScreen' className={classes.linkButton}>
