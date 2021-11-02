@@ -276,7 +276,7 @@ const FinalExercise = ({moduleInfo, allowNext}) => {
                         </div>
                     </div>
                     <div className={classes.ext2Final}>
-                        <Typography variant="h6"> Coding Window (Inside Body Tag) </Typography>
+                        <Typography variant="h6"> Coding Window </Typography>
                         <div className={classes.htmlWindow}>
                             <Editor
                             language="xml"

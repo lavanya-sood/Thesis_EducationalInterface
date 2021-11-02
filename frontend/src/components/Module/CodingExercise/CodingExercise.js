@@ -254,7 +254,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
                 </div>
                 <div className={classes.codes}>
                     <div className={classes.ext1}>
-                        <Typography variant="h6"> Coding Window (Inside Body Tag) </Typography>
+                        <Typography variant="h6"> Coding Window </Typography>
                         <div className={classes.htmlWindow}>
                             <Editor
                             language="xml"
