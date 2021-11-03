@@ -45,15 +45,13 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         console.log(moduleInfo);
         setPageTile(moduleInfo.pageTitle);
 
+        // Clean up the database description
         let textInfo = moduleInfo.textDescription;
         textInfo = textInfo.replace(/\\n/g, '\n');
         textInfo = textInfo.replace(/\\t/g, '\t');
         textInfo = textInfo.replace(/\\r/g, '\r');
-        //starterCode = starterCode.replace("\r\n\t", "\r\n\t");
-        //starterCode = starterCode.replace("\\r\\n", "\r\n");
         setQuestion(textInfo);
 
-        //setQuestion(moduleInfo.moduleInfo.textDescription);
         setQuestionNumber(moduleInfo.questionNumber);
 
         if (moduleInfo.questionNumber === 27) {
@@ -64,6 +62,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             setHint(moduleInfo.hint);
         }
         setQuestionNumber(moduleInfo.questionNumber);
+        
+        // Clean up the database code
         let starterCode = moduleInfo.starterCode;
         starterCode = starterCode.replace(/\\n/g, '\n');
         starterCode = starterCode.replace(/\\t/g, '\t');
@@ -106,7 +106,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         
     },[moduleInfo]);
 
-     
+     //run the user code and show it in the div
     const runCode = () => {
         if (!doneQuestion) {
             localStorage.setItem('currentCode',html);
@@ -115,7 +115,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         setSrcDoc(`${html}`);
     };
 
-
+    //clean up the user input
     const stripString = (codeString) => {
         let stripedString = codeString;
         stripedString = stripedString.replace(/"/g, '\'');
@@ -124,6 +124,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         return stripedString;
     }
 
+    // function adds answer to the database
     async function addAnswer(gaveUp) {
         
         const data = {
@@ -147,15 +148,19 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         console.log(res);
     }
 
+    // function checks whether user got it correct or incorrect
     const checkCode = () => {
         
+        // if the question was already finished do nothing
         if (doneQuestion) {
             return;
         }
 
+        // clean up user input and database code
         const newAnswer = stripString(html); 
         const correctVal = stripString(correctAnswer);
 
+        // check if the strings match
         if (correctVal === newAnswer) {
             setError(false);
             setSuccess(true);
@@ -176,7 +181,8 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
             localStorage.removeItem("currentCode");
             localStorage.removeItem('currentTime');
             localStorage.removeItem("currentExercise");
-
+        
+        // if the strings don't match
         } else  {
             setError(true);
             setSuccess(false);
@@ -186,6 +192,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         addAnswer(0);
     }
 
+    // function allowing user to give up on the question
     const giveUpFunction =  () => {
 
         clearInterval(countRef.current);
@@ -194,6 +201,7 @@ const CodingExercise = ({moduleInfo, allowNext}) => {
         addAnswer(1);
         setDone(true);
         
+        // show the user the correct answer
         let correctAnswer2 = correctAnswer;
         correctAnswer2 = correctAnswer2.replace(/\\n/g, '\n');
         correctAnswer2 = correctAnswer2.replace(/\\t/g, '\t');

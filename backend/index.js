@@ -28,7 +28,6 @@ app.get('/',(req,res) => {
 });
 
 // setup the url
-//const CONNECTION_URL =  'mongodb+srv://thesisoriginal:thesispassword123@cluster0.qgqkr.mongodb.net/Module?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
 
 // connect the application to the mongoDB database

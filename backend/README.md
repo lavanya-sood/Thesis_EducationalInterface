@@ -25,6 +25,10 @@ Library that is used to connect the local application to the mongoDB database
 
 Monitoring script that builds the backend and refeshes it automatically while server is running in the terminal.
 
+### dotenv
+
+Allows us to save variables in a private file so that they are not posted on github publically.
+
 ## Folder Structure
 
 ### index.js
