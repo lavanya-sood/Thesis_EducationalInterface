@@ -6,6 +6,9 @@ The goal of this project is to develop a web-based STEM training program that ca
 
 Clone the repository via git
 
+> **IMPORTANT NOTE** 
+> I would recommend making your own github repository and copying everything from this repository to it so that you have complete control over everything and have all the root permissions. But you still need to follow the same steps for First Time Setup to get everything to work.
+
 ### MongoDB Setup:
 
 1. Setup a MongoDB Account. Follow [this tutorial](https://www.youtube.com/watch?v=esKNjzDZItQ ) to learn how to set up an account on MondoDB.
